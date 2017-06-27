@@ -1,0 +1,38 @@
+{
+  "excludedModules": [],
+  "title": "",
+  "platform": "ios",
+  "buildPath": "/build/workspace/GABuildIOS/ga/build",
+  "startScene": "1fe62cc3-d77e-4a67-90e8-379a59bbb92e",
+  "debug": false,
+  "previewWidth": 1280,
+  "previewHeight": 720,
+  "sourceMaps": false,
+  "webOrientation": "auto",
+  "packageName": "",
+  "useDebugKeystore": true,
+  "keystorePath": "",
+  "keystorePassword": "",
+  "keystoreAlias": "",
+  "keystoreAliasPassword": "",
+  "orientation": {
+    "landscapeRight": true,
+    "landscapeLeft": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "template": "default",
+  "apiLevel": "",
+  "androidStudio": false,
+  "includeAnySDK": false,
+  "autoCompile": true,
+  "configPath": "/build/workspace/GABuildIOS/ga/buildios.json",
+  "dest": "/build/workspace/GABuildIOS/ga/build/ios",
+  "scenes": [
+    "b41f5d67-c1b3-4103-9890-90a466a578eb",
+    "0ad76467-e050-42d8-9a48-3fcb5580f8b2",
+    "c562a041-47b5-4178-a630-6b869583f97b",
+    "1fe62cc3-d77e-4a67-90e8-379a59bbb92e",
+    "89fe1e3a-70a6-4630-8129-49e982204f2c"
+  ]
+}

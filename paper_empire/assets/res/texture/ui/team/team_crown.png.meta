@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "79cad40e-2c8d-4cbc-8855-6881ede64daf",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "team_crown": {
+      "ver": "1.0.3",
+      "uuid": "1ce2cf36-33cb-4071-b0e6-9e1e09a6d08d",
+      "rawTextureUuid": "79cad40e-2c8d-4cbc-8855-6881ede64daf",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 130,
+      "height": 84,
+      "rawWidth": 130,
+      "rawHeight": 84,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

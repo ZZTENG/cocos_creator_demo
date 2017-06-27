@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "5c8c2e1f-af20-4e53-abd6-20af95367cfd",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "team_bg5": {
+      "ver": "1.0.3",
+      "uuid": "19805ca9-3203-4b1f-8e73-c25dc23d888a",
+      "rawTextureUuid": "5c8c2e1f-af20-4e53-abd6-20af95367cfd",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 60,
+      "height": 60,
+      "rawWidth": 60,
+      "rawHeight": 60,
+      "borderTop": 10,
+      "borderBottom": 21,
+      "borderLeft": 17,
+      "borderRight": 17,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "LoadingElf1",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.5,
+  "sample": 8,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "cee2f4e8-13fc-4875-aa4e-28fd84a8d9ac"
+            }
+          },
+          {
+            "frame": 0.125,
+            "value": {
+              "__uuid__": "2e62573c-77a5-4217-b6b5-f7b3221a3bb0"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "bfe56af2-c432-4133-9a2e-5cc2f2abbb3d"
+            }
+          },
+          {
+            "frame": 0.375,
+            "value": {
+              "__uuid__": "f1a38b6f-4d01-4893-b43e-67599e29b29f"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
