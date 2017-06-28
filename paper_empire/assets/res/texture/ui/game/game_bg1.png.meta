@@ -16,14 +16,14 @@
       "offsetY": 0,
       "trimX": 0,
       "trimY": 0,
-      "width": 72,
-      "height": 72,
-      "rawWidth": 72,
-      "rawHeight": 72,
+      "width": 24,
+      "height": 27,
+      "rawWidth": 24,
+      "rawHeight": 27,
       "borderTop": 14,
-      "borderBottom": 21,
+      "borderBottom": 13,
       "borderLeft": 17,
-      "borderRight": 18,
+      "borderRight": 7,
       "subMetas": {}
     }
   }

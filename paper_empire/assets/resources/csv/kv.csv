@@ -21,6 +21,7 @@ item_path,prefabs/item/
 avatar_path,prefabs/avatar/
 head_icon_path,texture/icon/
 map_node_path,prefabs/map/
+land_around_path,prefabs/land_around/
 theme_path,prefabs/theme/
 score_base,1000
 combo_base_time,3

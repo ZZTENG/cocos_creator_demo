@@ -6,6 +6,7 @@ const RankState = {
     SHOW: 1,
     HIDE: 2
 };
+let Color_Camp = ['#FF6C00','#FF00BE','#FEDC3B','#00BCFF','#3EFF00','#4000FF'];
 cc.Class({
              extends: cc.Component,
 
@@ -24,6 +25,8 @@ cc.Class({
                  donghuaNode: cc.Node,
                  roundLabel: cc.Label,
                  rankUnit: [require('RankUnit')],
+                 rankLeftSpr: cc.SpriteFrame,
+                 rankRightSpr: cc.SpriteFrame,
              },
              onClick:function (event, id) {
                  switch (id) {
@@ -36,10 +39,12 @@ cc.Class({
                          let action_out = cc.moveBy(1,cc.p(-223,0));
                          if(this.rankState == RankState.SHOW){
                              this.rankState = RankState.HIDE;
+                             this.donghuaNode.getChildByName('button_pic').getComponent(cc.Sprite).spriteFrame = this.rankLeftSpr;
                              this.donghuaNode.runAction(action_in);
                          }
                          else if(this.rankState == RankState.HIDE){
                              this.rankState = RankState.SHOW;
+                             this.donghuaNode.getChildByName('button_pic').getComponent(cc.Sprite).spriteFrame = this.rankRightSpr;
                              this.donghuaNode.runAction(action_out);
                          }
                      }
@@ -193,6 +198,7 @@ cc.Class({
                              this.rankUnit[power].nameLabel.string = KeyValueManager['name'][power];
                              this.rankUnit[power].armyLabel.string = KeyValueManager['rank'][power][0];
                              this.rankUnit[power].landLabel.string = KeyValueManager['rank'][power][1];
+                             this.rankUnit[power].node.getChildByName('New Sprite').color = new cc.Color(cc.hexToColor(Color_Camp[power]));
                          }
                          switch (KeyValueManager['game_mode']){
                              case GameMode.MODE_1V1:{

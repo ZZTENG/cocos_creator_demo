@@ -8,7 +8,7 @@ const DataSend = require('dataSend');
 const Utils = require('utils');
 const AStart = require('aStart');
 const NodePool = require('NodePool');
-const Gudie = require('Guide');
+const Guide = require('Guide');
 const FightState= cc.Enum({
     E_STATE_START : 0,
     E_STATE_ING : 1,
@@ -547,6 +547,8 @@ cc.Class({
             EventManager.removeHandler(Unit_Step.Game_level.Occupy_ViceCity,this);
             EventManager.removeHandler(Unit_Step.Game_level.Occupy_MainCity,this);
             EventManager.removeHandler('guide_dianji',this);
+            EventManager.removeHandler(C2G_REQ_FINISH_GUIDE,this);
+            Guide.removeUnitListenList(Guide_Unit.Game_level);
         }
         if(this._directPool){
             this._directPool.clear();
@@ -616,6 +618,9 @@ cc.Class({
         }
         if(KeyValueManager['occupy_vice_city']){
             delete KeyValueManager['occupy_vice_city'];
+        }
+        if(KeyValueManager['rankCopy']){
+            delete KeyValueManager['rankCopy'];
         }
 
         if(KeyValueManager['zhiYinLayer']){
@@ -877,7 +882,7 @@ cc.Class({
             case Unit_Step.Game_level.Occupy_MainCity: {
                 cc.log(Unit_Step.Game_level.Occupy_MainCity);
                 KeyValueManager['guide_msg'] = null;
-                KeyValueManager['zhiYinLayer'].active = false;
+                EventManager.pushEvent({'msg_id': 'CLOSE_LAYER_WITH_ID', 'layer_id': 'zhiyin_layer', 'destroy':true});
                 this.scheduleOnce(function () {
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'zhiyin_over_layer', 'hide_preLayer':false});
                 },2);
@@ -890,10 +895,28 @@ cc.Class({
             break;
             case C2G_REQ_FINISH_GUIDE: {
                 if(event['result']){
-                    KeyValueManager['player_data']['player_info']['guide'] = false;
+                    KeyValueManager['player_data']['player_info']['guide'] = true;
+                    KeyValueManager['panel'] = {
+                        '5': {
+                            'count': KeyValueManager['rank'][this._power][1],
+                            'kill': 1,
+                            'max_count': true,
+                            'max_kill': true,
+                            'mvp': true
+                        },
+                        '1': {
+                            'count': KeyValueManager['rank'][1][1],
+                            'kill': 0,
+                            'max_count': false,
+                            'max_kill': false,
+                            'mvp': false
+                        },
+                    };
+                    KeyValueManager['team_win'] = 0;
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'win_layer', 'hide_preLayer':false});
                 }
             }
+            break;
         }
     },
     danmuAnimation: function (msgNode) {
@@ -939,8 +962,8 @@ cc.Class({
              EventManager.registerHandler(Unit_Step.Game_level.Search_Move, this);
              EventManager.registerHandler(Unit_Step.Game_level.Occupy_ViceCity, this);
              EventManager.registerHandler(Unit_Step.Game_level.Occupy_MainCity, this);
+             EventManager.registerHandler(C2G_REQ_FINISH_GUIDE,this);
              EventManager.registerHandler('guide_dianji',this);
-
          }
         // //测试游戏初始数据是否正确
         //  this.scheduleOnce(function () {
@@ -1239,7 +1262,6 @@ cc.Class({
             let pos = this._groundList[KeyValueManager['main_city_index']].getPosition();
             let world_pos = this._groundList[KeyValueManager['main_city_index']].parent.convertToWorldSpaceAR(pos);
             KeyValueManager['mask_node_world_pos'] = world_pos;
-
         }
     },
     onClick:function (event, id) {
@@ -1831,7 +1853,8 @@ cc.Class({
                              //根据势力换图
                              let result = this.chooesPic(parseInt(index));
                              roadNode.getComponent(cc.Sprite).spriteFrame = KeyValueManager['themeList'][teamType].data.getComponent('ThemeGroup').roadSprite[result];
-
+                             roadNode.getChildByName('land_around').getComponent(cc.Sprite).spriteFrame = KeyValueManager['land_around'][teamType].data
+                                 .getComponent('LandAround').aroundFrame[result];
                          }
                      }
                      else {
@@ -1847,6 +1870,8 @@ cc.Class({
                              //根据势力换图
                              let result = this.chooesPic(parseInt(index));
                              roadNode.getComponent(cc.Sprite).spriteFrame = KeyValueManager['themeList'][teamType].data.getComponent('ThemeGroup').roadSprite[result];
+                             roadNode.getChildByName('land_around').getComponent(cc.Sprite).spriteFrame = KeyValueManager['land_around'][teamType].data
+                                 .getComponent('LandAround').aroundFrame[result];
                              roadNode.parent = this.teamRoadList[teamType];
                          }
 
@@ -2236,8 +2261,8 @@ cc.Class({
                          this._currentSelect = -1;
                      }
                  }
-                 //把数据发给服务器端
-                 if(hasBehavior)
+                 //把数据发给服务器端,指引不发
+                 if(hasBehavior && !KeyValueManager['is_guide'])
                  {
                      let event = {
                          url:KeyValueManager['server_url'],
@@ -2294,6 +2319,11 @@ cc.Class({
                      }
                  }
              }
+             if(KeyValueManager['is_guide']) {
+                 KeyValueManager['rank'][this._power][0] = 0;
+                 KeyValueManager['rank'][this._power][1] = 0;
+                 KeyValueManager['rank'][this._power][2] = 0;
+             }
              for(let i in this._mapData)
              {
                  if(!this._oldMapData[i])
@@ -2301,8 +2331,18 @@ cc.Class({
                  this._oldMapData[i][0] = this._mapData[i][0];
                  this._oldMapData[i][1] = this._mapData[i][1];
                  this._oldMapData[i][2] = this._mapData[i][2];
-             }
 
+                 //指引rank自己势力数据客户端统计
+                 if(KeyValueManager['is_guide']){
+                     if(this._mapData[i][1] == this._power){
+                         KeyValueManager['rank'][this._power][0] += this._mapData[i][2];
+                         KeyValueManager['rank'][this._power][1] += 1;
+                         if(this._mapData[i][0] == 1 || this._mapData[i][0] == 2){
+                             KeyValueManager['rank'][this._power][2] += 1;
+                         }
+                     }
+                 }
+             }
          }
      },
     addCount: function () {

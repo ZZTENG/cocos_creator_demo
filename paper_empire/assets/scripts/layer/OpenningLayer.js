@@ -166,6 +166,7 @@ cc.Class({
         let self = this;
         KeyValueManager['player_data'] = {};
         KeyValueManager['themeList'] = {};
+        KeyValueManager['land_around'] = {};
         KeyValueManager['order_require'] = {};
         Utils.loadCSV('csv_system', 'resources/csv/system.csv', 'ID', function () {
             Utils.loadCSV('csv_kv', 'resources/csv/kv.csv', 'key', function () {

@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "2e4bd54b-f56c-47b5-9533-6bf631ba1071",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "game_jiantou2": {
+      "ver": "1.0.3",
+      "uuid": "cec593da-8d8e-4d25-bf90-bdd20216b735",
+      "rawTextureUuid": "2e4bd54b-f56c-47b5-9533-6bf631ba1071",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 36,
+      "height": 86,
+      "rawWidth": 36,
+      "rawHeight": 86,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

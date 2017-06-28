@@ -9,8 +9,6 @@ let Guide = {
 
     // use this for initialization
     initGuide: function () {
-        // KeyValueManager['is_guide'] = KeyValueManager['player_data']['player_info']['guide'];
-        KeyValueManager['is_guide'] = true;
         if (KeyValueManager['is_guide']) {        //这个引导是一次性的，以后有游戏过程中的引导，服务器指定引导模块
             if (!this._unitList)
                 this._unitList = [];

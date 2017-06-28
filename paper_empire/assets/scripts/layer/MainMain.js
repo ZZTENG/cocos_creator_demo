@@ -26,6 +26,7 @@ cc.Class({
         head_sprite: cc.Sprite,
         name_label: cc.Label,
         coin_label: cc.Label,
+        zhiyin_node: cc.Node,
     },
     onClick:function (event, id) {
         switch (id) {
@@ -62,18 +63,18 @@ cc.Class({
             case "1V1": {
                 if (KeyValueManager['is_guide']) {
                    //自定义数据初始化、
-                    KeyValueManager['startMap'] = {'190':[2,-1,10],'192': [1,1,0],'209':[3,-1,0],'210':[1,0,0]};
+                    KeyValueManager['startMap'] = {'190':[2,-1,10],'192': [1,1,0],'209':[3,-1,0],'210':[1,5,0]};
                     KeyValueManager['main_city_index'] = 210;
                     KeyValueManager['empty_city_index'] = 190;
                     KeyValueManager['enemy_city_index'] = 192;
                     KeyValueManager['guide_move_count'] = 2;
                     KeyValueManager['search_move_over'] = false;
-                    KeyValueManager['camps'] = [[0],[1]];
-                    KeyValueManager['camp'] = 0;
-                    KeyValueManager['name'] = {'0': KeyValueManager['player_data']['player_info']['name'],'1': '疼疼疼'};
+                    KeyValueManager['camps'] = [[5],[1]];
+                    KeyValueManager['camp'] = 5;
+                    KeyValueManager['name'] = {'5': KeyValueManager['player_data']['player_info']['name'],'1': '疼疼疼'};
                     KeyValueManager['width'] = 20;
                     KeyValueManager['height'] = 20;
-                    let theme_id = {'0': 'TM0011','1': 'TM007'};
+                    let theme_id = {'5': 'TM0011','1': 'TM007'};
                     KeyValueManager['currentTime'] = NetManager.getCurrentMT() - KeyValueManager['timeDiff'];         //指引
                     for(let i in theme_id){
                         let id = theme_id[i];
@@ -82,6 +83,20 @@ cc.Class({
                             function (err, prefab) {
                                 KeyValueManager['themeList'][teamType] = prefab;
                             });
+                    }
+                    for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
+                        for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
+                            let camp = KeyValueManager['camps'][i][j];
+                            cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
+                                function (err, prefab) {
+                                    if(err){
+                                        cc.log(err);
+                                    }
+                                    else{
+                                        KeyValueManager['land_around'][camp] = prefab;
+                                    }
+                                });
+                        }
                     }
                     Utils.enterGameScene();
                     cc.director.loadScene('loading');
@@ -180,19 +195,17 @@ cc.Class({
         let self = this;
         this.coin_label.string = Utils.getItem(CURRENCY_PACKAGE,COIN_ID,'count');
         KeyValueManager['currentScene'] = CurrentScene.SCENE_MAIN;
-        KeyValueManager['themeList'] = {};
         if(KeyValueManager['platformLogin']) {
             cc.loader.load(KeyValueManager['player_data']['player_info']['head'], function (err, tex) {
                 let frame = new cc.SpriteFrame(tex);
                 self.head_sprite.spriteFrame = frame;
             });
         }
+        // KeyValueManager['player_data']['player_info']['guide']  = true;
         if(KeyValueManager['player_data'] && KeyValueManager['player_data']['player_info'])
         {
             this.name_label.string = KeyValueManager['player_data']['player_info']['name'];
-            if(KeyValueManager['player_data']['player_info']['guide']){          //新手指引
-                KeyValueManager['is_guide'] = KeyValueManager['player_data']['player_info']['guide'];
-            }
+            KeyValueManager['is_guide'] = !KeyValueManager['player_data']['player_info']['guide'];
         }
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP,this.exitGame,this);
         this.reuse();
@@ -214,8 +227,11 @@ cc.Class({
         EventManager.registerHandler(C2G_REQ_ADD_COIN,this);
         EventManager.registerHandler('update_coin',this);
         if(KeyValueManager['is_guide']){
+            this.zhiyin_node.active = true;
             EventManager.registerHandler(Guide_Unit.Login_Start,this);
-            Guide.initGuide();
+        }
+        else {
+            this.zhiyin_node.active  = false;
         }
         // //测试游戏初始数据是否正确
         // let event = {
@@ -338,6 +354,20 @@ cc.Class({
                             function (err, prefab) {
                                 KeyValueManager['themeList'][teamType] = prefab;
                             });
+                    }
+                    for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
+                        for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
+                            let camp = KeyValueManager['camps'][i][j];
+                            cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
+                                function (err, prefab) {
+                                    if(err){
+                                        cc.log(err);
+                                    }
+                                    else{
+                                        KeyValueManager['land_around'][camp] = prefab;
+                                    }
+                                });
+                        }
                     }
                     KeyValueManager['onLoadingEnd'] = function () {
                         cc.director.loadScene(KeyValueManager['preloadScene']);

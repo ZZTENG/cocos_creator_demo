@@ -270,6 +270,20 @@ cc.Class({
                                         KeyValueManager['themeList'][teamType] = prefab;
                                     });
                             }
+                            for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
+                                for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
+                                    let camp = KeyValueManager['camps'][i][j];
+                                    cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
+                                        function (err, prefab) {
+                                            if(err){
+                                                cc.log(err);
+                                            }
+                                            else{
+                                                KeyValueManager['land_around'][camp] = prefab;
+                                            }
+                                        });
+                                }
+                            }
                         };
                     }
                     cc.director.loadScene('loading');
@@ -310,6 +324,20 @@ cc.Class({
                                         KeyValueManager['themeList'][teamType] = prefab;
                                     });
                             }
+                            for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
+                                for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
+                                    let camp = KeyValueManager['camps'][i][j];
+                                    cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
+                                        function (err, prefab) {
+                                            if(err){
+                                                cc.log(err);
+                                            }
+                                            else{
+                                                KeyValueManager['land_around'][camp] = prefab;
+                                            }
+                                        });
+                                }
+                            }
                         };
                     }
                     cc.director.loadScene('loading');
@@ -329,7 +357,6 @@ cc.Class({
         EventManager.registerHandler(C2G_REQ_PLAYER_LOGIN, this);
         EventManager.registerHandler(C2G_REQ_TEST_LOGIN,this);
         KeyValueManager['currentScene'] = CurrentScene.SCENE_LOIN;
-        KeyValueManager['themeList'] = {};
         if (!NET_HTTP)
         {
             NetManager.connectToServer(KeyValueManager['channel_info']['LoginURL'], KeyValueManager['channel_info']['LoginPort']);

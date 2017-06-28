@@ -23,7 +23,7 @@ cc.Class({
 
     },
     onClickClose: function () {
-       this.node.active = false;
+        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
     },
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {

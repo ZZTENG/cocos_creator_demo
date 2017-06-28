@@ -62,6 +62,7 @@ window.GAME_PLATFORM = {
     WEB: 3,
     ANDROID_CHECK: 4
 };
+const LAND_AROUND = ['cheng','hong','huang','lan','lv','zi'];
 const SLOT_MAP =
 {
     'level':

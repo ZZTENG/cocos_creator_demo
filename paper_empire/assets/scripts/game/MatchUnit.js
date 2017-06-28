@@ -68,6 +68,20 @@ cc.Class({
                               KeyValueManager['themeList'][teamType] = prefab;
                           });
                   }
+                  for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
+                      for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
+                          let camp = KeyValueManager['camps'][i][j];
+                          cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
+                              function (err, prefab) {
+                                  if(err){
+                                      cc.log(err);
+                                  }
+                                  else{
+                                      KeyValueManager['land_around'][camp] = prefab;
+                                  }
+                              });
+                      }
+                  }
                   Utils.enterGameScene();
                   cc.director.loadScene('loading');
               }
