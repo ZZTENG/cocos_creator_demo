@@ -17,6 +17,9 @@ cc.Class({
         // ...
     },
              onClick: function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
                  switch (id) {
                      case "cancel": {
 
@@ -37,7 +40,7 @@ cc.Class({
              onLoad: function () {
 
 
-                 this.reuse();
+                 // this.reuse();
              },
 
             reconnect:function () {
@@ -52,8 +55,13 @@ cc.Class({
                             session_key: KeyValueManager['session'],
                         };
                         NetManager.sendMsg(event1);
-                        NetManager.sendMsg(KeyValueManager['Reconnect_Event']);
-                        var event = EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+                        if(cc.sys.isNative) {
+                            NetManager.sendMsg(KeyValueManager['Reconnect_Event']);
+                            var event = EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+                        }
+                        else if(cc.sys.isBrowser){
+                            KeyValueManager['reconnect_layer'].active = false;
+                        }
                         EventManager.pushEvent(event);
                     }
                     else
@@ -63,7 +71,7 @@ cc.Class({
                     }
                 });
             },
-             reuse:function () {
+             onEnable:function () {
                  this.reconnect();
                  let clip = this.getComponent(cc.Animation);
                  if (clip && clip.defaultClip) {

@@ -27,6 +27,9 @@ cc.Class({
          _dataSource:null,
      },
      onClick:function (event, id) {
+         if(id){
+             cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+         }
          switch (id) {
              case 'return': {
                      let event1 = {

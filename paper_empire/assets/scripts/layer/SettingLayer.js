@@ -26,24 +26,27 @@ cc.Class({
         volume_label: cc.Label
     },
     onClick: function (event,id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
       switch (id) {
           case 'close': {
               EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
           }
           break;
           case 'music': {
-              let volume = cc.audioEngine.getVolume(KeyValueManager['audioId']);
+              let volume = cc.audioEngine.getVolume(KeyValueManager['audioId_bgm']);
               if(volume == 1) {
                   this.music_open.active = false;
                   this.music_close.active = true;
                   this.music_label.string = '音乐关';
-                  cc.audioEngine.setVolume(KeyValueManager['audioId'],0);
+                  cc.audioEngine.setVolume(KeyValueManager['audioId_bgm'],0);
               }
               if(volume == 0) {
                   this.music_open.active = true;
                   this.music_close.active = false;
                   this.music_label.string = '音乐开';
-                  cc.audioEngine.setVolume(KeyValueManager['audioId'],1);
+                  cc.audioEngine.setVolume(KeyValueManager['audioId_bgm'],1);
               }
           }
           break;
@@ -77,7 +80,7 @@ cc.Class({
         this.reuse();
     },
     reuse: function () {
-        let volume = cc.audioEngine.getVolume(KeyValueManager['audioId']);
+        let volume = cc.audioEngine.getVolume(KeyValueManager['audioId_bgm']);
         if(volume == 0) {
             this.music_open.active = false;
             this.music_close.active = true;

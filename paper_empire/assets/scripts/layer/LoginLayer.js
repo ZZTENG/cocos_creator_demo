@@ -79,6 +79,7 @@ cc.Class({
         NetManager.sendMsg(event);
     },
     onClickGuest:function () {
+        cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
         this._state = LoginState.LOGIN;
         KeyValueManager['server_url'] = KeyValueManager['channel_info']['LoginURL'] + ':' + KeyValueManager['channel_info']['LoginPort'] + '/auth';
         let device_id = UUID.genV1().toString();

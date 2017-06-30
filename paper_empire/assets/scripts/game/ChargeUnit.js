@@ -59,7 +59,10 @@ cc.Class({
         })
     },
     onClick: function (event,id) {
-      switch (id){
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
+        switch (id){
           case 'charge': {
               if(KeyValueManager['platformLogin']) {
                   KeyValueManager['subject'] = this._subject;

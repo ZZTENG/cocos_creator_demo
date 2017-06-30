@@ -33,6 +33,9 @@ cc.Class({
     unuse: function () {
     },
     onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case 'sure': {
                 KeyValueManager['player_data']['player_info']['name'] = this.nameEdit.string;

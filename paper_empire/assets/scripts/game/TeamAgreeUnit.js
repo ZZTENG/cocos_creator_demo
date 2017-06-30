@@ -30,6 +30,9 @@ cc.Class({
         this._teamId = data[1];
     },
     onClick: function (event,id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id){
             case 'agree': {
                 let event1 = {

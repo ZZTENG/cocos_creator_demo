@@ -25,6 +25,9 @@ cc.Class({
         _roomId: null,
     },
     onClick: function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case 'watch': {
                 let event1 = {
@@ -59,29 +62,7 @@ cc.Class({
                   KeyValueManager['startMap'] = event['map_data'];
                   KeyValueManager['width'] = event['width'];
                   KeyValueManager['height'] = event['height'];
-                  let theme_id = event['theme'];
-                  for(let i in theme_id){
-                      let id = theme_id[i];
-                      let teamType = i;
-                      cc.loader.loadRes(KeyValueManager['csv_kv']['theme_path']['value'] + KeyValueManager['csv_theme'][id]['Theme'], cc.Prefab,
-                          function (err, prefab) {
-                              KeyValueManager['themeList'][teamType] = prefab;
-                          });
-                  }
-                  for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
-                      for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
-                          let camp = KeyValueManager['camps'][i][j];
-                          cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
-                              function (err, prefab) {
-                                  if(err){
-                                      cc.log(err);
-                                  }
-                                  else{
-                                      KeyValueManager['land_around'][camp] = prefab;
-                                  }
-                              });
-                      }
-                  }
+                  KeyValueManager['reTheme'] = event['theme'];
                   Utils.enterGameScene();
                   cc.director.loadScene('loading');
               }

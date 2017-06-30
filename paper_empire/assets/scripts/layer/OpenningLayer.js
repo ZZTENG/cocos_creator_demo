@@ -23,6 +23,43 @@ cc.Class({
             url:cc.AudioClip,
             default: null
         },
+        unlock: {
+            url:cc.AudioClip,
+            default: null
+        },
+        wrong_click: {
+            url:cc.AudioClip,
+            default: null
+        },
+        plane_click: {
+            url:cc.AudioClip,
+            default: null
+        },
+        click: {
+            url:cc.AudioClip,
+            default: null
+        },
+        win: {
+            url:cc.AudioClip,
+            default: null
+        },
+        lose: {
+            url:cc.AudioClip,
+            default: null
+        },
+        city_lose: {
+            url:cc.AudioClip,
+            default: null
+        },
+        city_win: {
+            url:cc.AudioClip,
+            default: null
+        },
+        flag: {
+            url:cc.AudioClip,
+            default: null
+        },
+        reconnect_layer: cc.Node,
     },
     onFinishedAni:function () {
         cc.director.loadScene('loading');
@@ -93,11 +130,11 @@ cc.Class({
                 }
             };
                 break;
-            case C2G_REQ_PLAYER_LOGIN:
+                case C2G_REQ_PLAYER_LOGIN:
             {
                 if (event['result']) {
                     for (let i in event['data']) {
-                        if(i = 'package'){          //服务端package和客户端player_package导致
+                        if(i == 'package'){          //服务端package和客户端player_package导致
                             KeyValueManager['player_data']['player_package'] = event['data']['package'];
                             continue;
                         }
@@ -155,8 +192,8 @@ cc.Class({
         // KeyValueManager['test_sign'] = true;
         // KeyValueManager['test_count'] = 0;
         cc.game.setFrameRate(30);                   //设置游戏帧率
-        if(!KeyValueManager['audioId'])                 //setting bgm
-            KeyValueManager['audioId'] = cc.audioEngine.play(this.musicURL,true,1);
+        if(!KeyValueManager['audioId_bgm'])                 //setting bgm
+            KeyValueManager['audioId_bgm'] = cc.audioEngine.play(this.musicURL,true,1);
         //开始动画
         let animation = this.node.getComponent(cc.Animation);
         animation.play();
@@ -168,6 +205,17 @@ cc.Class({
         KeyValueManager['themeList'] = {};
         KeyValueManager['land_around'] = {};
         KeyValueManager['order_require'] = {};
+        KeyValueManager['unlock_clip'] = this.unlock;
+        KeyValueManager['wrong_click_clip'] = this.wrong_click;
+        KeyValueManager['plane_click_clip'] = this.plane_click;
+        KeyValueManager['click_clip'] = this.click;
+        KeyValueManager['win_clip'] = this.win;
+        KeyValueManager['lose_clip'] = this.lose;
+        KeyValueManager['city_win_clip'] = this.city_win;
+        KeyValueManager['city_lose_clip'] = this.city_lose;
+        KeyValueManager['flag_clip'] = this.flag;
+        KeyValueManager['reconnect_layer'] = this.reconnect_layer;
+
         Utils.loadCSV('csv_system', 'resources/csv/system.csv', 'ID', function () {
             Utils.loadCSV('csv_kv', 'resources/csv/kv.csv', 'key', function () {
 

@@ -23,6 +23,9 @@ cc.Class({
                  _playerId:0,
              },
              onClick:function (event, id) {
+                 if(id){
+                     cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+                 }
                  switch (id) {
                      case "accept": {
                          let event = {
@@ -38,8 +41,6 @@ cc.Class({
                          break;
 
                  }
-
-
              },
              // use this for initialization
              onLoad: function () {

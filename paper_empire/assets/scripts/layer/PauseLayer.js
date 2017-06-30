@@ -30,7 +30,7 @@ cc.Class({
     reuse: function () {
         EventManager.registerHandler(C2G_REQ_EXIT_GAME,this);
         let clip = this.getComponent(cc.Animation);
-        let volume = cc.audioEngine.getVolume(KeyValueManager['audioId']);
+        let volume = cc.audioEngine.getVolume(KeyValueManager['audioId_bgm']);
         if(volume == 1) {
             this.music_label.string = '音乐开';
         }
@@ -59,20 +59,23 @@ cc.Class({
 
     },
     onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case "close": {
                 EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
             }
             break;
             case "music": {
-                let volume = cc.audioEngine.getVolume(KeyValueManager['audioId']);
+                let volume = cc.audioEngine.getVolume(KeyValueManager['audioId_bgm']);
                 if(volume == 1) {
                     this.music_label.string = '音乐关';
-                    cc.audioEngine.setVolume(KeyValueManager['audioId'],0)
+                    cc.audioEngine.setVolume(KeyValueManager['audioId_bgm'],0)
                 }
                 if(volume == 0) {
                     this.music_label.string = '音乐开';
-                    cc.audioEngine.setVolume(KeyValueManager['audioId'],1)
+                    cc.audioEngine.setVolume(KeyValueManager['audioId_bgm'],1)
                 }
             }
             break;

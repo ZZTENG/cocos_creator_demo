@@ -295,6 +295,37 @@ let utils =
         KeyValueManager['loadingFunc'] = function (onProgress) {
             KeyValueManager['loadProcess'] = 0;
             KeyValueManager['loadTotalCount'] = 0;
+            let theme_id = KeyValueManager['reTheme'];
+            for (let i in theme_id) {
+                let id = theme_id[i];
+                let teamType = i;
+                cc.loader.loadRes(KeyValueManager['csv_kv']['theme_path']['value'] + KeyValueManager['csv_theme'][id]['Theme'], cc.Prefab,
+                    function (err, prefab) {
+                        if (onProgress) {
+                            KeyValueManager['themeList'][teamType] = prefab;
+                            onProgress.call(this, ++KeyValueManager['loadProcess'], KeyValueManager['loadTotalCount']);
+                        }
+                    });
+                KeyValueManager['loadTotalCount']++;
+            }
+            for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
+                for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
+                    let camp = KeyValueManager['camps'][i][j];
+                    cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
+                        function (err, prefab) {
+                            if(err){
+                                cc.log(err);
+                            }
+                            else{
+                                if (onProgress) {
+                                    KeyValueManager['land_around'][camp] = prefab;
+                                    onProgress.call(this, ++KeyValueManager['loadProcess'], KeyValueManager['loadTotalCount']);
+                                }
+                            }
+                        });
+                    KeyValueManager['loadTotalCount']++;
+                }
+            }
             KeyValueManager['preloadScene'] = 'game';
             cc.director.preloadScene('game', function (error, asset) {
                 if (onProgress) {
@@ -319,6 +350,8 @@ let utils =
 
             self.loadCSV('csv_theme', 'resources/csv/theme.csv', 'ID', function () {
                 if (onProgress) {
+                    onProgress.call(this, ++KeyValueManager['loadProcess'], KeyValueManager['loadTotalCount']);
+                   //游戏重连加载资源
                     if(KeyValueManager['in_game'] && KeyValueManager['reTheme']) {
                         let theme_id = KeyValueManager['reTheme'];
                         for (let i in theme_id) {
@@ -326,11 +359,32 @@ let utils =
                             let teamType = i;
                             cc.loader.loadRes(KeyValueManager['csv_kv']['theme_path']['value'] + KeyValueManager['csv_theme'][id]['Theme'], cc.Prefab,
                                 function (err, prefab) {
-                                    KeyValueManager['themeList'][teamType] = prefab;
+                                    if (onProgress) {
+                                        KeyValueManager['themeList'][teamType] = prefab;
+                                        onProgress.call(this, ++KeyValueManager['loadProcess'], KeyValueManager['loadTotalCount']);
+                                    }
                                 });
+                            KeyValueManager['loadTotalCount']++;
+                        }
+                        for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
+                            for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
+                                let camp = KeyValueManager['camps'][i][j];
+                                cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
+                                    function (err, prefab) {
+                                        if(err){
+                                            cc.log(err);
+                                        }
+                                        else{
+                                            if (onProgress) {
+                                                KeyValueManager['land_around'][camp] = prefab;
+                                                onProgress.call(this, ++KeyValueManager['loadProcess'], KeyValueManager['loadTotalCount']);
+                                            }
+                                        }
+                                    });
+                                KeyValueManager['loadTotalCount']++;
+                            }
                         }
                     }
-                    onProgress.call(this, ++KeyValueManager['loadProcess'], KeyValueManager['loadTotalCount']);
                 }
             });
             KeyValueManager['loadTotalCount']++;

@@ -136,6 +136,9 @@ cc.Class({
       return gameCount;
     },
     onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case 'join': {
                 let order = this.gameCount();

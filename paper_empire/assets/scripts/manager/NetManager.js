@@ -250,8 +250,13 @@ let NetManager = {
                 NetManager.sendMsg(pEvent);
             else if(result == 1)
             {
-                var event = EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'reconnect_layer'});
-                EventManager.pushEvent(event);
+                if(cc.sys.isNative) {
+                    var event = EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'reconnect_layer'});
+                    EventManager.pushEvent(event);
+                }
+                else if(cc.sys.isBrowser) {
+                    KeyValueManager['reconnect_layer'].active = true;
+                }
                 KeyValueManager['Reconnect_Event'] = reconnect_event;
             }
         });

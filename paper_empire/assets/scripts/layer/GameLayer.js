@@ -29,6 +29,9 @@ cc.Class({
                  rankRightSpr: cc.SpriteFrame,
              },
              onClick:function (event, id) {
+                 if(id){
+                     cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+                 }
                  switch (id) {
                      case "pause": {
                          EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'pause_layer', 'hide_preLayer':false});
@@ -135,11 +138,12 @@ cc.Class({
                              }
                              if(event['win'])
                              {
-
+                                 cc.audioEngine.play(KeyValueManager['win_clip'],false,1);
                                  EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'win_layer', 'hide_preLayer':false});
                              }
                              else
                              {
+                                 cc.audioEngine.play(KeyValueManager['lose_clip'],false,1);
                                  EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'lose_layer', 'hide_preLayer':false});
                              }
                          }

@@ -1,6 +1,7 @@
 /**
- * Created by ZZTENG on 2017/06/29.
+ * Created by ZZTENG on 2017/06/30.
  **/
+const KeyValueManager = require('KeyValueManager');
 const EventManager = require('EventManager');
 cc.Class({
     extends: cc.Component,
@@ -17,26 +18,22 @@ cc.Class({
         // },
         // ...
     },
-
+    onClick: function (event,id) {
+      if(id){
+          cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+      }
+      switch (id){
+          case 'watch': {
+              EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
+          }
+          break;
+      }
+    },
     // use this for initialization
     onLoad: function () {
 
     },
-    onEnable: function () {
-        let clip = this.getComponent(cc.Animation);
-        if (clip && clip.defaultClip) {
-            clip.play();
-        }
-    },
-    onDisable: function () {
-        let clip = this.getComponent(cc.Animation);
-        if (clip && clip.currentClip) {
-            clip.stop();
-        }
-    },
-    onClickClose: function () {
-        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
-    },
+
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
 

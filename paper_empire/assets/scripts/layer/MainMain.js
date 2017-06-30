@@ -29,6 +29,9 @@ cc.Class({
         zhiyin_node: cc.Node,
     },
     onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case 'share': {
                 let OBJECT = {
@@ -74,30 +77,8 @@ cc.Class({
                     KeyValueManager['name'] = {'5': KeyValueManager['player_data']['player_info']['name'],'1': '疼疼疼'};
                     KeyValueManager['width'] = 20;
                     KeyValueManager['height'] = 20;
-                    let theme_id = {'5': 'TM0011','1': 'TM007'};
+                    KeyValueManager['reTheme'] = {'5': 'TM0011','1': 'TM007'};
                     KeyValueManager['currentTime'] = NetManager.getCurrentMT() - KeyValueManager['timeDiff'];         //指引
-                    for(let i in theme_id){
-                        let id = theme_id[i];
-                        let teamType = i;
-                        cc.loader.loadRes(KeyValueManager['csv_kv']['theme_path']['value'] + KeyValueManager['csv_theme'][id]['Theme'], cc.Prefab,
-                            function (err, prefab) {
-                                KeyValueManager['themeList'][teamType] = prefab;
-                            });
-                    }
-                    for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
-                        for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
-                            let camp = KeyValueManager['camps'][i][j];
-                            cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
-                                function (err, prefab) {
-                                    if(err){
-                                        cc.log(err);
-                                    }
-                                    else{
-                                        KeyValueManager['land_around'][camp] = prefab;
-                                    }
-                                });
-                        }
-                    }
                     Utils.enterGameScene();
                     cc.director.loadScene('loading');
                 }

@@ -194,14 +194,8 @@ cc.Class({
         let moveX = Math.abs(KeyValueManager['endPos'].x - KeyValueManager['startPos'].x);
         let moveY = Math.abs(KeyValueManager['endPos'].y - KeyValueManager['startPos'].y);
       if(moveX < this.gridWidth / 2 && moveY < this.gridHeight / 2) {
+          let search_not_power = false;             //不是你自己势力内的自动寻路标识
           let current = this.getClickBlockIndex(event);
-          //点击地块放大效果
-          if(this._mapData[current] && this._mapData[current][1] == this._power && this._landList[current]){
-              let action1 = cc.scaleTo(0.2,1.2,1.2);
-              let action2 = cc.scaleTo(0.2,1,1);
-              let sequence1 = cc.sequence(action1,action2);
-              this._landList[current].runAction(sequence1);
-          }
           //指引
           if(KeyValueManager['is_guide']) {
               let index = null;
@@ -259,6 +253,7 @@ cc.Class({
           else {
               //如果可以移动
               if (this.canMove(this._currentSelect, current)) {
+                  search_not_power = true;
                   if (this._mapData[this._currentSelect] && this._mapData[this._currentSelect][2] <= 0) {
                       //判断是否可以与行为里面的数据接起来, 判断条件是行为列表第二个参数是当前选中的
                       let hasInBehavior = false;
@@ -358,6 +353,7 @@ cc.Class({
                               KeyValueManager['moveRound'] = this._roundCount + 1;
 
                           if(roadLine.length > 1) {
+                              search_not_power = true
                               if (!KeyValueManager['destRound'][current])
                                   KeyValueManager['destRound'][current] = [];
                               let moveRound = KeyValueManager['moveRound'];
@@ -371,6 +367,7 @@ cc.Class({
                               destNode.active = true;
                               let pos = this._groundList[current].getPosition();
                               destNode.setPosition(pos);
+                              cc.audioEngine.play(KeyValueManager['flag_clip'],false,1);
                               if (!KeyValueManager['destNode'][current])
                                   KeyValueManager['destNode'][current] = [];
                               KeyValueManager['destNode'][current].push(destNode);
@@ -414,6 +411,7 @@ cc.Class({
                               destNode.active = true;
                               let pos = this._groundList[current].getPosition();
                               destNode.setPosition(pos);
+                              cc.audioEngine.play(KeyValueManager['flag_clip'],false,1);
                               if (!KeyValueManager['destRound'][current])
                                   KeyValueManager['destRound'][current] = [];
                               let moveRound = KeyValueManager['moveRound'];
@@ -459,6 +457,20 @@ cc.Class({
                       }
                   }
               }
+          }
+          //点击地块放大效果
+          if(this._mapData[current] && this._mapData[current][1] == this._power && this._landList[current]){
+              cc.audioEngine.play(KeyValueManager['plane_click_clip'],false,1);
+              let action1 = cc.scaleTo(0.2,1.2,1.2);
+              let action2 = cc.scaleTo(0.2,1,1);
+              let sequence1 = cc.sequence(action1,action2);
+              this._landList[current].runAction(sequence1);
+          }
+          else {
+              //排除能move过去的地块，但不是自己的势力
+              if(search_not_power)
+                  return;
+              cc.audioEngine.play(KeyValueManager['wrong_click_clip'],false,1);
           }
       }
     },
@@ -673,7 +685,12 @@ cc.Class({
         }
         if(KeyValueManager['themeList']){
             KeyValueManager['themeList'] = {};
-            delete KeyValueManager['themeList'];
+        }
+        for(let i in KeyValueManager['land_around']){
+            cc.loader.setAutoReleaseRecursively(KeyValueManager['land_around'][i],true);
+        }
+        if(KeyValueManager['land_around']){
+            KeyValueManager['land_around'] = {};
         }
     },
     processEvent: function (event) {
@@ -697,16 +714,6 @@ cc.Class({
                         this._emptyCityData[i] = barracks[i];
                     for (let i in mapData) {
                             this._changeData[i] = mapData[i];
-                        if(this._mapData[i] && this._mapData[i][0] > 0 && mapData[i][0] > 0){          //服务器数据建筑重叠log
-                            if(mapData[i][0] != this._mapData[i][0]){
-                                // KeyValueManager['msg_text'] = '服务器数据有误';
-                                // EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'test_msg_layer', 'hide_preLayer':false});
-                                // cc.log(tag_level,i + 'server data no right');
-                                EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'reconnect_layer', 'hide_preLayer':false});
-                                Utils.enterLoginScene();
-                                cc.director.loadScene('loading');
-                            }
-                        }
                     }
                 }
             }
@@ -889,8 +896,11 @@ cc.Class({
             }
             break;
             case 'guide_dianji': {
-                KeyValueManager['startPos'] = event['touch_event'].touch.getLocation();
-                this.setCursor(event['touch_event']);
+                cc.log(event['touch_event']);
+                // KeyValueManager['startPos'] = event['touch_event'].touch.getLocation();
+                // this.setCursor(event['touch_event']);
+                KeyValueManager['startPos'] = KeyValueManager['touch_event'].touch.getLocation();
+                this.setCursor(KeyValueManager['touch_event']);
             }
             break;
             case C2G_REQ_FINISH_GUIDE: {
@@ -1119,24 +1129,6 @@ cc.Class({
                      continue;
                  if(this.belongTeam(this._mapData[i][1]) || this._mapData[i][1] == KeyValueManager['masterID']) {
                      this.initWatchData(i);      //初始化可见数据
-                     if(!KeyValueManager['in_game']) {   // 暂定：不是重连的时候，确定主城数据
-                         if (this._mapData[i][0] != 1) {
-                             // KeyValueManager['test_sign'] = false;
-                             // KeyValueManager['msg_text'] = '客户端处理有误';
-                             // EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'test_msg_layer', 'hide_preLayer':false});
-                             // cc.log(tag_level,i + '初始化，不是主城');
-                             //版署异常处理
-                             EventManager.pushEvent({
-                                 'msg_id': 'OPEN_LAYER',
-                                 'layer_id': 'reconnect_layer',
-                                 'hide_preLayer': false
-                             });
-                             this.scheduleOnce(function () {
-                                 Utils.enterLoginScene();
-                                 cc.director.loadScene('loading');
-                             },1);
-                         }
-                     }
                  }
                  if(this._mapData[i][1] == this._power && this._mapData[i][0] == 1) {
                      let map = this.node.getChildByName('map');
@@ -1826,17 +1818,6 @@ cc.Class({
                      }
                      continue;
                  }
-
-                 if(this._blockList[index] && this._buildingList[index]){
-                     // cc.log(tag_level,index + 'client no right');
-                     // KeyValueManager['msg_text'] = '客户端处理有误';
-                     // EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'test_msg_layer', 'hide_preLayer':false});
-                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'reconnect_layer', 'hide_preLayer':false});
-                     this.scheduleOnce(function () {
-                         Utils.enterLoginScene();
-                         cc.director.loadScene('loading');
-                     },1);
-                 }
                  let x = parseInt(index) % this.mapWidth;
                  let y = parseInt(parseInt(index) / this.mapWidth);
                  //处理地图上面的地块
@@ -1920,6 +1901,9 @@ cc.Class({
                          teamType = maxEle[0];
                      if(teamType != null) {
                          this._blockList[index].getComponent(cc.Sprite).spriteFrame = KeyValueManager['themeList'][teamType].data.getComponent('ThemeGroup').blockFrame;
+                     }
+                     else {
+                         this._blockList[index].getComponent(cc.Sprite).spriteFrame = this.initBlockFrame;
                      }
                  }
                  continue;
@@ -2190,6 +2174,8 @@ cc.Class({
                          {
                              if(moveCount > this._mapData[index1][2])
                              {
+                                 //解开小城堡
+                                 cc.audioEngine.play(KeyValueManager['unlock_clip'],false,1);
                                  //成功占地盘
                                  this.updateWatchData(index1, 0);
                                  this._mapData[index1][2] = moveCount - this._mapData[index1][2];
@@ -2224,6 +2210,10 @@ cc.Class({
                      {
                          if(moveCount > this._mapData[index1][2])
                          {
+                             //占领敌方主城
+                             if(this._mapData[index1][0] == 1){
+                                 cc.audioEngine.play(KeyValueManager['city_win_clip'],false,1);
+                             }
                              //成功占地盘
                              this.updateWatchData(index1, 0);
                              this._mapData[index1][2] = moveCount - this._mapData[index1][2] - 1;
@@ -2407,6 +2397,10 @@ cc.Class({
                  let before = this.belongTeam(mapData);
                  let change = this.belongTeam(changeData);
                  if((before && !change) || (mapData == KeyValueManager['masterID'] && changeData != KeyValueManager['masterID'])){
+                     //自己的主城堡被摧毁了
+                     if(this._mapData[i][0] == 1 && this._mapData[i][1] == this._power){
+                         cc.audioEngine.play(KeyValueManager['city_lose_clip'],false,1);
+                     }
                      this.updateWatchData(i, 1);
                      //地块被占，此时光标在被侵占地块上，失去焦点
                      let curPos = this.cursor.getPosition();

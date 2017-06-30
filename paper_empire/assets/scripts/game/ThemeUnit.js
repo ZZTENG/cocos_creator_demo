@@ -23,6 +23,9 @@ var TeamLogoUnit = cc.Class({
         themeCount: cc.Label
     },
     onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case "select": {
                 KeyValueManager['selectThemeNode'].active = true;

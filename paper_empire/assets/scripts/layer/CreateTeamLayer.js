@@ -21,6 +21,9 @@ cc.Class({
 
     },
              onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
                  switch (id) {
                      case "create": {
 

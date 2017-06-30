@@ -30,6 +30,9 @@ cc.Class({
         _sendMsg: null,
     },
  onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
      switch (id) {
          case "return": {
              EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});

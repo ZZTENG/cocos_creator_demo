@@ -27,6 +27,9 @@ cc.Class({
         selectNode: cc.Node
     },
     onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case 'notSelect': {
                 this.selectNode.active = false;

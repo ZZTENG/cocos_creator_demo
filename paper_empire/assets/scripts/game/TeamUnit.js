@@ -28,6 +28,9 @@ cc.Class({
         _team_id:0,
     },
     onClick: function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case "request": {
                 if(!KeyValueManager['player_data']['player_info']['team'])

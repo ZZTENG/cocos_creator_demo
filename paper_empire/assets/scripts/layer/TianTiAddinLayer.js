@@ -58,7 +58,9 @@ cc.Class({
         this.gameTime.string = startHour + ': ' + startMinute + ' - ' + endHour + ': ' + endMinute;
     },
     onClick:function (event, id) {
-
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case 'sure': {
                 KeyValueManager['startHour'] = this.startHour;

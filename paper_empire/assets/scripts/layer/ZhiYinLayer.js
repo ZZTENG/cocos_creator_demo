@@ -1,5 +1,5 @@
 /**
- * Created by ZZTENG on 2017/03/01.
+ * Created by ZZTENG on 2017/06/29.
  **/
 const Guide = require('Guide');
 const KeyValueManager = require('KeyValueManager');
@@ -29,9 +29,22 @@ cc.Class({
         KeyValueManager['guide_label'] = this.guideLabel;
         Guide.initGuide();
     },
+    onEnable: function () {
+        let clip = this.getComponent(cc.Animation);
+        if (clip && clip.defaultClip) {
+            clip.play();
+        }
+    },
+    onDisable: function () {
+        let clip = this.getComponent(cc.Animation);
+        if (clip && clip.currentClip) {
+            clip.stop();
+        }
+    },
     onClick: function (event,data) {
         switch (data){
             case 'dianji': {
+                KeyValueManager['touch_event'] = event;
                 EventManager.pushEvent({'msg_id': 'guide_dianji','touch_event': event});
             }
             break;

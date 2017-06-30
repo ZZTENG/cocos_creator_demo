@@ -22,6 +22,9 @@ cc.Class({
         // ...
     },
     onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case 'create':{
                 let event1 = {
@@ -41,6 +44,7 @@ cc.Class({
             case 'return': {
                 EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
             }
+            break;
         }
     },
     // use this for initialization

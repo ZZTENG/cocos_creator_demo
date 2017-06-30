@@ -86,6 +86,9 @@ cc.Class({
         return this._teamAgreeList[index];
     },
     onClick: function (event,id){
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id){
             case 'close': {
                 EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});

@@ -18,9 +18,14 @@ cc.Class({
         //    readonly: false,    // optional, default is false
         // },
         // ...
+        replay: cc.Node,
+        goOn: cc.Node,
         memberList:[require('WinLoseMemUnit')]
     },
        onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id) {
             case 'continue':{
                 KeyValueManager['record_mode'] = false;
@@ -97,6 +102,10 @@ cc.Class({
             this.memberList[i].landCount.string = KeyValueManager['panel'][keys[i]]['count'];
         }
 
+        if(KeyValueManager['is_guide']){            //指引屏蔽回放
+            this.goOn.setPositionX(0);
+            this.replay.active = false;
+        }
         let clip = this.getComponent(cc.Animation);
         if (clip && clip.defaultClip) {
             clip.play();

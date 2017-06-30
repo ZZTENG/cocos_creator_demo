@@ -2,6 +2,7 @@
  * Created by ZZTENG on 2017/05/18.
  **/
 const EventManager = require('EventManager');
+const KeyValueManager = require('KeyValueManager');
 cc.Class({
     extends: cc.Component,
 
@@ -23,6 +24,9 @@ cc.Class({
 
     },
     onClick: function (event,id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        }
         switch (id){
             case 'sure': {
                 cc.director.end();
