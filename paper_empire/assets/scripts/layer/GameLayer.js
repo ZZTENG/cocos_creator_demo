@@ -30,7 +30,7 @@ cc.Class({
              },
              onClick:function (event, id) {
                  if(id){
-                     cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+                     cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
                  }
                  switch (id) {
                      case "pause": {
@@ -138,12 +138,12 @@ cc.Class({
                              }
                              if(event['win'])
                              {
-                                 cc.audioEngine.play(KeyValueManager['win_clip'],false,1);
+                                 cc.audioEngine.play(KeyValueManager['win_clip'],false,KeyValueManager['effect_volume']);
                                  EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'win_layer', 'hide_preLayer':false});
                              }
                              else
                              {
-                                 cc.audioEngine.play(KeyValueManager['lose_clip'],false,1);
+                                 cc.audioEngine.play(KeyValueManager['lose_clip'],false,KeyValueManager['effect_volume']);
                                  EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'lose_layer', 'hide_preLayer':false});
                              }
                          }

@@ -193,7 +193,7 @@ cc.Class({
         // KeyValueManager['test_count'] = 0;
         cc.game.setFrameRate(30);                   //设置游戏帧率
         if(!KeyValueManager['audioId_bgm'])                 //setting bgm
-            KeyValueManager['audioId_bgm'] = cc.audioEngine.play(this.musicURL,true,1);
+            KeyValueManager['audioId_bgm'] = cc.audioEngine.play(this.musicURL,true,KeyValueManager['effect_volume']);
         //开始动画
         let animation = this.node.getComponent(cc.Animation);
         animation.play();
@@ -205,6 +205,7 @@ cc.Class({
         KeyValueManager['themeList'] = {};
         KeyValueManager['land_around'] = {};
         KeyValueManager['order_require'] = {};
+        KeyValueManager['effect_volume'] = 1;       //音效大小
         KeyValueManager['unlock_clip'] = this.unlock;
         KeyValueManager['wrong_click_clip'] = this.wrong_click;
         KeyValueManager['plane_click_clip'] = this.plane_click;

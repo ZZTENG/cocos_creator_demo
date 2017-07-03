@@ -4527,7 +4527,7 @@
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
-    "_N$string": "切换账号",
+    "_N$string": "分享",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -4628,7 +4628,7 @@
     },
     "component": "MainMain",
     "handler": "onClick",
-    "customEventData": "exit"
+    "customEventData": "share"
   },
   {
     "__type__": "3211eAl3zVFaaiiKM+2RuXH",

@@ -30,20 +30,21 @@ cc.Class({
     },
     onClick:function (event, id) {
         if(id){
-            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+            let id = cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
+            cc.log(id);
         }
         switch (id) {
             case 'share': {
                 let OBJECT = {
-                    title: '纸上帝国',
-                    desc: '来和我一决雌雄吧！',
-                    success: function () {
+                    'title': '纸上帝国',
+                    'desc': '来和我一决雌雄吧！',
+                    'success': function () {
                         cc.log('share success');
                     },
-                    fail: function () {
+                    'fail': function () {
                         cc.log('share fail');
                     },
-                    cancel: function () {
+                    'cancel': function () {
                         cc.log('share cancel');
                     }
                 };
@@ -178,11 +179,17 @@ cc.Class({
         KeyValueManager['currentScene'] = CurrentScene.SCENE_MAIN;
         if(KeyValueManager['platformLogin']) {
             cc.loader.load(KeyValueManager['player_data']['player_info']['head'], function (err, tex) {
-                let frame = new cc.SpriteFrame(tex);
-                self.head_sprite.spriteFrame = frame;
+                if(err){
+                    cc.log(err);
+                }
+                else {
+                    let frame = new cc.SpriteFrame(tex);
+                    self.head_sprite.spriteFrame = frame;
+                    cc.loader.setAutoReleaseRecursively(frame,true);
+                }
             });
         }
-        // KeyValueManager['player_data']['player_info']['guide']  = true;
+        KeyValueManager['player_data']['player_info']['guide']  = true;
         if(KeyValueManager['player_data'] && KeyValueManager['player_data']['player_info'])
         {
             this.name_label.string = KeyValueManager['player_data']['player_info']['name'];

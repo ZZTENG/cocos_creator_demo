@@ -24,7 +24,7 @@ cc.Class({
     },
        onClick:function (event, id) {
         if(id){
-            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
         }
         switch (id) {
             case 'continue':{
@@ -67,6 +67,7 @@ cc.Class({
         return result;
     },
     reuse: function () {
+        let self = this;
         for(let i = 0;i < this.memberList.length;i += 1)
             this.memberList[i].node.active = false;
         let keys = Object.keys(KeyValueManager['panel']);
@@ -100,6 +101,18 @@ cc.Class({
             this.memberList[i].memberName.string = KeyValueManager['name'][keys[i]];
             this.memberList[i].killCount.string = KeyValueManager['panel'][keys[i]]['kill'];
             this.memberList[i].landCount.string = KeyValueManager['panel'][keys[i]]['count'];
+            if(KeyValueManager['platformLogin']) {
+                cc.loader.load(KeyValueManager['panel'][keys[i]]['head'], function (err, tex) {
+                    if(err){
+                        cc.log(err);
+                    }
+                    else {
+                        let frame = new cc.SpriteFrame(tex);
+                        self.memberList[i].teamLogo.getComponent(cc.Sprite).spriteFrame = frame;
+                        cc.loader.setAutoReleaseRecursively(frame,true);
+                    }
+                });
+            }
         }
 
         if(KeyValueManager['is_guide']){            //指引屏蔽回放

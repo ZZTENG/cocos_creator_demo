@@ -27,7 +27,7 @@ cc.Class({
     },
     onClick: function (event,id) {
         if(id){
-            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
         }
       switch (id) {
           case 'close': {
@@ -51,18 +51,17 @@ cc.Class({
           }
           break;
           case 'volume': {
-              cc.log(cc.audioEngine.getEffectsVolume());
-              if(cc.audioEngine.getEffectsVolume() == 0){
+              if(KeyValueManager['effect_volume'] == 0.0000001){            //0.0000001趋近0
                   this.volume_open.active = true
                   this.volume_close.active = false;
                   this.volume_label.string = '音效开';
-                  cc.audioEngine.setEffectsVolume(1);
+                  KeyValueManager['effect_volume'] = 1;
               }
               else {
                   this.volume_open.active = false
                   this.volume_close.active = true;
                   this.volume_label.string = '音效关';
-                  cc.audioEngine.setEffectsVolume(0);
+                  KeyValueManager['effect_volume'] = 0.0000001;
               }
           }
           break;
@@ -91,7 +90,7 @@ cc.Class({
             this.music_close.active = false;
             this.music_label.string = '音乐开';
         }
-        if(cc.audioEngine.getEffectsVolume() == 1){
+        if(KeyValueManager['effect_volume'] == 1){
             this.volume_open.active = true
             this.volume_close.active = false;
             this.volume_label.string = '音效开';

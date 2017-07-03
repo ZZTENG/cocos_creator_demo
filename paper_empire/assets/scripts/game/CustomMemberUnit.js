@@ -44,6 +44,18 @@ cc.Class({
                     cc.loader.setAutoReleaseRecursively(spriteFrame,true);
                 }
             });
+            if(KeyValueManager['platformLogin']) {
+                cc.loader.load(data[1], function (err, tex) {
+                    if(err){
+                        cc.log(err);
+                    }
+                    else {
+                        let frame = new cc.SpriteFrame(tex);
+                        self.head.getComponent(cc.Sprite).spriteFrame = frame;
+                        cc.loader.setAutoReleaseRecursively(frame,true);
+                    }
+                });
+            }
         }
         else {
             if(data == 0) {

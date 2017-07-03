@@ -54,8 +54,14 @@ cc.Class({
         let self = this;
         if(KeyValueManager['platformLogin']) {
             cc.loader.load(KeyValueManager['player_data']['player_info']['head'], function (err, tex) {
-                let frame = new cc.SpriteFrame(tex);
-                self.head_sprite.spriteFrame = frame;
+                if(err){
+                    cc.log(err);
+                }
+                else {
+                    let frame = new cc.SpriteFrame(tex);
+                    self.head_sprite.spriteFrame = frame;
+                    cc.loader.setAutoReleaseRecursively(frame,true);
+                }
             });
         }
         if(KeyValueManager['player_data']['player_info']['theme_id']){
@@ -126,7 +132,7 @@ cc.Class({
     },
     onClick:function (event, id) {
         if(id){
-            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
         }
         switch (id) {
             case '1v1_record': {
@@ -229,6 +235,8 @@ cc.Class({
             break;
             case C2G_REQ_CHOOSE_THEME: {
                 if(event['result']){
+                        KeyValueManager['msg_text'] ='更换成功';
+                        EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                         let theme_id = KeyValueManager['player_data']['player_info']['theme_id'];
                         cc.loader.loadRes(KeyValueManager['csv_kv']['person_theme_path']['value'] + KeyValueManager['csv_theme'][theme_id]['Theme'],cc.SpriteFrame,function (err,spriteFrame) {
                             if(err){

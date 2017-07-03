@@ -367,7 +367,7 @@ cc.Class({
                               destNode.active = true;
                               let pos = this._groundList[current].getPosition();
                               destNode.setPosition(pos);
-                              cc.audioEngine.play(KeyValueManager['flag_clip'],false,1);
+                              cc.audioEngine.play(KeyValueManager['flag_clip'],false,KeyValueManager['effect_volume']);
                               if (!KeyValueManager['destNode'][current])
                                   KeyValueManager['destNode'][current] = [];
                               KeyValueManager['destNode'][current].push(destNode);
@@ -411,7 +411,7 @@ cc.Class({
                               destNode.active = true;
                               let pos = this._groundList[current].getPosition();
                               destNode.setPosition(pos);
-                              cc.audioEngine.play(KeyValueManager['flag_clip'],false,1);
+                              cc.audioEngine.play(KeyValueManager['flag_clip'],false,KeyValueManager['effect_volume']);
                               if (!KeyValueManager['destRound'][current])
                                   KeyValueManager['destRound'][current] = [];
                               let moveRound = KeyValueManager['moveRound'];
@@ -460,7 +460,7 @@ cc.Class({
           }
           //点击地块放大效果
           if(this._mapData[current] && this._mapData[current][1] == this._power && this._landList[current]){
-              cc.audioEngine.play(KeyValueManager['plane_click_clip'],false,1);
+              cc.audioEngine.play(KeyValueManager['plane_click_clip'],false,KeyValueManager['effect_volume']);
               let action1 = cc.scaleTo(0.2,1.2,1.2);
               let action2 = cc.scaleTo(0.2,1,1);
               let sequence1 = cc.sequence(action1,action2);
@@ -470,7 +470,7 @@ cc.Class({
               //排除能move过去的地块，但不是自己的势力
               if(search_not_power)
                   return;
-              cc.audioEngine.play(KeyValueManager['wrong_click_clip'],false,1);
+              cc.audioEngine.play(KeyValueManager['wrong_click_clip'],false,KeyValueManager['effect_volume']);
           }
       }
     },
@@ -2175,7 +2175,7 @@ cc.Class({
                              if(moveCount > this._mapData[index1][2])
                              {
                                  //解开小城堡
-                                 cc.audioEngine.play(KeyValueManager['unlock_clip'],false,1);
+                                 cc.audioEngine.play(KeyValueManager['unlock_clip'],false,KeyValueManager['effect_volume']);
                                  //成功占地盘
                                  this.updateWatchData(index1, 0);
                                  this._mapData[index1][2] = moveCount - this._mapData[index1][2];
@@ -2212,7 +2212,7 @@ cc.Class({
                          {
                              //占领敌方主城
                              if(this._mapData[index1][0] == 1){
-                                 cc.audioEngine.play(KeyValueManager['city_win_clip'],false,1);
+                                 cc.audioEngine.play(KeyValueManager['city_win_clip'],false,KeyValueManager['effect_volume']);
                              }
                              //成功占地盘
                              this.updateWatchData(index1, 0);
@@ -2399,7 +2399,7 @@ cc.Class({
                  if((before && !change) || (mapData == KeyValueManager['masterID'] && changeData != KeyValueManager['masterID'])){
                      //自己的主城堡被摧毁了
                      if(this._mapData[i][0] == 1 && this._mapData[i][1] == this._power){
-                         cc.audioEngine.play(KeyValueManager['city_lose_clip'],false,1);
+                         cc.audioEngine.play(KeyValueManager['city_lose_clip'],false,KeyValueManager['effect_volume']);
                      }
                      this.updateWatchData(i, 1);
                      //地块被占，此时光标在被侵占地块上，失去焦点

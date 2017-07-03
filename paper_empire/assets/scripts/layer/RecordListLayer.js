@@ -146,6 +146,9 @@ cc.Class({
         }
     },
     onClick:function (event, id) {
+        if(id){
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
+        }
         switch (id) {
             case 'return': {
                 EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});

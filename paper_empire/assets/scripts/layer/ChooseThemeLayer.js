@@ -28,7 +28,7 @@ cc.Class({
     },
     onClick:function (event, id) {
         if(id){
-            cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+            cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
         }
         switch (id) {
             case 'notSelect': {
@@ -98,7 +98,6 @@ cc.Class({
         return this._themeList[index];
     },
     onDisable: function () {
-        EventManager.removeHandler(C2G_REQ_CHOOSE_THEME,this);
         let clip = this.getComponent(cc.Animation);
         if (clip && clip.currentClip) {
             clip.stop();

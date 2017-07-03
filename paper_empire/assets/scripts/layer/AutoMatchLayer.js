@@ -18,7 +18,7 @@ cc.Class({
         count:cc.Label,
     },
     onClick:function () {
-        cc.audioEngine.play(KeyValueManager['click_clip'],false,1);
+        cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
         let event1 = {
             url:KeyValueManager['server_url'],
             msg_id:C2G_REQ_GAME_MATCH_CANCEL,
