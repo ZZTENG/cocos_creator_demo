@@ -42,12 +42,28 @@ cc.Class({
             }
             break;
             case 'xuanyao': {
-                KeyValueManager['msg_text'] = '暂时未开放';
-                EventManager.pushEvent({
-                    'msg_id': 'OPEN_LAYER',
-                    'layer_id': 'msg_layer',
-                    'hide_preLayer': false
-                });
+                if (KeyValueManager['gameId']) {
+                    let link = 'http://www.shandw.com/pc/game/?gid=1571601337&channel=10000&paper_empire_gameId=' + KeyValueManager['gameId'];
+                    let OBJECT = {
+                        'title': '纸上帝国',
+                        'desc': '来和我一决雌雄吧！',
+                        'link': link,
+                        'success': function () {
+                            cc.log('share success');
+                        },
+                        'fail': function () {
+                            cc.log('share fail');
+                        },
+                        'cancel': function () {
+                            cc.log('share cancel');
+                        }
+                    };
+                    sdw.onSetShareOperate(OBJECT)
+                }
+                else {
+                    KeyValueManager['msg_text'] ='分享异常';
+                    EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
+                }
             }
             break;
         }

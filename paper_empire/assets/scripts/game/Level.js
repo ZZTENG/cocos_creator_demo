@@ -607,6 +607,9 @@ cc.Class({
         if(KeyValueManager['gameId']){
             delete KeyValueManager['gameId'];
         }
+        if(KeyValueManager['roomId']){
+            delete KeyValueManager['roomId'];
+        }
         if(KeyValueManager['main_city_index']){
             delete KeyValueManager['main_city_index'];
         }

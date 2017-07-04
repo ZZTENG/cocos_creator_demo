@@ -113,7 +113,7 @@ cc.Class({
                 }
                 else if(this.speedCount == 2){
                     this.speedCount = 0;
-                    round_time = this.initRoundTime / 8
+                    round_time = this.initRoundTime / 8;
                     this.speed.string = 'x8';
                 }
                 KeyValueManager['round_time'] = round_time;

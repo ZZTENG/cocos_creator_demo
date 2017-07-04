@@ -858,7 +858,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 31
@@ -896,8 +896,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -242,
-      "y": -536
+      "x": 351,
+      "y": -525
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1155,7 +1155,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -165,
+      "x": -199,
       "y": -536
     },
     "_skewX": 0,
@@ -1414,7 +1414,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 180,
+      "x": 99,
       "y": -536
     },
     "_skewX": 0,

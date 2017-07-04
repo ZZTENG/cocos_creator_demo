@@ -91,10 +91,16 @@ cc.Class({
                                 KeyValueManager['uid'] = arr[1];
                                 event1['user_id'] = KeyValueManager['uid'];
                             }
-                            if(arr[0] == 'nick'){
+                            else if(arr[0] == 'nick'){
                                 let nick = decodeURIComponent(arr[1]);
                                 event1[arr[0]] = nick.substr(0,7);
                                 continue;
+                            }
+                            else if(arr[0] == 'paper_empire_gameId'){
+                                KeyValueManager['gameId'] = event['paper_empire_gameId'];
+                            }
+                            else if(arr[0] == 'paper_empire_roomId'){
+                                KeyValueManager['roomId'] = event['paper_empire_roomId'];
                             }
                             event1[arr[0]] = decodeURIComponent(arr[1]);
                         }
@@ -152,6 +158,19 @@ cc.Class({
                     KeyValueManager['timeDiff'] = currentTime - server_time;
                     KeyValueManager['in_game'] = event['in_game'];
                     Utils.savePlayerData();
+                    if(KeyValueManager['gameId']){
+                        let event1 = {
+                            url:KeyValueManager['server_url'],
+                            msg_id:C2G_REQ_WATCH_HISTORY,
+                            user_id:KeyValueManager['player_data']['user_id'],
+                            session_key: KeyValueManager['session'],
+                            start: 0,
+                            end: 1,
+                            id: KeyValueManager['gameId']
+                        };
+                        NetManager.sendMsg(event1);
+                        return;
+                    }
                     Utils.enterGame();
                     //掉线重连的游戏登录
                     if (KeyValueManager['in_game']) {
@@ -176,18 +195,62 @@ cc.Class({
 
             }
                 break;
+            case C2G_REQ_WATCH_HISTORY: {
+                if(event['result']){
+                    KeyValueManager['msgData'] = event['barrage'];
+                    KeyValueManager['width'] = event['width'];
+                    KeyValueManager['height'] = event['height'];
+                    KeyValueManager['history'] = Utils.deepCopy(event['history']);
+                    if (KeyValueManager['history'][0]) {
+                        if (KeyValueManager['history'][0]['name']) {
+                            let name = KeyValueManager['history'][0]['name']
+                            KeyValueManager['name'] = Utils.deepCopy(name);
+                        }
+                        if (KeyValueManager['history'][0]['panel']) {
+                            let panel = KeyValueManager['history'][0]['panel']
+                            KeyValueManager['panel'] = Utils.deepCopy(panel);
+                        }
+                        if (KeyValueManager['history'][0]['turn']) {
+                            let turn = KeyValueManager['history'][0]['turn']
+                            KeyValueManager['turn'] = turn + 1;
+                        }
+                        if (KeyValueManager['history'][0]['pid_2_camp']) {
+                            let id = KeyValueManager['player_data']['player_id'];
+                            let camp = KeyValueManager['history'][0]['pid_2_camp'][id];
+                            KeyValueManager['camp'] = camp;
+                        }
+                        if (KeyValueManager['history'][0]['camps']) {
+                            let camps = KeyValueManager['history'][0]['camps'];
+                            KeyValueManager['camps'] = camps;
+                        }
+                        if (KeyValueManager['history'][0]['team_win']) {
+                            let team_win = KeyValueManager['history'][0]['team_win'];
+                            KeyValueManager['team_win'] = team_win;
+                        }
+                        if(KeyValueManager['history'][0]['theme']){
+                            KeyValueManager['reTheme'] = KeyValueManager['history'][0]['theme'];
+                        }
+                    }
+                    KeyValueManager['isReplay'] = true;
+                    Utils.enterGame();
+                    cc.director.loadScene('loading');
+                }
+            }
+            break;
         };
     },
 
     onDestroy: function () {
         EventManager.removeHandler(C2G_REQ_LOGIN, this);
         EventManager.removeHandler(C2G_REQ_PLAYER_LOGIN, this);
+        EventManager.removeHandler(C2G_REQ_WATCH_HISTORY,this);
     },
     // use this for initialization
     onLoad: function () {
 
         EventManager.registerHandler(C2G_REQ_LOGIN, this);
         EventManager.registerHandler(C2G_REQ_PLAYER_LOGIN, this);
+        EventManager.registerHandler(C2G_REQ_WATCH_HISTORY,this);
         KeyValueManager['currentScene'] = CurrentScene.SCENE_OPENGING;
         // KeyValueManager['test_sign'] = true;
         // KeyValueManager['test_count'] = 0;

@@ -38,6 +38,7 @@ cc.Class({
                 let OBJECT = {
                     'title': '纸上帝国',
                     'desc': '来和我一决雌雄吧！',
+                    'link':  'http://www.shandw.com/pc/game/?gid=1571601337&channel=10000',
                     'success': function () {
                         cc.log('share success');
                     },
@@ -214,6 +215,18 @@ cc.Class({
         EventManager.registerHandler(C2G_REQ_UPDATE_PLAYER,this);
         EventManager.registerHandler(C2G_REQ_ADD_COIN,this);
         EventManager.registerHandler('update_coin',this);
+        if(KeyValueManager['roomId']){             //忽略新手新手指引
+            EventManager.registerHandler(C2G_REQ_ENTER_GAME_ROOM,this);
+            let event1 = {
+                url:KeyValueManager['server_url'],
+                msg_id:C2G_REQ_ENTER_GAME_ROOM,
+                user_id:KeyValueManager['player_data']['user_id'],
+                session_key: KeyValueManager['session'],
+                room_id: KeyValueManager['roomId']
+            };
+            NetManager.sendMsg(event1);
+            return;
+        }
         if(KeyValueManager['is_guide']){
             this.zhiyin_node.active = true;
             EventManager.registerHandler(Guide_Unit.Login_Start,this);
@@ -253,16 +266,35 @@ cc.Class({
         EventManager.removeHandler( 'CLOSE_ALL_LAYER', this);
         EventManager.removeHandler(C2G_REQ_UPDATE_PLAYER,this);
         EventManager.removeHandler(C2G_REQ_ADD_COIN,this);
-        EventManager.removeHandler('update_coin',this)
+        EventManager.removeHandler('update_coin',this);
+        cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP,this.exitGame,this);
+        if(KeyValueManager['paper_empire_roomId']){
+            EventManager.removeHandler(C2G_REQ_ENTER_GAME_ROOM,this);
+            delete KeyValueManager['paper_empire_roomId'];
+            return;
+        }
         if(KeyValueManager['is_guide']){
             Guide.removeUnitListenList(Guide_Unit.Login_Start);
             EventManager.removeHandler(Guide_Unit.Login_Start,this);
         }
-        cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP,this.exitGame,this);
     },
     processEvent: function (event) {
         let msg_id = event['msg_id'];
         switch (msg_id) {
+            case C2G_REQ_ENTER_GAME_ROOM: {
+                if(event['result']){
+                    EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
+                    EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'custom_layer', 'hide_preLayer':false});
+                    KeyValueManager['customData'] = {};
+                    KeyValueManager['customData'] = event['data'];
+                    KeyValueManager['roomId'] = event['room_id'];
+                    KeyValueManager['camp'] = event['camp'];
+                }
+                else {
+                    cc.log('not enter room')
+                }
+            }
+                break;
             case C2G_REQ_GET_FRIEND_HIGHEST_LEVEL:
                 if (event['result']) {
 

@@ -227,10 +227,16 @@ let utils =
                 KeyValueManager['uid'] = arr[1];
                 event['user_id'] = KeyValueManager['uid'];
             }
-            if(arr[0] == 'nick'){
+            else if(arr[0] == 'nick'){
                 let nick = decodeURIComponent(arr[1]);
                 event[arr[0]] = nick.substr(0,7);
                 continue;
+            }
+            else if(arr[0] == 'paper_empire_gameId'){
+                KeyValueManager['gameId'] = event['paper_empire_gameId'];
+            }
+            else if(arr[0] == 'paper_empire_roomId'){
+                KeyValueManager['roomId'] = event['paper_empire_roomId'];
             }
            event[arr[0]]= decodeURIComponent(arr[1]);
         }
@@ -412,6 +418,9 @@ let utils =
                 KeyValueManager['preloadScene'] = 'game';
             else
                 KeyValueManager['preloadScene'] = 'main';
+            if(KeyValueManager['gameId']){      //通过分享连接观看游戏，覆盖是否自己账号在游戏里面
+                KeyValueManager['preloadScene'] = 'game';
+            }
             cc.director.preloadScene('main', function (error, asset) {
                 if (onProgress) {
                     onProgress.call(this, ++KeyValueManager['loadProcess'], KeyValueManager['loadTotalCount']);

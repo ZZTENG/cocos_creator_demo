@@ -158,6 +158,10 @@ cc.Class({
             cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
         }
         switch (id) {
+            case 'share': {
+
+            }
+            break;
             case 'return': {
                 let event1 = {
                     url:KeyValueManager['server_url'],

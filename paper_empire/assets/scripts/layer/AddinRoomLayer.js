@@ -63,6 +63,7 @@ cc.Class({
                     cc.log('not enter room')
                 }
             }
+            break;
         }
     },
     setNumberData: function () {
