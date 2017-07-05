@@ -48,7 +48,7 @@ cc.Class({
                  }
              },
              send_cancel: function () {
-                 this.scheduleOnce(this.send_match,1);
+                 this.scheduleOnce(this.send_match,0.1);
                  let event1 = {
                      url:KeyValueManager['server_url'],
                      msg_id:C2G_REQ_GAME_MATCH_CANCEL,

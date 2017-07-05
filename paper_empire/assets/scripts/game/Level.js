@@ -1307,7 +1307,7 @@ cc.Class({
             break;
         }
     },
-     teamAndPower: function () {
+    teamAndPower: function () {
         //确定自己的team和power
         this._power = KeyValueManager['camp'];
         for (let i = 0; i < KeyValueManager['camps'].length; i += 1) {
