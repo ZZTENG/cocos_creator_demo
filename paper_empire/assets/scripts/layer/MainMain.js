@@ -23,9 +23,6 @@ cc.Class({
         //    readonly: false,    // optional, default is false
         // },
         // ...
-        head_sprite: cc.Sprite,
-        name_label: cc.Label,
-        coin_label: cc.Label,
         zhiyin_node: cc.Node,
     },
     onClick:function (event, id) {
@@ -50,6 +47,10 @@ cc.Class({
                     }
                 };
                 sdw.onSetShareOperate(OBJECT)
+            }
+            break;
+            case 'jingdian': {
+                EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'mode_jingdian', 'hide_preLayer':false});
             }
             break;
             case "2V2":
@@ -175,25 +176,9 @@ cc.Class({
     },
     // use this for initialization
     onLoad: function () {
-        let self = this;
-        this.coin_label.string = Utils.getItem(CURRENCY_PACKAGE,COIN_ID,'count');
-        KeyValueManager['currentScene'] = CurrentScene.SCENE_MAIN;
-        if(KeyValueManager['platformLogin']) {
-            cc.loader.load(KeyValueManager['player_data']['player_info']['head'], function (err, tex) {
-                if(err){
-                    cc.log(err);
-                }
-                else {
-                    let frame = new cc.SpriteFrame(tex);
-                    self.head_sprite.spriteFrame = frame;
-                    cc.loader.setAutoReleaseRecursively(frame,true);
-                }
-            });
-        }
         KeyValueManager['player_data']['player_info']['guide']  = true;
         if(KeyValueManager['player_data'] && KeyValueManager['player_data']['player_info'])
         {
-            this.name_label.string = KeyValueManager['player_data']['player_info']['name'];
             KeyValueManager['is_guide'] = !KeyValueManager['player_data']['player_info']['guide'];
         }
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP,this.exitGame,this);
@@ -213,8 +198,6 @@ cc.Class({
         EventManager.registerHandler(C2G_REQ_GET_CHARGE_STATUS,this);
         EventManager.registerHandler( 'CLOSE_ALL_LAYER', this);
         EventManager.registerHandler(C2G_REQ_UPDATE_PLAYER,this);
-        EventManager.registerHandler(C2G_REQ_ADD_COIN,this);
-        EventManager.registerHandler('update_coin',this);
         if(KeyValueManager['roomId']){             //忽略新手新手指引
             EventManager.registerHandler(C2G_REQ_ENTER_GAME_ROOM,this);
             let event1 = {
@@ -265,8 +248,6 @@ cc.Class({
         EventManager.removeHandler(C2G_REQ_GET_CHARGE_STATUS,this);
         EventManager.removeHandler( 'CLOSE_ALL_LAYER', this);
         EventManager.removeHandler(C2G_REQ_UPDATE_PLAYER,this);
-        EventManager.removeHandler(C2G_REQ_ADD_COIN,this);
-        EventManager.removeHandler('update_coin',this);
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP,this.exitGame,this);
         if(KeyValueManager['paper_empire_roomId']){
             EventManager.removeHandler(C2G_REQ_ENTER_GAME_ROOM,this);
@@ -457,18 +438,6 @@ cc.Class({
                         }
                     }
                 }
-            }
-                break;
-            case C2G_REQ_ADD_COIN: {
-                if (event['result']) {
-                    KeyValueManager['msg_text'] = '充值成功';
-                    EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer': false});
-                    this.coin_label.string = Utils.getItem(CURRENCY_PACKAGE, COIN_ID, 'count');
-                }
-            }
-                break;
-            case 'update_coin': {
-                this.coin_label.string = Utils.getItem(CURRENCY_PACKAGE, COIN_ID, 'count');
             }
                 break;
             case Guide_Unit.Login_Start: {

@@ -610,6 +610,9 @@ cc.Class({
         if(KeyValueManager['roomId']){
             delete KeyValueManager['roomId'];
         }
+        if(KeyValueManager['history_start']){
+            delete KeyValueManager['history_start'];
+        }
         if(KeyValueManager['main_city_index']){
             delete KeyValueManager['main_city_index'];
         }
@@ -740,7 +743,8 @@ cc.Class({
                             KeyValueManager['turn'] = turn + 1;
                         }
                         if (KeyValueManager['history'][0]['pid_2_camp']) {
-                            let id = KeyValueManager['player_data']['player_id'];
+                            let id = KeyValueManager['p' +
+                            'ayer_data']['player_id'];
                             let camp = KeyValueManager['history'][0]['pid_2_camp'][id];
                             KeyValueManager['camp'] = camp;
                         }
@@ -2506,9 +2510,14 @@ cc.Class({
              }
              while (roundSum > 0){
                  this._roundCount = currentRound + 1;
-                 this.roundLoop();
+                 // this.roundLoop();
+                 this.addCount();
+                 this.lastData();
                  roundSum -= 1;
                  currentRound += 1;
+                 if(roundSum == 0){         //回合差为0，开始渲染
+                     this.dataShow();
+                 }
              }
              KeyValueManager['currentRound'] = this._roundCount + 1;
          }

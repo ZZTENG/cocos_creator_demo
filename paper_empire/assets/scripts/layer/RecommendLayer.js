@@ -150,6 +150,7 @@ cc.Class({
     onDisable: function () {
         EventManager.removeHandler(C2G_REQ_GET_FREE_THEME, this);
         EventManager.removeHandler(C2G_REQ_BUY_THEME,this);
+        EventManager.removeHandler('update_coin',this);
         let clip = this.getComponent(cc.Animation);
         if (clip && clip.currentClip) {
             clip.stop();

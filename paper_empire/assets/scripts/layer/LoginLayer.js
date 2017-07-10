@@ -27,7 +27,7 @@ cc.Class({
         pwdNode:cc.Node,
         _state: null,
     },
-    onClickLogin:function (event, data) {
+    onClickLogin:function (event, data) {cc.PolygonCollider
         let accountEdit = this.accountNode.getComponent(cc.EditBox);
         let pwdEdit = this.pwdNode.getComponent(cc.EditBox);
         if(!accountEdit.string)

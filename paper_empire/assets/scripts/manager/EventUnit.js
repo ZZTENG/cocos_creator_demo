@@ -41,7 +41,6 @@ cc.Class({
                              session_key: KeyValueManager['session'],
                          };
                          NetManager.sendMsg(event);
-                         cc.log('woo');
                      }
                  }
                  this._suspendTime = time;
