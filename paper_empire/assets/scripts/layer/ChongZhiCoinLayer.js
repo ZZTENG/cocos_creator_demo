@@ -40,7 +40,7 @@ cc.Class({
         this._dataSource.getElementFunc = this.getTeamElement;
         let data = [];
         for(let i in KeyValueManager['csv_store']){
-            if(KeyValueManager['csv_store'][i]['BuyType'] == 2) {
+            if(KeyValueManager['csv_store'][i]['PayType'] == 2) {
                 let data1 = [];
                 data1.push(i);
                 data1.push(JSON.parse(KeyValueManager['csv_store'][i]['Content']));

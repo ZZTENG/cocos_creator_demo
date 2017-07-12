@@ -20,6 +20,7 @@ cc.Class({
         // ...
         head_sprite: cc.Sprite,
         name_label: cc.Label,
+        diamond_label: cc.Label,
         coin_label: cc.Label,
     },
 
@@ -33,6 +34,7 @@ cc.Class({
 
         let self = this;
         this.coin_label.string = Utils.getItem(CURRENCY_PACKAGE,COIN_ID,'count');
+        // this.diamond_label.string = Utils.getItem(CURRENCY_PACKAGE,GOLD_ID,'count');
         if(KeyValueManager['platformLogin']) {
             cc.loader.load(KeyValueManager['player_data']['player_info']['head'], function (err, tex) {
                 if(err){

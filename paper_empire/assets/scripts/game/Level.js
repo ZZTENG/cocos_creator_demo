@@ -1202,10 +1202,11 @@ cc.Class({
         },this);
         this.node.on('touchend',this.setCursor,this);
         let self = this;
-        this.node.on('touchmove',function (touchs,event) {
-            if (touchs._touches.length >= 2){
+        this.node.on('touchmove',function (event) {cc.director.getPhysicsManager()
+            let touches = event.getTouches();
+            if (touches.length >= 2){
                 let parent = self.node.parent;
-                let touch1 = touchs._touches[0], touch2 = touchs._touches[1];
+                let touch1 = touches[0], touch2 = touches[1];
                 let delta1 = touch1.getDelta(), delta2 = touch2.getDelta();
                 let touchPoint1 = parent.convertToNodeSpaceAR( touch1.getLocation());
                 let touchPoint2 = parent.convertToNodeSpaceAR( touch2.getLocation());
@@ -1226,36 +1227,10 @@ cc.Class({
                 KeyValueManager['mapNode'].scale = newScale;
                 this._newScale = newScale;
             }
-            else if(touchs._touches.length == 1){
-                this.move(touchs);
+            else if(touches.length == 1){
+                this.move(event);
             }
         },this);
-        // cc.eventManager.addListener({
-        //     event: cc.EventListener.TOUCH_ALL_AT_ONCE,
-        //     onTouchesMoved: function (touches, event){
-        //         if (touches.length >= 2){
-        //             let touch1 = touches[0], touch2 = touches[1];
-        //             let delta1 = touch1.getDelta(), delta2 = touch2.getDelta();
-        //             let touchPoint1 = parent.convertToNodeSpaceAR( touch1.getLocation());
-        //             let touchPoint2 = parent.convertToNodeSpaceAR( touch2.getLocation());
-        //             let distance = cc.pSub( touchPoint1 , touchPoint2 );// touchPoint1.sub( touchPoint2 );
-        //             let delta = cc.pSub( delta1, delta2 ); //delta1.sub( delta2 );
-        //             let scale = 1;
-        //             if ( Math.abs( distance.x ) > Math.abs( distance.y ) )
-        //             {
-        //                 scale = (distance.x + delta.x) / distance.x * self.node.scale;
-        //             }
-        //             else
-        //             {
-        //                 scale = (distance.y + delta.y) / distance.y * self.node.scale;
-        //             }
-        //             var newScale = KeyValueManager['mapNode'].scale * scale;
-        //             if( newScale < 0.25 ) newScale = 0.25; //限制縮放大小
-        //             if( newScale > 3.00 ) newScale = 3; //限制縮放大小
-        //             KeyValueManager['mapNode'].scale = newScale;
-        //         }
-        //     }
-        // },this.node);
         if(KeyValueManager['is_guide']){
             EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'zhiyin_layer', 'hide_preLayer':false});
             let pos = this._groundList[KeyValueManager['main_city_index']].getPosition();

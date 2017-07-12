@@ -121,7 +121,7 @@ const HISTORY_LAST_COUNT = 50;
 const HEARTBEAT_LAST_TIME = 60;
 const SUSPEND_TIME = 2;
 const SUSPEND_LOGIN_TIME = 5 * 60;
-const WAIT_GAME_START = 5;
+const WAIT_GAME_START = 10;
 
 const CURRENCY_PACKAGE = 'currency';
 const CD_PACKAGE = 'player_cd_pool';

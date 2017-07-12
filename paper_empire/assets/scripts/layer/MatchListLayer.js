@@ -67,6 +67,9 @@ cc.Class({
          }
          break;
          case 'rank': {
+             KeyValueManager['msg_text'] ='暂未开放';
+             EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
+             return;
              if(KeyValueManager['player_data']['player_info']['is_master']) {
                  KeyValueManager['game_mode'] = GameMode.MODE_TIANTI;
                  EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});

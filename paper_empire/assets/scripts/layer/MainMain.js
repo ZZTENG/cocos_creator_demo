@@ -126,9 +126,9 @@ cc.Class({
                 break;
             case "paiming":
             {
-                KeyValueManager['msg_text'] ='暂未开放';
-                EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
-                // EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'team_rank_layer','hide_preLayer': false});
+                // KeyValueManager['msg_text'] ='暂未开放';
+                // EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
+                EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'rank_list_layer','hide_preLayer': false});
             }
                 break;
             case "huodong":

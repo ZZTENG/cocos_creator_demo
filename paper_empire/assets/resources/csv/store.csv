@@ -1,12 +1,12 @@
-ç¼–å·,å†…å®¹,åŸæ¶ˆè€—,å®é™…æ¶ˆè€—,é¦–å……èµ é€,å•†å“å›¾æ ‡,è´­ä¹°ç±»å‹ID,å……å€¼äººæ°‘å¸ï¼ˆåˆ†ï¼‰,å•†å“åç§°æè¿°
-ID,Content,Consume,RealConsume,FirstCount,Ico,BuyType,RMB,Name
-ST0107,"[[""item"",""TM007"",""count"",1000]]","[[""currency"",""IT0002"",""count"",200]]","[[""currency"",""IT0002"",""count"",200]]",,"""""",1,0,Theme
-ST0108,"[[""item"",""TM008"",""count"",1000]]","[[""currency"",""IT0002"",""count"",200]]","[[""currency"",""IT0002"",""count"",200]]",,"""""",1,0,Theme
-ST0109,"[[""item"",""TM009"",""count"",1000]]","[[""currency"",""IT0002"",""count"",200]]","[[""currency"",""IT0002"",""count"",200]]",,"""""",1,0,Theme
-ST01010,"[[""item"",""TM0010"",""count"",1000]]","[[""currency"",""IT0002"",""count"",200]]","[[""currency"",""IT0002"",""count"",200]]",,"""""",1,0,Theme
+±àºÅ,ÄÚÈİ,Ô­ÏûºÄ,Êµ¼ÊÏûºÄ,Ê×³äÔùËÍ,ÉÌÆ·Í¼±ê,Ö§¸¶ÀàĞÍID(0ÊÇ½ğ±Ò£¬1ÊÇ×©Ê¯£¬2ÊÇRMB),³äÖµÈËÃñ±Ò£¨·Ö£©,ÉÌÆ·Ãû³ÆÃèÊö
+ID,Content,Consume,RealConsume,FirstCount,Ico,PayType,RMB,Name
+ST0107,"[[""item"",""TM007"",""count"",50]]","[[""currency"",""IT0002"",""count"",3000]]","[[""currency"",""IT0003"",""count"",3000]]",,"""""",0,0,Theme
+ST0108,"[[""item"",""TM008"",""count"",500]]","[[""currency"",""IT0003"",""count"",300]]","[[""currency"",""IT0003"",""count"",300]]",,"""""",1,0,Theme
+ST0109,"[[""item"",""TM009"",""count"",500]]","[[""currency"",""IT0003"",""count"",300]]","[[""currency"",""IT0003"",""count"",300]]",,"""""",1,0,Theme
+ST01010,"[[""item"",""TM0010"",""count"",500]]","[[""currency"",""IT0003"",""count"",300]]","[[""currency"",""IT0003"",""count"",300]]",,"""""",1,0,Theme
 ST0210,"[[""currency"",""IT0002"",""count"",10]]",[],[],,texture/coin_store/vc_gem1,2,600,Coin
 ST0211,"[[""currency"",""IT0002"",""count"",25]]",[],[],,texture/coin_store/vc_gem2,2,1200,Coin
 ST0212,"[[""currency"",""IT0002"",""count"",75]]",[],[],,texture/coin_store/vc_gem3,2,3000,Coin
-ST0213,"[[""currency"",""IT0002"",""count"",175]]",[],[],,texture/coin_store/vc_gem4,2,6800,Coin
+ST0213,"[[""currency"",""IT0002"",""count"",175]]",[],[],,texture/coin_store/vc_gem4,2,6400,Coin
 ST0214,"[[""currency"",""IT0002"",""count"",400]]",[],[],,texture/coin_store/vc_gem5,2,12800,Coin
-ST0215,"[[""currency"",""IT0002"",""count"",900]]",[],[],,texture/coin_store/vc_gem6,2,20000,Coin
+ST0215,"[[""currency"",""IT0002"",""count"",700]]",[],[],,texture/coin_store/vc_gem6,2,19800,Coin

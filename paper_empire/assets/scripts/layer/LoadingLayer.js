@@ -42,7 +42,7 @@ cc.Class({
                 // }
             }
 
-        }
+        };
         KeyValueManager['loadingFunc'].call(this, function (complete, total) {
 
 

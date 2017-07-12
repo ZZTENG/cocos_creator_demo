@@ -28,7 +28,8 @@ cc.Class({
         storeId: null,
         _price: null,
         _themeId: null,
-        _useCount: null
+        _useCount: null,
+        _itemId: null
     },
 
     // use this for initialization
@@ -45,6 +46,7 @@ cc.Class({
         this.useCount.string = '使用' + data[1][0][3] + '次';
         this.price.string = data[3][0][3];
         this._price = data[3][0][3];
+        this._itemId = data[3][0][2];
         let discount = String(parseInt(data[3][0][3] / data[2][0][3] * 100)) + '%';
         this.discount.string = discount;
         let self = this;
@@ -65,11 +67,12 @@ cc.Class({
         }
         switch (id){
             case 'buy': {
-                let coins = Utils.getItem(CURRENCY_PACKAGE,COIN_ID,'count');
+                let coins = Utils.getItem(CURRENCY_PACKAGE,this._itemId,'count');
                 if(coins >= this._price) {
                     KeyValueManager['buy_price'] = this._price;
                     KeyValueManager['buy_themeId'] = this._themeId;
                     KeyValueManager['buy_useCount'] = this._useCount;
+                    KeyValueManager['buy_itemId'] = this._itemId;
                     let event1 = {
                         url: KeyValueManager['server_url'],
                         msg_id: C2G_REQ_BUY_STORE_ITEM,
@@ -81,7 +84,12 @@ cc.Class({
                 }
                 else {
                     EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_coin_layer','hide_preLayer': false});
-                    KeyValueManager['msg_text'] ='金币不足，请充值';
+                    if(this._itemId == COIN_ID){
+                        KeyValueManager['msg_text'] ='金币不足，请充值';
+                    }
+                    else if(this._itemId == GOLD_ID){
+                        KeyValueManager['msg_text'] ='砖石不足，请充值';
+                    }
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                 }
             }

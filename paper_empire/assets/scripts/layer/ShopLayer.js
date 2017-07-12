@@ -68,7 +68,7 @@ cc.Class({
         switch (msg_id){
             case C2G_REQ_BUY_STORE_ITEM: {
                 if(event['result']){
-                    Utils.useItem(CURRENCY_PACKAGE,COIN_ID,'count',KeyValueManager['buy_price']);
+                    Utils.useItem(CURRENCY_PACKAGE,KeyValueManager['buy_itemId'],'count',KeyValueManager['buy_price']);
                     KeyValueManager['msg_text'] ='购买成功';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                     EventManager.pushEvent({'msg_id':'update_coin'});
@@ -128,6 +128,9 @@ cc.Class({
             delete KeyValueManager['buy_themeId'];
         if(KeyValueManager['buy_useCount'])
             delete KeyValueManager['buy_useCount'];
+        if(KeyValueManager['buy_itemId']){
+            delete KeyValueManager['buy_itemId'];
+        }
     }
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {

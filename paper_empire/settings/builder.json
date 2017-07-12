@@ -13,5 +13,14 @@
   "packageName": "org.cocos2d.Code",
   "startScene": "1fe62cc3-d77e-4a67-90e8-379a59bbb92e",
   "title": "Code",
-  "webOrientation": "auto"
+  "webOrientation": "auto",
+  "oauthLoginServer": "",
+  "appKey": "",
+  "appSecret": "",
+  "privateKey": "",
+  "renderMode": "0",
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "mergeStartScene": false,
+  "optimizeHotUpdate": false
 }

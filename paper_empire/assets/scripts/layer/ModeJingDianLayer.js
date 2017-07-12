@@ -26,7 +26,16 @@ cc.Class({
 
     },
     onEnable: function () {
-        EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'top_layer', 'hide_preLayer':false});
+        let clip = this.getComponent(cc.Animation);
+        if (clip && clip.defaultClip){
+            clip.play();
+        }
+    },
+    onDisable: function () {
+        let clip = this.getComponent(cc.Animation);
+        if (clip && clip.currentClip) {
+            clip.stop();
+        }
     },
     onClick: function (event,id) {
         if(id){
@@ -34,6 +43,10 @@ cc.Class({
             cc.log(id);
         }
         switch (id){
+            case 'back': {
+                EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+            }
+            break;
             case "2V2":
             {
                 KeyValueManager['game_mode'] = GameMode.MODE_2V2;
