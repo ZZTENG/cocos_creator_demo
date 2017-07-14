@@ -69,6 +69,7 @@ cc.Class({
                      case G2C_REQ_GAME_OVER: {
                          if(event['result'])
                          {
+                             KeyValueManager['player_data']['player_info']['w'] = event['score'];
                              KeyValueManager['panel'] = event['panel'];
                              KeyValueManager['teamWin'] = event['team_win'];
                              KeyValueManager['gameId'] = event['id'];
@@ -138,6 +139,7 @@ cc.Class({
                              }
                              if(event['win'])
                              {
+                                 Utils.addItem(CURRENCY_PACKAGE,COIN_ID,'count',event['coin']);
                                  cc.audioEngine.play(KeyValueManager['win_clip'],false,KeyValueManager['effect_volume']);
                                  EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'win_layer', 'hide_preLayer':false});
                              }

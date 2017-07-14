@@ -25,6 +25,8 @@ cc.Class({
         discount: cc.Label,
         price: cc.Label,
         useCount: cc.Label,
+        icon: cc.Sprite,
+        icon_SpriteFrame: [cc.SpriteFrame],
         storeId: null,
         _price: null,
         _themeId: null,
@@ -46,7 +48,13 @@ cc.Class({
         this.useCount.string = '使用' + data[1][0][3] + '次';
         this.price.string = data[3][0][3];
         this._price = data[3][0][3];
-        this._itemId = data[3][0][2];
+        this._itemId = data[3][0][1];
+        if(this._itemId == COIN_ID){
+            this.icon.spriteFrame = this.icon_SpriteFrame[0];
+        }
+        else if(this._itemId == GOLD_ID){
+            this.icon.spriteFrame = this.icon_SpriteFrame[1];
+        }
         let discount = String(parseInt(data[3][0][3] / data[2][0][3] * 100)) + '%';
         this.discount.string = discount;
         let self = this;

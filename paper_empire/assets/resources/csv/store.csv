@@ -1,6 +1,6 @@
 编号,内容,原消耗,实际消耗,首充赠送,商品图标,支付类型ID(0是金币，1是砖石，2是RMB),充值人民币（分）,商品名称描述
 ID,Content,Consume,RealConsume,FirstCount,Ico,PayType,RMB,Name
-ST0107,"[[""item"",""TM007"",""count"",50]]","[[""currency"",""IT0002"",""count"",3000]]","[[""currency"",""IT0003"",""count"",3000]]",,"""""",0,0,Theme
+ST0107,"[[""item"",""TM007"",""count"",50]]","[[""currency"",""IT0002"",""count"",3000]]","[[""currency"",""IT0002"",""count"",3000]]",,"""""",0,0,Theme
 ST0108,"[[""item"",""TM008"",""count"",500]]","[[""currency"",""IT0003"",""count"",300]]","[[""currency"",""IT0003"",""count"",300]]",,"""""",1,0,Theme
 ST0109,"[[""item"",""TM009"",""count"",500]]","[[""currency"",""IT0003"",""count"",300]]","[[""currency"",""IT0003"",""count"",300]]",,"""""",1,0,Theme
 ST01010,"[[""item"",""TM0010"",""count"",500]]","[[""currency"",""IT0003"",""count"",300]]","[[""currency"",""IT0003"",""count"",300]]",,"""""",1,0,Theme

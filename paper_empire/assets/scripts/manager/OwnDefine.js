@@ -406,6 +406,8 @@ const C2G_REQ_GET_RANK_TEAM_INFO = 93013;
 
 //地图加载完成后, 通知服务端尽快开始游戏
 const C2G_REQ_WAIT_GAME_START = 93015;
+//获取排行榜数据
+const C2G_REQ_GET_GAME_RANK = 93016
 //聊天
 //发送消息
 const C2G_REQ_SEND_MESSAGE = 100003;

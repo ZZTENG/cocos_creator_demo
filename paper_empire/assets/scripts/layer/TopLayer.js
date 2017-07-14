@@ -22,6 +22,9 @@ cc.Class({
         name_label: cc.Label,
         diamond_label: cc.Label,
         coin_label: cc.Label,
+        rank_head: cc.Sprite,
+        duanWei: [cc.SpriteFrame],
+        star: [cc.Sprite]
     },
 
     // use this for initialization
@@ -34,7 +37,7 @@ cc.Class({
 
         let self = this;
         this.coin_label.string = Utils.getItem(CURRENCY_PACKAGE,COIN_ID,'count');
-        // this.diamond_label.string = Utils.getItem(CURRENCY_PACKAGE,GOLD_ID,'count');
+        this.diamond_label.string = Utils.getItem(CURRENCY_PACKAGE,GOLD_ID,'count');
         if(KeyValueManager['platformLogin']) {
             cc.loader.load(KeyValueManager['player_data']['player_info']['head'], function (err, tex) {
                 if(err){
@@ -48,6 +51,117 @@ cc.Class({
             });
         }
         this.name_label.string = KeyValueManager['player_data']['player_info']['name'];
+        if(KeyValueManager['player_data']['player_info']['w']){     //可以用配置表,暂定在代码里面
+            let grade = KeyValueManager['player_data']['player_info']['w'];
+            if(grade < 500){
+                this.rank_head.spriteFrame = this.duanWei[0];
+                if(grade < 100){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 300){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 500){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+            }
+            else if(grade < 1300){
+                this.rank_head.spriteFrame = this.duanWei[1];
+                if(grade < 1100){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 1200){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 1300){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+            }
+            else if(grade < 2100){
+                this.rank_head.spriteFrame = this.duanWei[2];
+                if(grade < 1500){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 1800){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 2100){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+            }
+            else if(grade < 3000){
+                this.rank_head.spriteFrame = this.duanWei[3];
+                if(grade < 2300){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 2700){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 3000){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+            }
+            else if(grade < 5000){
+                this.rank_head.spriteFrame = this.duanWei[4];
+                if(grade < 3500){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 4000){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 5000){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+            }
+            else {
+                this.rank_head.spriteFrame = this.duanWei[5];
+                if(grade < 7000){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else if(grade < 10000){
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+                else {
+                    this.star[0].node.active = true;
+                    this.star[1].node.active = false;
+                    this.star[2].node.active = false;
+                }
+            }
+        }
     },
     onDisable: function () {
         EventManager.removeHandler(C2G_REQ_ADD_COIN,this);
@@ -76,12 +190,13 @@ cc.Class({
                 if (event['result']) {
                     KeyValueManager['msg_text'] = '充值成功';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer': false});
-                    this.coin_label.string = Utils.getItem(CURRENCY_PACKAGE, COIN_ID, 'count');
+                    this.coin_label.string = Utils.getItem(CURRENCY_PACKAGE, GOLD_ID, 'count');
                 }
             }
                 break;
             case 'update_coin': {
                 this.coin_label.string = Utils.getItem(CURRENCY_PACKAGE, COIN_ID, 'count');
+                this.diamond_label.string = Utils.getItem(CURRENCY_PACKAGE,GOLD_ID,'count');
             }
                 break;
         }

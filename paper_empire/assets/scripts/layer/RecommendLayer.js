@@ -82,7 +82,7 @@ cc.Class({
                 let cur_index = this.pageView._curPageIdx;
                 let recommendId  = Object.keys(KeyValueManager['csv_recommend'])[cur_index];
                 let price = this._dataSource.data[cur_index][2][3];
-                let coins = Utils.getItem(CURRENCY_PACKAGE,COIN_ID,'count');
+                let coins = Utils.getItem(CURRENCY_PACKAGE,GOLD_ID,'count');
                 if(coins >= price) {
                     let event2 = {
                         url: KeyValueManager['server_url'],
@@ -167,7 +167,7 @@ cc.Class({
                     KeyValueManager['msg_text'] ='购买成功';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                     let price = this._dataSource.data[index][2][3];
-                    Utils.useItem(CURRENCY_PACKAGE,COIN_ID,'count',price);
+                    Utils.useItem(CURRENCY_PACKAGE,GOLD_ID,'count',price);
                     EventManager.pushEvent({'msg_id':'update_coin'});
                     if(KeyValueManager['player_data']['player_info']['theme_list'].indexOf(themeId) == -1){
                         KeyValueManager['player_data']['player_info']['theme_list'].push(themeId)

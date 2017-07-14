@@ -5,7 +5,20 @@ const KeyValueManager = require('KeyValueManager');
 const EventManager = require('EventManager');
 const NetManager = require('NetManager');
 const DataSend = require('dataSend');
-const Utils = require('utils')
+const Utils = require('utils');
+let game_type = cc.Enum({
+    game_type_1v1: 0,
+    game_type_2v2: 1,
+    game_type_3v3: 2,
+    game_type_2v2v2: 3,
+    game_type_team: 4,
+    game_type_tianti: 5,
+});
+let rank_type = cc.Enum({
+    rank_type_week: 1,
+    rank_type_month: 2,
+    rank_type_total: 3,
+})
 cc.Class({
     extends: cc.Component,
 
@@ -27,6 +40,8 @@ cc.Class({
         scrollView: cc.ScrollView,
         _page: null,
         _sendMsg: null,
+        _gameType: null,
+        _rankType: null
     },
 
     onClick:function (event, id) {
@@ -34,29 +49,90 @@ cc.Class({
             cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
         }
         switch (id) {
+            case '1v1': {
+                this._gameType = game_type.game_type_1v1;
+            }
+            break;
+            case '2v2': {
+                this._gameType = game_type.game_type_2v2;
+            }
+            break;
+            case '3v3': {
+                this._gameType = game_type.game_type_3v3;
+            }
+            break;
+            case '2v2v2': {
+                this._gameType = game_type.game_type_2v2v2;
+            }
+            break;
+            case 'team': {
+                this._gameType = game_type.game_type_team;
+            }
+            break;
+            case 'tianti': {
+                KeyValueManager['msg_text'] ='暂未开放';
+                EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
+                this._gameType = game_type.game_type_tianti;
+            };
+            break;
+            case 'week': {
+                this._rankType = rank_type.rank_type_week;
+            }
+            break;
+            case 'month': {
+                this._rankType = rank_type.rank_type_month;
+            }
+            break;
+            case 'total': {
+                this._rankType = rank_type.rank_type_total;
+            }
+            break;
             case "return": {
                 EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
             }
                 break;
         }
+        if(id != 'return'){
+            this.initState();
+            let start = (this._page - 1) * this.index + 1;
+            let end = this._page * this.index;
+            let event1 = {
+                url: KeyValueManager['server_url'],
+                msg_id: C2G_REQ_GET_GAME_RANK,
+                user_id: KeyValueManager['player_data']['user_id'],
+                session_key: KeyValueManager['session'],
+                game_type: this._gameType,
+                rank_type: this._rankType,
+                start: start,
+                end: end
+            };
+            NetManager.sendMsg(event1);
+        }
     },
     // use this for initialization
     onLoad: function () {
         this._rankList = [];
-        this._rankList.push(this.rankUnit.getComponent('RankUnitInList'));
+        this._rankList.push(this.rankUnit.getComponent('NewRankUnit'));
         this.reuse();
     },
     reuse: function () {
-        EventManager.registerHandler(C2G_REQ_GET_RANK_TEAM_INFO , this);
+        EventManager.registerHandler(C2G_REQ_GET_GAME_RANK , this);
         this._page = 1;
         this._sendMsg = true;
         this.rankUnit.active = false;
+        this._gameType = game_type.game_type_1v1;
+        this._rankType = rank_type.rank_type_week;
+        let start = (this._page - 1) * this.index + 1;
+        let end = this._page * this.index;
         let event = {
             url: KeyValueManager['server_url'],
-            msg_id: C2G_REQ_GET_RANK_TEAM_INFO,
+            msg_id: C2G_REQ_GET_GAME_RANK,
             user_id: KeyValueManager['player_data']['user_id'],
             session_key: KeyValueManager['session'],
-            page: this._page
+            game_type: this._gameType,
+            rank_type: this._rankType,
+            start: start,
+            end: end
         };
         NetManager.sendMsg(event);
         this._dataSource = this.getComponent('DataSource');
@@ -74,15 +150,19 @@ cc.Class({
         if(this._sendMsg) {
             this._sendMsg = false;
             this._page += 1;
+            let start = (this._page - 1) * this.index + 1;
+            let end = this._page * this.index;
             let event = {
                 url: KeyValueManager['server_url'],
-                msg_id: C2G_REQ_GET_TEAM_LIST,
+                msg_id: C2G_REQ_GET_GAME_RANK,
                 user_id: KeyValueManager['player_data']['user_id'],
                 session_key: KeyValueManager['session'],
-                page: this._page
+                game_type: this._gameType,
+                rank_type: this._rankType,
+                start: start,
+                end: end
             };
             NetManager.sendMsg(event);
-            cc.log('sendmsg');
         }
     },
     onTeamUnit:function (index, unit, data) {
@@ -96,7 +176,7 @@ cc.Class({
             let node = cc.instantiate(this.rankUnit);
             if(!node.active) node.active = true;
             node.parent = this.rankUnit.parent;
-            this._rankList.push(node.getComponent("RankUnitInList"));
+            this._rankList.push(node.getComponent("NewRankUnit"));
 
         }else{
             if(!this._rankList[index].node.active) this._rankList[index].node.active = true;
@@ -106,11 +186,11 @@ cc.Class({
     processEvent: function (event) {
         let msg_id = event['msg_id'];
         switch (msg_id) {
-            case C2G_REQ_GET_RANK_TEAM_INFO : {
+            case C2G_REQ_GET_GAME_RANK : {
                 if (event['result']) {
                     if (event['result']) {
                         this._sendMsg = true;          //收到消息可以sendMsg
-                        let teams = event['data'];
+                        let teams = event['rank_info'];
                         if (teams.length < this.index) {
                             this.index = teams.length;
                             this._sendMsg = false;
@@ -128,8 +208,16 @@ cc.Class({
             }
         }
     },
+    initState: function () {
+        this._page = 1;
+        this.index = 20;
+        for(let i = 0;i < this._rankList.length;i += 1){
+            if(this._rankList[i].node.active)
+                this._rankList[i].node.active = false;
+        }
+    },
     onDisable: function () {
-        EventManager.removeHandler(C2G_REQ_GET_RANK_TEAM_INFO, this);
+        EventManager.removeHandler(C2G_REQ_GET_GAME_RANK, this);
         for(let i = 0;i < this._rankList.length;i += 1){
             if(this._rankList[i].node.active)
                 this._rankList[i].node.active = false;

@@ -3,6 +3,8 @@
  **/
 const KeyValueManager = require('KeyValueManager');
 const EventManager = require('EventManager');
+const NetManager = require('NetManager');
+const Utils = require('utils');
 cc.Class({
     extends: cc.Component,
 
@@ -25,6 +27,18 @@ cc.Class({
       switch (id){
           case 'watch': {
               EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
+          }
+          break;
+          case 'cancel': {
+              let event1 = {
+                  url:KeyValueManager['server_url'],
+                  msg_id:C2G_REQ_EXIT_GAME,
+                  user_id:KeyValueManager['player_data']['user_id'],
+                  session_key: KeyValueManager['session'],
+              };
+              NetManager.sendMsg(event1);
+              Utils.enterMainScene();
+              cc.director.loadScene('loading');
           }
           break;
       }

@@ -6,6 +6,14 @@ const EventManager = require('EventManager');
 const NetManager = require('NetManager');
 const DataSend = require('dataSend');
 const Utils = require('utils');
+let descrip_name = {
+    '0': '一棒宝石',
+    '1': '一小堆宝石',
+    '2': '一小袋宝石',
+    '3': '一麻袋宝石',
+    '4': '一小箱宝石',
+    '5': '一大箱宝石',
+}
 cc.Class({
     extends: cc.Component,
 
@@ -23,6 +31,7 @@ cc.Class({
         rmb: cc.Label,
         coin: cc.Label,
         ico: cc.Sprite,
+        description: cc.Label,
         _storeId: null,
         _rmb: null,
         _coin: null,
@@ -57,6 +66,7 @@ cc.Class({
                 cc.loader.setAutoReleaseRecursively(spriteFrame,true);
             }
         })
+        this.description.string = descrip_name[index];
     },
     onClick: function (event,id) {
         if(id){
