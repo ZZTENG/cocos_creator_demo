@@ -38,10 +38,15 @@ cc.Class({
         _rankList:[],
         index:20,
         scrollView: cc.ScrollView,
+        ownRank: cc.Label,
+        ownHead: cc.Sprite,
+        ownName: cc.Label,
+        ownGrade: cc.Label,
         _page: null,
         _sendMsg: null,
         _gameType: null,
-        _rankType: null
+        _rankType: null,
+        _updateOwnData: null
     },
 
     onClick:function (event, id) {
@@ -92,7 +97,7 @@ cc.Class({
             }
                 break;
         }
-        if(id != 'return'){
+        if(id && id != 'return'){
             this.initState();
             let start = (this._page - 1) * this.index + 1;
             let end = this._page * this.index;
@@ -113,10 +118,25 @@ cc.Class({
     onLoad: function () {
         this._rankList = [];
         this._rankList.push(this.rankUnit.getComponent('NewRankUnit'));
-        this.reuse();
+        // this.reuse();
     },
-    reuse: function () {
+    onEnable: function () {
         EventManager.registerHandler(C2G_REQ_GET_GAME_RANK , this);
+        this._updateOwnData = true;
+        this.ownName.string = KeyValueManager['player_data']['player_info']['name'];
+        this.ownRank.string = 0;
+        this.ownGrade.string = 0;
+        let self = this
+        cc.loader.load(KeyValueManager['player_data']['player_info']['head'], function (err, tex) {
+            if(err){
+                cc.log(err);
+            }
+            else {
+                let frame = new cc.SpriteFrame(tex);
+                self.ownHead.spriteFrame = frame;
+                cc.loader.setAutoReleaseRecursively(frame,true);
+            }
+        });
         this._page = 1;
         this._sendMsg = true;
         this.rankUnit.active = false;
@@ -190,6 +210,11 @@ cc.Class({
                 if (event['result']) {
                     if (event['result']) {
                         this._sendMsg = true;          //收到消息可以sendMsg
+                        if(this._updateOwnData){
+                            this._updateOwnData = false;
+                            this.ownRank.string = event['player_rank_info'][0];
+                            this.ownGrade.string = event['player_rank_info'][1];
+                        }
                         let teams = event['rank_info'];
                         if (teams.length < this.index) {
                             this.index = teams.length;

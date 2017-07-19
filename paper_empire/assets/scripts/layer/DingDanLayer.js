@@ -75,7 +75,7 @@ cc.Class({
     reuse: function () {
         EventManager.registerHandler(C2G_REQ_GET_CHARGE_STATUS,this);
         this.coin .string = KeyValueManager['dingdan_coin'];
-        this.price.string = KeyValueManager['dingdan_rmb'];
+        this.price.string = KeyValueManager['dingdan_rmb'] / 100 + ' 元';
         this.dingdan.string = KeyValueManager['orderInfo']['cpOrderId'];
     },
     onDisable: function () {

@@ -742,7 +742,7 @@
       "__id__": 16
     },
     "_enabled": true,
-    "isAlignOnce": false,
+    "isAlignOnce": true,
     "_target": null,
     "_alignFlags": 8,
     "_left": -461,

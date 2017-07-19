@@ -2,6 +2,7 @@
  * Created by ZZTENG on 2017/03/29.
  **/
 const KeyValueManager = require('KeyValueManager');
+const EventManager= require('EventManager');
 cc.Class({
     extends: cc.Component,
 
@@ -21,6 +22,34 @@ cc.Class({
         theme: cc.Sprite,
         prepare: cc.Node,
         belongTeam: [cc.Node]
+    },
+    onEnable: function () {
+        EventManager.registerHandler(C2G_REQ_CHOOSE_THEME,this);
+    },
+    onDisable: function () {
+        EventManager.removeHandler(C2G_REQ_CHOOSE_THEME,this);
+    },
+    processEvent: function (event) {
+        let msg_id = event['msg_id'];
+        switch (msg_id){
+            case C2G_REQ_CHOOSE_THEME:{
+                if(event['result']){
+                    KeyValueManager['msg_text'] ='更换成功';
+                    EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
+                    let theme_id = KeyValueManager['player_data']['player_info']['theme_id'];
+                    let self = this;
+                    cc.loader.loadRes(KeyValueManager['csv_kv']['person_theme_path']['value'] + KeyValueManager['csv_theme'][theme_id]['Theme'],cc.SpriteFrame,function (err,spriteFrame) {
+                        if(err){
+                            cc.log(err);
+                        }
+                        else {
+                            self.theme.spriteFrame = spriteFrame;
+                            cc.loader.setAutoReleaseRecursively(spriteFrame,true);
+                        }
+                    });
+                }
+            }
+        }
     },
     setData: function (data) {
         let self = this;

@@ -278,7 +278,7 @@ cc.Class({
         KeyValueManager['city_win_clip'] = this.city_win;
         KeyValueManager['city_lose_clip'] = this.city_lose;
         KeyValueManager['flag_clip'] = this.flag;
-        KeyValueManager['reconnect_layer'] = this.reconnect_layer;
+        KeyValueManager['reconnect_layer'] = cc.instantiate(this.reconnect_layer);
 
         Utils.loadCSV('csv_system', 'resources/csv/system.csv', 'ID', function () {
             Utils.loadCSV('csv_kv', 'resources/csv/kv.csv', 'key', function () {
@@ -317,7 +317,8 @@ cc.Class({
             if(KeyValueManager['platformLogin']){
                 let channel = 'SYS001';
                 KeyValueManager['channel_info'] = csv_system[channel];
-                KeyValueManager['EncryptKey'] += '_' + KeyValueManager['channel_info']['key'];
+                if(KeyValueManager['EncryptKey'] == 'De262tmqLW5w1zONwg6ajl63UJ7')  //以防多次进行+
+                    KeyValueManager['EncryptKey'] += '_' + KeyValueManager['channel_info']['key'];
                 Utils.platformLogin();
             }
            else {

@@ -3916,7 +3916,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "team_head",
     "_objFlags": 0,
     "_parent": {
       "__id__": 116
@@ -3936,9 +3936,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 63,
-      "g": 188,
-      "b": 236,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -3949,8 +3949,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 175,
-      "height": 40
+      "width": 90,
+      "height": 90
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -3958,8 +3958,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 2,
-      "y": -27
+      "x": 0,
+      "y": 69
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3969,28 +3969,30 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 117
     },
     "_enabled": true,
-    "_useOriginalSize": false,
-    "_actualFontSize": 25,
-    "_fontSize": 25,
-    "_lineHeight": 40,
-    "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
+    "_spriteFrame": {
+      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
     },
-    "_isSystemFontUsed": false,
-    "_spacingX": 0,
-    "_N$string": "红牛队第一队长",
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4000,7 +4002,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "f252eehqORO3ZgffyQp1OMU",
+    "fileId": "3801cw+HeFPaKYhwpPmb2Gu",
     "sync": false
   },
   {
@@ -4096,7 +4098,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "team_head",
+    "_name": "team_cown",
     "_objFlags": 0,
     "_parent": {
       "__id__": 116
@@ -4129,8 +4131,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
-      "height": 90
+      "width": 75,
+      "height": 69
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -4139,7 +4141,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 69
+      "y": -57
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -4154,97 +4156,6 @@
     "_objFlags": 0,
     "node": {
       "__id__": 123
-    },
-    "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
-    },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
-    },
-    "fileId": "3801cw+HeFPaKYhwpPmb2Gu",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "team_cown",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 116
-    },
-    "_children": [],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 127
-      }
-    ],
-    "_prefab": {
-      "__id__": 128
-    },
-    "_id": "",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 75,
-      "height": 69
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -96
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 126
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -4288,11 +4199,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 130
+        "__id__": 127
       }
     ],
     "_prefab": {
-      "__id__": 131
+      "__id__": 128
     },
     "_id": "",
     "_opacity": 255,
@@ -4335,7 +4246,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 129
+      "__id__": 126
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -4370,6 +4281,97 @@
   {
     "__type__": "cc.Node",
     "_name": "zidingyi_team1",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 116
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 130
+      }
+    ],
+    "_prefab": {
+      "__id__": 131
+    },
+    "_id": "",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 60,
+      "height": 60
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 181
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 129
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+    },
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
+    },
+    "fileId": "9f00876kX9KfqSxJNNY03XS",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "zidingyi_team2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 116
@@ -4430,7 +4432,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -4455,12 +4457,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "9f00876kX9KfqSxJNNY03XS",
+    "fileId": "730deBs/x9FEoyAKe0cRDoa",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team2",
+    "_name": "zidingyi_team3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 116
@@ -4521,7 +4523,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
+      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -4546,12 +4548,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "730deBs/x9FEoyAKe0cRDoa",
+    "fileId": "7ca13/8FFxG26NzOBQ7DHGB",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team3",
+    "_name": "zidingyi_team4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 116
@@ -4612,7 +4614,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
+      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -4637,12 +4639,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "7ca13/8FFxG26NzOBQ7DHGB",
+    "fileId": "29ac1MPdFBEF5K+Vv8boTDN",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team4",
+    "_name": "zidingyi_team5",
     "_objFlags": 0,
     "_parent": {
       "__id__": 116
@@ -4703,7 +4705,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
+      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -4728,12 +4730,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "29ac1MPdFBEF5K+Vv8boTDN",
+    "fileId": "830a2cxJYBFv4Riq0KsNwAP",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team5",
+    "_name": "zidingyi_team6",
     "_objFlags": 0,
     "_parent": {
       "__id__": 116
@@ -4794,98 +4796,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
-    },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
-    },
-    "fileId": "830a2cxJYBFv4Riq0KsNwAP",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "zidingyi_team6",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 116
-    },
-    "_children": [],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 148
-      }
-    ],
-    "_prefab": {
-      "__id__": 149
-    },
-    "_id": "",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 60,
-      "height": 60
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 181
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 147
-    },
-    "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "e0cb3d0c-6d98-4f36-a383-1be4ae603067"
+      "__uuid__": "b82157c7-44b4-4c89-b16e-65a62611160e"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -4911,6 +4822,95 @@
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
     "fileId": "428a3Lh0MlKP6vXoo7sryxX",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "New Label",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 116
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 148
+      }
+    ],
+    "_prefab": {
+      "__id__": 149
+    },
+    "_id": "",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 190,
+      "g": 93,
+      "b": 41,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 175,
+      "height": 25
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -135
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 147
+    },
+    "_enabled": true,
+    "_useOriginalSize": false,
+    "_actualFontSize": 25,
+    "_fontSize": 25,
+    "_lineHeight": 25,
+    "_enableWrapText": true,
+    "_N$file": {
+      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
+    },
+    "_isSystemFontUsed": false,
+    "_spacingX": 0,
+    "_N$string": "红牛队第一队长",
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
+    },
+    "fileId": "f252eehqORO3ZgffyQp1OMU",
     "sync": false
   },
   {
@@ -4948,18 +4948,21 @@
     },
     "_enabled": true,
     "memberName": {
-      "__id__": 118
+      "__id__": 148
     },
     "head": {
-      "__id__": 124
+      "__id__": 118
     },
     "theme": {
       "__id__": 150
     },
     "prepare": {
-      "__id__": 126
+      "__id__": 123
     },
     "belongTeam": [
+      {
+        "__id__": 129
+      },
       {
         "__id__": 132
       },
@@ -4974,9 +4977,6 @@
       },
       {
         "__id__": 144
-      },
-      {
-        "__id__": 147
       }
     ]
   },
@@ -5179,7 +5179,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "team_head",
     "_objFlags": 0,
     "_parent": {
       "__id__": 156
@@ -5199,9 +5199,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 63,
-      "g": 188,
-      "b": 236,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -5212,8 +5212,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 175,
-      "height": 40
+      "width": 90,
+      "height": 90
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -5221,8 +5221,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 2,
-      "y": -27
+      "x": 0,
+      "y": 69
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -5232,28 +5232,30 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 157
     },
     "_enabled": true,
-    "_useOriginalSize": false,
-    "_actualFontSize": 25,
-    "_fontSize": 25,
-    "_lineHeight": 40,
-    "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
+    "_spriteFrame": {
+      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
     },
-    "_isSystemFontUsed": false,
-    "_spacingX": 0,
-    "_N$string": "红牛队第一队长",
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5263,7 +5265,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "d9e9cDzJIdHWIugGA6Vttbc",
+    "fileId": "c35d2HjRbpIyqUx61h+9821",
     "sync": false
   },
   {
@@ -5354,12 +5356,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "8597386La1NGofg7io/Xsmh",
+    "fileId": "2846b66B3dL8akUcnDATAe/",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "team_head",
+    "_name": "team_cown",
     "_objFlags": 0,
     "_parent": {
       "__id__": 156
@@ -5392,8 +5394,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
-      "height": 90
+      "width": 75,
+      "height": 69
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -5402,7 +5404,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 69
+      "y": -57
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -5417,97 +5419,6 @@
     "_objFlags": 0,
     "node": {
       "__id__": 163
-    },
-    "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
-    },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
-    },
-    "fileId": "a59f78gQbhFsabXd5Y23Q2y",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "team_cown",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 156
-    },
-    "_children": [],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 167
-      }
-    ],
-    "_prefab": {
-      "__id__": 168
-    },
-    "_id": "",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 75,
-      "height": 69
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -96
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 166
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -5536,7 +5447,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "c0ebcotfZhPJq4XIl71nDc7",
+    "fileId": "969d9Pam3pAS6pOLxApse2u",
     "sync": false
   },
   {
@@ -5551,11 +5462,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 170
+        "__id__": 167
       }
     ],
     "_prefab": {
-      "__id__": 171
+      "__id__": 168
     },
     "_id": "",
     "_opacity": 255,
@@ -5598,7 +5509,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 169
+      "__id__": 166
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -5627,12 +5538,103 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "c8ca62yE+dMfYIjNt0JPUQ9",
+    "fileId": "b0210QB2ktGBrj+bcCIMa2q",
     "sync": false
   },
   {
     "__type__": "cc.Node",
     "_name": "zidingyi_team1",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 156
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 170
+      }
+    ],
+    "_prefab": {
+      "__id__": 171
+    },
+    "_id": "",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 60,
+      "height": 60
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 181
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 169
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+    },
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
+    },
+    "fileId": "f81c7Iba1hPTK29WZkezm1m",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "zidingyi_team2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 156
@@ -5693,7 +5695,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -5718,12 +5720,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "33911exZkVHdLepLV5qFa7j",
+    "fileId": "9bcf816nwJB9Lol1Bl490Ks",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team2",
+    "_name": "zidingyi_team3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 156
@@ -5784,7 +5786,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
+      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -5809,12 +5811,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "fdadapOcWtFJIzk4OSFUXwo",
+    "fileId": "2bf10O+0m5E1LDX4jeDLjWq",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team3",
+    "_name": "zidingyi_team4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 156
@@ -5875,7 +5877,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
+      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -5900,12 +5902,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "a0fe68Atu9BDLu/1WMUqbmZ",
+    "fileId": "210c0DfpZ9AfJeF+eBm7vOH",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team4",
+    "_name": "zidingyi_team5",
     "_objFlags": 0,
     "_parent": {
       "__id__": 156
@@ -5966,7 +5968,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
+      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -5991,12 +5993,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "6fc25boGqdMPbZ5T/Po+gQ0",
+    "fileId": "9ce7eQvrmZPPrXbvbMMnnqo",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team5",
+    "_name": "zidingyi_team6",
     "_objFlags": 0,
     "_parent": {
       "__id__": 156
@@ -6057,7 +6059,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
+      "__uuid__": "b82157c7-44b4-4c89-b16e-65a62611160e"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -6082,12 +6084,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "135deox361ND5aC4eDDtd66",
+    "fileId": "01f26jLotVB6buNK6eYdyOG",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team6",
+    "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 156
@@ -6107,9 +6109,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 190,
+      "g": 93,
+      "b": 41,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -6120,8 +6122,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 60
+      "width": 175,
+      "height": 25
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -6130,7 +6132,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 181
+      "y": -135
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6140,30 +6142,28 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 187
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "e0cb3d0c-6d98-4f36-a383-1be4ae603067"
+    "_useOriginalSize": false,
+    "_actualFontSize": 25,
+    "_fontSize": 25,
+    "_lineHeight": 25,
+    "_enableWrapText": true,
+    "_N$file": {
+      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
     },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
+    "_isSystemFontUsed": false,
+    "_spacingX": 0,
+    "_N$string": "红牛队第一队长",
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6173,7 +6173,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "9dff0HI1WFO2YdrOuHhETTX",
+    "fileId": "2a6eeG5m0FKUYLaoEZOmC3C",
     "sync": false
   },
   {
@@ -6211,18 +6211,21 @@
     },
     "_enabled": true,
     "memberName": {
-      "__id__": 158
+      "__id__": 188
     },
     "head": {
-      "__id__": 164
+      "__id__": 158
     },
     "theme": {
       "__id__": 190
     },
     "prepare": {
-      "__id__": 166
+      "__id__": 163
     },
     "belongTeam": [
+      {
+        "__id__": 169
+      },
       {
         "__id__": 172
       },
@@ -6237,9 +6240,6 @@
       },
       {
         "__id__": 184
-      },
-      {
-        "__id__": 187
       }
     ]
   },
@@ -6251,7 +6251,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "52764zL6ChPK6IRa17i+pwi",
+    "fileId": "259f4aXNNRM0oreXTvIoQuq",
     "sync": false
   },
   {
@@ -6288,7 +6288,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "24c69VMhXdC77RJf7cJt1xR",
+    "fileId": "b5c4emqtgZOYK7Qts1QMk6O",
     "sync": false
   },
   {
@@ -6442,7 +6442,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "team_head",
     "_objFlags": 0,
     "_parent": {
       "__id__": 196
@@ -6462,9 +6462,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 63,
-      "g": 188,
-      "b": 236,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -6475,8 +6475,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 175,
-      "height": 40
+      "width": 90,
+      "height": 90
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -6484,8 +6484,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 2,
-      "y": -27
+      "x": 0,
+      "y": 69
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6495,28 +6495,30 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 197
     },
     "_enabled": true,
-    "_useOriginalSize": false,
-    "_actualFontSize": 25,
-    "_fontSize": 25,
-    "_lineHeight": 40,
-    "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
+    "_spriteFrame": {
+      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
     },
-    "_isSystemFontUsed": false,
-    "_spacingX": 0,
-    "_N$string": "红牛队第一队长",
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6526,7 +6528,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "e5da31vkT9LqaIRXsg/qTBb",
+    "fileId": "aad05ABl9VCZ43P2j8JvuwS",
     "sync": false
   },
   {
@@ -6617,12 +6619,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "2b38fCQtAtA5bvM3rTrY1zC",
+    "fileId": "381048Z8m5Ezr2eWhCZZtkR",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "team_head",
+    "_name": "team_cown",
     "_objFlags": 0,
     "_parent": {
       "__id__": 196
@@ -6655,8 +6657,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
-      "height": 90
+      "width": 75,
+      "height": 69
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -6665,7 +6667,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 69
+      "y": -57
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6680,97 +6682,6 @@
     "_objFlags": 0,
     "node": {
       "__id__": 203
-    },
-    "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
-    },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
-    },
-    "fileId": "ffb87vCqChGu7Vix6UHKofL",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "team_cown",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 196
-    },
-    "_children": [],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 207
-      }
-    ],
-    "_prefab": {
-      "__id__": 208
-    },
-    "_id": "",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 75,
-      "height": 69
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -96
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 206
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -6799,7 +6710,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "64806neVppBQaIuUjg+amMP",
+    "fileId": "8a0efLsOylJ567IaBmuoEMv",
     "sync": false
   },
   {
@@ -6814,11 +6725,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 210
+        "__id__": 207
       }
     ],
     "_prefab": {
-      "__id__": 211
+      "__id__": 208
     },
     "_id": "",
     "_opacity": 255,
@@ -6861,7 +6772,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 209
+      "__id__": 206
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -6890,12 +6801,103 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "9faae8JdaFLUL6BqlI97VE4",
+    "fileId": "071b4anxJ9G55znjt+TsLIZ",
     "sync": false
   },
   {
     "__type__": "cc.Node",
     "_name": "zidingyi_team1",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 196
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 210
+      }
+    ],
+    "_prefab": {
+      "__id__": 211
+    },
+    "_id": "",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 60,
+      "height": 60
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 181
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 209
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+    },
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
+    },
+    "fileId": "5d543Yutc9IFY1di/kgU1cV",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "zidingyi_team2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 196
@@ -6956,7 +6958,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -6981,12 +6983,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "f5a85hPlepEiaP9fau/YB5x",
+    "fileId": "c5af7G2bfpHuYlxUlCXUTxd",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team2",
+    "_name": "zidingyi_team3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 196
@@ -7047,7 +7049,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
+      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -7072,12 +7074,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "a80aeSoPuRPu5Cqvfkb15dG",
+    "fileId": "6a3b77utDpK7pWHCrjD8UcQ",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team3",
+    "_name": "zidingyi_team4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 196
@@ -7138,7 +7140,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
+      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -7163,12 +7165,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "141946rUytH8rxQGOenfl/c",
+    "fileId": "5888ePdtKFAz6DFsmx6+o4q",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team4",
+    "_name": "zidingyi_team5",
     "_objFlags": 0,
     "_parent": {
       "__id__": 196
@@ -7229,7 +7231,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
+      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -7254,12 +7256,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "f186cuACFROs7n5vZzq5OiP",
+    "fileId": "cd69dzj/Q1BUr0XWUcJiqRT",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team5",
+    "_name": "zidingyi_team6",
     "_objFlags": 0,
     "_parent": {
       "__id__": 196
@@ -7320,7 +7322,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
+      "__uuid__": "b82157c7-44b4-4c89-b16e-65a62611160e"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -7345,12 +7347,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "ac3ec9taXlJYIcTofpDAaY1",
+    "fileId": "1f841tobzpKa5+qQY5UBYL8",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team6",
+    "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 196
@@ -7370,9 +7372,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 190,
+      "g": 93,
+      "b": 41,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -7383,8 +7385,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 60
+      "width": 175,
+      "height": 25
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -7393,7 +7395,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 181
+      "y": -135
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7403,30 +7405,28 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 227
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "e0cb3d0c-6d98-4f36-a383-1be4ae603067"
+    "_useOriginalSize": false,
+    "_actualFontSize": 25,
+    "_fontSize": 25,
+    "_lineHeight": 25,
+    "_enableWrapText": true,
+    "_N$file": {
+      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
     },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
+    "_isSystemFontUsed": false,
+    "_spacingX": 0,
+    "_N$string": "红牛队第一队长",
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7436,7 +7436,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "49354Gap4dIpYvEfrtZbeiT",
+    "fileId": "0e852+MlIpNCJ8m3PoCRTNO",
     "sync": false
   },
   {
@@ -7474,18 +7474,21 @@
     },
     "_enabled": true,
     "memberName": {
-      "__id__": 198
+      "__id__": 228
     },
     "head": {
-      "__id__": 204
+      "__id__": 198
     },
     "theme": {
       "__id__": 230
     },
     "prepare": {
-      "__id__": 206
+      "__id__": 203
     },
     "belongTeam": [
+      {
+        "__id__": 209
+      },
       {
         "__id__": 212
       },
@@ -7500,9 +7503,6 @@
       },
       {
         "__id__": 224
-      },
-      {
-        "__id__": 227
       }
     ]
   },
@@ -7514,7 +7514,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "c3486lK59FChp23YH7qh/we",
+    "fileId": "ac1cdTFuBlNTJtCuGo8o9zO",
     "sync": false
   },
   {
@@ -7551,7 +7551,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "aa876/uMyxKBKAxNuMGmhoV",
+    "fileId": "693f0eUJKpEGaWe5OZT0Jif",
     "sync": false
   },
   {
@@ -7705,7 +7705,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "team_head",
     "_objFlags": 0,
     "_parent": {
       "__id__": 236
@@ -7725,9 +7725,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 63,
-      "g": 188,
-      "b": 236,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -7738,8 +7738,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 175,
-      "height": 40
+      "width": 90,
+      "height": 90
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -7747,8 +7747,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 2,
-      "y": -27
+      "x": 0,
+      "y": 69
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7758,28 +7758,30 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 237
     },
     "_enabled": true,
-    "_useOriginalSize": false,
-    "_actualFontSize": 25,
-    "_fontSize": 25,
-    "_lineHeight": 40,
-    "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
+    "_spriteFrame": {
+      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
     },
-    "_isSystemFontUsed": false,
-    "_spacingX": 0,
-    "_N$string": "红牛队第一队长",
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7789,7 +7791,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "d4b9dboRyBI0ZFz/N3/jpva",
+    "fileId": "f44fbDHxGFKcYAhpd3BMs/4",
     "sync": false
   },
   {
@@ -7880,12 +7882,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "7d6337FPxdL9aPtFQiX0UMD",
+    "fileId": "097a8xJpFZDC4X6idmvLepe",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "team_head",
+    "_name": "team_cown",
     "_objFlags": 0,
     "_parent": {
       "__id__": 236
@@ -7918,8 +7920,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
-      "height": 90
+      "width": 75,
+      "height": 69
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -7928,7 +7930,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 69
+      "y": -57
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7943,97 +7945,6 @@
     "_objFlags": 0,
     "node": {
       "__id__": 243
-    },
-    "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
-    },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
-    },
-    "fileId": "15455i4dv5O1LkdXOEt8PHE",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "team_cown",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 236
-    },
-    "_children": [],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 247
-      }
-    ],
-    "_prefab": {
-      "__id__": 248
-    },
-    "_id": "",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 75,
-      "height": 69
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -96
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 246
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -8062,7 +7973,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "2194dpEl8lBRb+lqxAxWx4Q",
+    "fileId": "0181bLaZ3tHNJc8pMafINCN",
     "sync": false
   },
   {
@@ -8077,11 +7988,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 250
+        "__id__": 247
       }
     ],
     "_prefab": {
-      "__id__": 251
+      "__id__": 248
     },
     "_id": "",
     "_opacity": 255,
@@ -8124,7 +8035,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 249
+      "__id__": 246
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -8153,12 +8064,103 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "beb88VIdr5HQpixWhP45dSG",
+    "fileId": "1dc50hTPl1LLogrVZNtNCJw",
     "sync": false
   },
   {
     "__type__": "cc.Node",
     "_name": "zidingyi_team1",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 236
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 250
+      }
+    ],
+    "_prefab": {
+      "__id__": 251
+    },
+    "_id": "",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 60,
+      "height": 60
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 181
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 249
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+    },
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
+    },
+    "fileId": "de8b8813ixEJZyfTxWo0aTt",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "zidingyi_team2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 236
@@ -8219,7 +8221,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -8244,12 +8246,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "61f18gRbo5Ega8YOCojCmAb",
+    "fileId": "b6799yXj/1CToBICXuH7qf4",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team2",
+    "_name": "zidingyi_team3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 236
@@ -8310,7 +8312,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
+      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -8335,12 +8337,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "521a05L/lpMUbHG8RE3RNGQ",
+    "fileId": "94996Udx+pH8q8GfDD/GQbp",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team3",
+    "_name": "zidingyi_team4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 236
@@ -8401,7 +8403,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
+      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -8426,12 +8428,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "7212347ZOVMM7Px4VQ5eRc1",
+    "fileId": "82905mBZVBDrpL19nJ6J4Vs",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team4",
+    "_name": "zidingyi_team5",
     "_objFlags": 0,
     "_parent": {
       "__id__": 236
@@ -8492,7 +8494,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
+      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -8517,12 +8519,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "65a881696xLk51QybqszMrc",
+    "fileId": "daf00LW6PhC7KvICbuGuiaC",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team5",
+    "_name": "zidingyi_team6",
     "_objFlags": 0,
     "_parent": {
       "__id__": 236
@@ -8583,7 +8585,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
+      "__uuid__": "b82157c7-44b4-4c89-b16e-65a62611160e"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -8608,12 +8610,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "15427igQVBB3YDxQtyhuRYx",
+    "fileId": "3d534OdoflCQokEKnb7L/b6",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team6",
+    "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 236
@@ -8633,9 +8635,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 190,
+      "g": 93,
+      "b": 41,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -8646,8 +8648,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 60
+      "width": 175,
+      "height": 25
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -8656,7 +8658,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 181
+      "y": -135
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -8666,30 +8668,28 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 267
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "e0cb3d0c-6d98-4f36-a383-1be4ae603067"
+    "_useOriginalSize": false,
+    "_actualFontSize": 25,
+    "_fontSize": 25,
+    "_lineHeight": 25,
+    "_enableWrapText": true,
+    "_N$file": {
+      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
     },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
+    "_isSystemFontUsed": false,
+    "_spacingX": 0,
+    "_N$string": "红牛队第一队长",
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8699,7 +8699,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "dc415uo35tEe6XBq/sOW+wH",
+    "fileId": "57fb7I8f9BHIpv08o8q8/vH",
     "sync": false
   },
   {
@@ -8737,18 +8737,21 @@
     },
     "_enabled": true,
     "memberName": {
-      "__id__": 238
+      "__id__": 268
     },
     "head": {
-      "__id__": 244
+      "__id__": 238
     },
     "theme": {
       "__id__": 270
     },
     "prepare": {
-      "__id__": 246
+      "__id__": 243
     },
     "belongTeam": [
+      {
+        "__id__": 249
+      },
       {
         "__id__": 252
       },
@@ -8763,9 +8766,6 @@
       },
       {
         "__id__": 264
-      },
-      {
-        "__id__": 267
       }
     ]
   },
@@ -8777,7 +8777,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "5d188iS249DCYHtOzhZlnvo",
+    "fileId": "b3311uG8tdPW7Zkcv2VLjr9",
     "sync": false
   },
   {
@@ -8814,7 +8814,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "8a471CaAhlPNbb8wxCqxj67",
+    "fileId": "fda43ad5XBLxIY/eYhiwdXR",
     "sync": false
   },
   {
@@ -8968,7 +8968,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "team_head",
     "_objFlags": 0,
     "_parent": {
       "__id__": 276
@@ -8988,9 +8988,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 63,
-      "g": 188,
-      "b": 236,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -9001,8 +9001,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 175,
-      "height": 40
+      "width": 90,
+      "height": 90
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -9010,8 +9010,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 2,
-      "y": -27
+      "x": 0,
+      "y": 69
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -9021,28 +9021,30 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 277
     },
     "_enabled": true,
-    "_useOriginalSize": false,
-    "_actualFontSize": 25,
-    "_fontSize": 25,
-    "_lineHeight": 40,
-    "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
+    "_spriteFrame": {
+      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
     },
-    "_isSystemFontUsed": false,
-    "_spacingX": 0,
-    "_N$string": "红牛队第一队长",
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -9052,7 +9054,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "c3967CXmOREnoE8bQJ9AG5X",
+    "fileId": "a9f2fkMQYdER4skptJt8NDl",
     "sync": false
   },
   {
@@ -9143,12 +9145,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "30a6eef9AdJVYGKQpi5jC9B",
+    "fileId": "bbcf0qjnr1IeKpTrvsOL+lv",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "team_head",
+    "_name": "team_cown",
     "_objFlags": 0,
     "_parent": {
       "__id__": 276
@@ -9181,8 +9183,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
-      "height": 90
+      "width": 75,
+      "height": 69
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -9191,7 +9193,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 69
+      "y": -57
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -9206,97 +9208,6 @@
     "_objFlags": 0,
     "node": {
       "__id__": 283
-    },
-    "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
-    },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
-    },
-    "fileId": "01344lkLPBMmLgneMickRr5",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "team_cown",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 276
-    },
-    "_children": [],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 287
-      }
-    ],
-    "_prefab": {
-      "__id__": 288
-    },
-    "_id": "",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 75,
-      "height": 69
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -96
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 286
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -9325,7 +9236,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "760f2wUn2FAtqWR3usKq3Ov",
+    "fileId": "30acfGun5BNYpqzCe82nH+6",
     "sync": false
   },
   {
@@ -9340,11 +9251,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 290
+        "__id__": 287
       }
     ],
     "_prefab": {
-      "__id__": 291
+      "__id__": 288
     },
     "_id": "",
     "_opacity": 255,
@@ -9387,7 +9298,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 289
+      "__id__": 286
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -9416,12 +9327,103 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "cebf2jmtqBApYS63dEpSGKs",
+    "fileId": "858d2FtRWJNAboVdicLN2SS",
     "sync": false
   },
   {
     "__type__": "cc.Node",
     "_name": "zidingyi_team1",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 276
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 290
+      }
+    ],
+    "_prefab": {
+      "__id__": 291
+    },
+    "_id": "",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 60,
+      "height": 60
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 181
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 289
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+    },
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
+    },
+    "fileId": "66e39AaHbNL85Kk6Ygb071f",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "zidingyi_team2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 276
@@ -9482,7 +9484,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -9507,12 +9509,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "1932eQfN/1BVpMnmjDYHhQM",
+    "fileId": "4d1b6AEyKhN/K0fafmfYsoN",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team2",
+    "_name": "zidingyi_team3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 276
@@ -9573,7 +9575,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
+      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -9598,12 +9600,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "c30dczmBklOGqYZXdAiY7Tr",
+    "fileId": "4bc1ffDH/dJ0Yfi8aclJPAI",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team3",
+    "_name": "zidingyi_team4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 276
@@ -9664,7 +9666,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
+      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -9689,12 +9691,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "f37e7Apfy9CaIGlXj74+gjU",
+    "fileId": "619f4uN+xdKBboFJar1K6cN",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team4",
+    "_name": "zidingyi_team5",
     "_objFlags": 0,
     "_parent": {
       "__id__": 276
@@ -9755,7 +9757,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
+      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -9780,12 +9782,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "60919JvYppGk5YpngNSNDQl",
+    "fileId": "cf334qW5/BCZL5rYr1NFR/u",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team5",
+    "_name": "zidingyi_team6",
     "_objFlags": 0,
     "_parent": {
       "__id__": 276
@@ -9846,7 +9848,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
+      "__uuid__": "b82157c7-44b4-4c89-b16e-65a62611160e"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -9871,12 +9873,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "14516M5/VZPfIKuJXBAnDwu",
+    "fileId": "e4525X2v9lIIbnjUaQcwCwI",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team6",
+    "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 276
@@ -9896,9 +9898,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 190,
+      "g": 93,
+      "b": 41,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -9909,8 +9911,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 60
+      "width": 175,
+      "height": 25
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -9919,7 +9921,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 181
+      "y": -135
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -9929,30 +9931,28 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 307
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "e0cb3d0c-6d98-4f36-a383-1be4ae603067"
+    "_useOriginalSize": false,
+    "_actualFontSize": 25,
+    "_fontSize": 25,
+    "_lineHeight": 25,
+    "_enableWrapText": true,
+    "_N$file": {
+      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
     },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
+    "_isSystemFontUsed": false,
+    "_spacingX": 0,
+    "_N$string": "红牛队第一队长",
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -9962,7 +9962,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "cc3fdAtsd9L2Y5fjJnH6Vvy",
+    "fileId": "1247c1syDpJqanruDt6bVoo",
     "sync": false
   },
   {
@@ -10000,18 +10000,21 @@
     },
     "_enabled": true,
     "memberName": {
-      "__id__": 278
+      "__id__": 308
     },
     "head": {
-      "__id__": 284
+      "__id__": 278
     },
     "theme": {
       "__id__": 310
     },
     "prepare": {
-      "__id__": 286
+      "__id__": 283
     },
     "belongTeam": [
+      {
+        "__id__": 289
+      },
       {
         "__id__": 292
       },
@@ -10026,9 +10029,6 @@
       },
       {
         "__id__": 304
-      },
-      {
-        "__id__": 307
       }
     ]
   },
@@ -10040,7 +10040,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "956d2I41XxKPbtdGIZF86xZ",
+    "fileId": "535eeI7KhZL9YXvxBCRaMVj",
     "sync": false
   },
   {
@@ -10077,7 +10077,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "4f83bkPsSRIlKOJrxzbYi13",
+    "fileId": "d5282lafS1O4KXxJMYGcRYX",
     "sync": false
   },
   {
@@ -10231,7 +10231,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "team_head",
     "_objFlags": 0,
     "_parent": {
       "__id__": 316
@@ -10251,9 +10251,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 63,
-      "g": 188,
-      "b": 236,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -10264,8 +10264,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 175,
-      "height": 40
+      "width": 90,
+      "height": 90
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -10273,8 +10273,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 2,
-      "y": -27
+      "x": 0,
+      "y": 69
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -10284,28 +10284,30 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 317
     },
     "_enabled": true,
-    "_useOriginalSize": false,
-    "_actualFontSize": 25,
-    "_fontSize": 25,
-    "_lineHeight": 40,
-    "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
+    "_spriteFrame": {
+      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
     },
-    "_isSystemFontUsed": false,
-    "_spacingX": 0,
-    "_N$string": "红牛队第一队长",
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -10315,7 +10317,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "8c354IFY0xEppaXwILhU6SP",
+    "fileId": "74d01+MusxCw7Cb3jr4xtNA",
     "sync": false
   },
   {
@@ -10406,12 +10408,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "b332bsT+E9HTr/jTj1HrsrM",
+    "fileId": "f8924yMed1F2ohNIDybmZvi",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "team_head",
+    "_name": "team_cown",
     "_objFlags": 0,
     "_parent": {
       "__id__": 316
@@ -10444,8 +10446,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
-      "height": 90
+      "width": 75,
+      "height": 69
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -10454,7 +10456,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 69
+      "y": -57
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -10469,97 +10471,6 @@
     "_objFlags": 0,
     "node": {
       "__id__": 323
-    },
-    "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "f1aa1127-ad2a-4ff9-b364-a96dda4ecd4d"
-    },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
-    },
-    "fileId": "cb6d5rqva1MyabsUM2gtoii",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "team_cown",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 316
-    },
-    "_children": [],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 327
-      }
-    ],
-    "_prefab": {
-      "__id__": 328
-    },
-    "_id": "",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 75,
-      "height": 69
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -96
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 326
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -10588,7 +10499,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "acac8mu47pBdbP6coWQ7O9K",
+    "fileId": "cd5686XWIxIKpOhUC5p+LqD",
     "sync": false
   },
   {
@@ -10603,11 +10514,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 330
+        "__id__": 327
       }
     ],
     "_prefab": {
-      "__id__": 331
+      "__id__": 328
     },
     "_id": "",
     "_opacity": 255,
@@ -10650,7 +10561,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 329
+      "__id__": 326
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -10679,12 +10590,103 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "f7a19ErMDJPT7BBLkDJ4BGO",
+    "fileId": "af35eWDKDBGf7RZB6jNEpfE",
     "sync": false
   },
   {
     "__type__": "cc.Node",
     "_name": "zidingyi_team1",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 316
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 330
+      }
+    ],
+    "_prefab": {
+      "__id__": 331
+    },
+    "_id": "",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 60,
+      "height": 60
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 181
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 329
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+    },
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
+    },
+    "fileId": "047d0P8URJFTqncUIxE1ODj",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "zidingyi_team2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 316
@@ -10745,7 +10747,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "6a17b39d-71bb-4fb3-9e34-52fe2b50231d"
+      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -10770,12 +10772,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "c7626jjhtpDT74oLqP28RFs",
+    "fileId": "0aa2df5dVVHG63VfHOV9d93",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team2",
+    "_name": "zidingyi_team3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 316
@@ -10836,7 +10838,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "58a32af1-b65e-4748-96f5-e38d52a31105"
+      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -10861,12 +10863,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "2946bpamp9AYLC3xI6qq+41",
+    "fileId": "5cbd1O5wHZKDal2nETYHX2E",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team3",
+    "_name": "zidingyi_team4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 316
@@ -10927,7 +10929,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "d0abc7bf-0b22-4db8-8a98-003ad7351f4d"
+      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -10952,12 +10954,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "ed7a1wlnZpKmZMGOFq3ZbWS",
+    "fileId": "22049t0SGVEtqkjPYHhRGlM",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team4",
+    "_name": "zidingyi_team5",
     "_objFlags": 0,
     "_parent": {
       "__id__": 316
@@ -11018,7 +11020,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "08dd7c6c-afa0-4762-b83a-5e7f1a3bf688"
+      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -11043,12 +11045,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "c0ab6wtU6NKjLViJCMYXMMP",
+    "fileId": "5525cXYdu9PHL+j0nvginKN",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team5",
+    "_name": "zidingyi_team6",
     "_objFlags": 0,
     "_parent": {
       "__id__": 316
@@ -11109,7 +11111,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2708a919-faa0-4d0d-8f48-8fcb42bc9872"
+      "__uuid__": "b82157c7-44b4-4c89-b16e-65a62611160e"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -11134,12 +11136,12 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "23389n76khF0K1naRekZ5/r",
+    "fileId": "5bb05CbT3dGtZjLdSX54sB6",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "zidingyi_team6",
+    "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 316
@@ -11159,9 +11161,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 190,
+      "g": 93,
+      "b": 41,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -11172,8 +11174,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 60
+      "width": 175,
+      "height": 25
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -11182,7 +11184,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 181
+      "y": -135
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -11192,30 +11194,28 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 347
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "e0cb3d0c-6d98-4f36-a383-1be4ae603067"
+    "_useOriginalSize": false,
+    "_actualFontSize": 25,
+    "_fontSize": 25,
+    "_lineHeight": 25,
+    "_enableWrapText": true,
+    "_N$file": {
+      "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
     },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
+    "_isSystemFontUsed": false,
+    "_spacingX": 0,
+    "_N$string": "红牛队第一队长",
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -11225,7 +11225,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "ae49eWQsLhFb6B+aHMW5F8K",
+    "fileId": "80b08sK+FVMcpO6K6LKQmHs",
     "sync": false
   },
   {
@@ -11263,18 +11263,21 @@
     },
     "_enabled": true,
     "memberName": {
-      "__id__": 318
+      "__id__": 348
     },
     "head": {
-      "__id__": 324
+      "__id__": 318
     },
     "theme": {
       "__id__": 350
     },
     "prepare": {
-      "__id__": 326
+      "__id__": 323
     },
     "belongTeam": [
+      {
+        "__id__": 329
+      },
       {
         "__id__": 332
       },
@@ -11289,9 +11292,6 @@
       },
       {
         "__id__": 344
-      },
-      {
-        "__id__": 347
       }
     ]
   },
@@ -11303,7 +11303,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "fe14e6rUN9B6Z1+4/Gkrh97",
+    "fileId": "3eabbAkp9pLyY4PQexZn1Wo",
     "sync": false
   },
   {
@@ -11340,7 +11340,7 @@
     "asset": {
       "__uuid__": "d0482eac-21b7-4b12-8a2e-9ad23ef21bf7"
     },
-    "fileId": "2364cgcr5FHLJOhikNJ3KvN",
+    "fileId": "f29e0w+CQxPtoDU2zDaEYaI",
     "sync": false
   },
   {

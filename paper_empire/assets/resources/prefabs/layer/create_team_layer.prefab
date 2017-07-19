@@ -760,9 +760,9 @@
     "_N$lineHeight": 40,
     "_N$fontColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 213,
+      "g": 138,
+      "b": 72,
       "a": 255
     },
     "_N$placeholder": "请输入战队名称",

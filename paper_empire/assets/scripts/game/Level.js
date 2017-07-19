@@ -743,8 +743,7 @@ cc.Class({
                             KeyValueManager['turn'] = turn + 1;
                         }
                         if (KeyValueManager['history'][0]['pid_2_camp']) {
-                            let id = KeyValueManager['p' +
-                            'ayer_data']['player_id'];
+                            let id = KeyValueManager['player_data']['player_id'];
                             let camp = KeyValueManager['history'][0]['pid_2_camp'][id];
                             KeyValueManager['camp'] = camp;
                         }
@@ -1202,7 +1201,7 @@ cc.Class({
         },this);
         this.node.on('touchend',this.setCursor,this);
         let self = this;
-        this.node.on('touchmove',function (event) {cc.director.getPhysicsManager()
+        this.node.on('touchmove',function (event) {
             let touches = event.getTouches();
             if (touches.length >= 2){
                 let parent = self.node.parent;
@@ -2475,6 +2474,7 @@ cc.Class({
              let currentRound = KeyValueManager['currentRound'];
              this._roundCount =  KeyValueManager['fastCurrentRound'] + parseInt(fastTime / (KeyValueManager['round_time'] * 1000));
              KeyValueManager['roundCount'] = this._roundCount;
+             KeyValueManager['currentRound'] = this._roundCount + 1;
              //每回合游戏显示界面更新
              EventManager.pushEvent({'msg_id': 'GAME_LAYER'});
              this._state = FightState.E_STATE_START;
@@ -2494,7 +2494,6 @@ cc.Class({
                      this.dataShow();
                  }
              }
-             KeyValueManager['currentRound'] = this._roundCount + 1;
          }
      }
     });

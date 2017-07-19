@@ -65,7 +65,7 @@ cc.Class({
                     this.memberName[i].string = data[2][i][j][0];
                 }
                 let self = this;
-                cc.loader.loadRes(KeyValueManager['csv_kv']['spr_path']['value'] + data[2][i][j][1], cc.SpriteFrame,
+                cc.loader.loadRes(data[2][i][j][1], cc.SpriteFrame,
                     function (err, spriteFrame) {
                     if(err){
                         cc.log(err);

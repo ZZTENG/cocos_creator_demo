@@ -137,6 +137,7 @@ let NetManager = {
         if(pNetEvent['error_code']){
             ErrorCodeManager.handle_error_code(pNetEvent['error_code']);
         }
+        cc.log('msg_id: ',pNetEvent['msg_id']);
         if(pNetEvent['error_code'] == 10004){           //token not right
             cc.sys.localStorage.removeItem('player_data')
             cc.director.preloadScene('openning',function (error, asset) {

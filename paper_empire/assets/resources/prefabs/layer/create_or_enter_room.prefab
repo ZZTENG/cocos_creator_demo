@@ -1640,7 +1640,7 @@
       "__id__": 45
     },
     "_enabled": true,
-    "transition": 2,
+    "transition": 3,
     "pressedColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1699,9 +1699,9 @@
     "target": {
       "__id__": 1
     },
-    "component": "",
-    "handler": "",
-    "customEventData": "cancel"
+    "component": "CreateOrEnterRoomLayer",
+    "handler": "onClick",
+    "customEventData": "return"
   },
   {
     "__type__": "cc.PrefabInfo",

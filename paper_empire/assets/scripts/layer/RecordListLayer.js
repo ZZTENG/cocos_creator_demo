@@ -117,6 +117,11 @@ cc.Class({
                             let camps = KeyValueManager['history'][0]['camps'];
                             KeyValueManager['camps'] = camps;
                         }
+                        if (KeyValueManager['history'][0]['pid_2_camp']) {
+                            let id = KeyValueManager['player_data']['player_id'];
+                            let camp = KeyValueManager['history'][0]['pid_2_camp'][id];
+                            KeyValueManager['camp'] = camp;
+                        }
                         if (KeyValueManager['history'][0]['team_win']) {
                             let team_win = KeyValueManager['history'][0]['team_win'];
                             KeyValueManager['team_win'] = team_win;

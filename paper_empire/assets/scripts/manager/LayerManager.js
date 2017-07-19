@@ -109,23 +109,32 @@ let LayerManager = cc.Class(
                     cc.loader.loadRes(
                         this._layerPath + currentLayerID, cc.Prefab,
                         function (err, prefab) {
-                            cc.loader.setAutoReleaseRecursively(self._layerPath + currentLayerID, true);
-                            let node = cc.instantiate(prefab);
-                            self.activeLayerList[currentLayerID] = node;
-                            node.parent = self.node;
-                            node.setPosition(0, 0);
-                            if (currentLayerID == 'wait_layer') {
-                                KeyValueManager['load_wait_layer'] = true;
-                                if (KeyValueManager['wait_to_close']) {
-                                    EventManager.pushEvent(
-                                        {
-                                            'msg_id': 'CLOSE_LAYER_WITH_ID',
-                                            'layer_id': 'wait_layer',
-                                            'destroy': true
-                                        });
-                                    KeyValueManager['wait_to_close'] = false;
-                                    KeyValueManager['load_wait_layer'] = false;
-                                    return;
+                            if (err) {
+                                if(cc.sys.isBrowser){
+                                    KeyValueManager['reconnect_layer'].active = true;
+                                    KeyValueManager['reconnect_layer'].parent = self.node;
+                                    KeyValueManager['reconnect_layer'].setPosition(0, 0);
+                                }
+                            }
+                            else {
+                                cc.loader.setAutoReleaseRecursively(self._layerPath + currentLayerID, true);
+                                let node = cc.instantiate(prefab);
+                                self.activeLayerList[currentLayerID] = node;
+                                node.parent = self.node;
+                                node.setPosition(0, 0);
+                                if (currentLayerID == 'wait_layer') {
+                                    KeyValueManager['load_wait_layer'] = true;
+                                    if (KeyValueManager['wait_to_close']) {
+                                        EventManager.pushEvent(
+                                            {
+                                                'msg_id': 'CLOSE_LAYER_WITH_ID',
+                                                'layer_id': 'wait_layer',
+                                                'destroy': true
+                                            });
+                                        KeyValueManager['wait_to_close'] = false;
+                                        KeyValueManager['load_wait_layer'] = false;
+                                        return;
+                                    }
                                 }
                             }
                         }
