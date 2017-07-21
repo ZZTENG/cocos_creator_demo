@@ -65,14 +65,14 @@ cc.Class({
                     this.memberName[i].string = data[2][i][j][0];
                 }
                 let self = this;
-                cc.loader.loadRes(data[2][i][j][1], cc.SpriteFrame,
-                    function (err, spriteFrame) {
+                cc.loader.loadRes(data[2][i][j][1], function (err, tex) {
                     if(err){
                         cc.log(err);
                     }
                     else {
                         number = i + j;
-                        self.head[number].spriteFrame = spriteFrame;
+                        let frame = new cc.SpriteFrame(tex);
+                        self.head[number].spriteFrame = frame;
                         cc.loader.setAutoReleaseRecursively(
                             KeyValueManager['csv_kv']['spr_path']['value'] + data[2][i][j][1], true);
                     }

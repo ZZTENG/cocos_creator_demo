@@ -688,7 +688,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Node",
+    "_name": "New Node_2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 9
@@ -1032,7 +1032,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Node",
+    "_name": "New Node_3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 9
@@ -1376,7 +1376,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Node",
+    "_name": "New Node_4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 9
@@ -1859,8 +1859,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 91.09,
-      "height": 40
+      "width": 127.73,
+      "height": 50
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -1887,16 +1887,16 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 40,
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_actualFontSize": 50,
+    "_fontSize": 50,
+    "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "f7c08d96-be58-42fd-aa23-bd8107d2c526"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
-    "_N$string": "返 回",
+    "_N$string": "返  回",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -4383,11 +4383,14 @@
     },
     "_enabled": true,
     "_defaultClip": {
-      "__uuid__": "dddf7b12-9901-4638-b3be-910a3a749181"
+      "__uuid__": "97b1a29f-3c11-4a21-8227-2435a6fb7d19"
     },
     "_clips": [
       {
-        "__uuid__": "dddf7b12-9901-4638-b3be-910a3a749181"
+        "__uuid__": "97b1a29f-3c11-4a21-8227-2435a6fb7d19"
+      },
+      {
+        "__uuid__": "028ee9c5-8d74-440e-ab9b-29ca71eff16e"
       }
     ],
     "playOnLoad": false

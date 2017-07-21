@@ -105,10 +105,10 @@ cc.Class({
             if(this._shopList[i].node.active)
                 this._shopList[i].node.active = false;
         }
-        let clip = this.getComponent(cc.Animation);
-        if (clip) {
-            clip.stop();
-        }
+        KeyValueManager['anim_out_state'].off('finished',this.onCloseLayer,this);
+    },
+    onCloseLayer: function () {
+        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
     },
     onClick:function (event, id) {
         if(id){
@@ -116,7 +116,12 @@ cc.Class({
         }
         switch (id) {
             case 'return': {
-                EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+                let clip = this.getComponent(cc.Animation);
+                let clips = clip.getClips();
+                if (clips && clips[1]) {
+                    KeyValueManager['anim_out_state'] = clip.play(clips[1].name);
+                }
+                KeyValueManager['anim_out_state'].on('finished',this.onCloseLayer,this);
             }
             break;
         }

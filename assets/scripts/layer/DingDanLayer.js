@@ -54,7 +54,7 @@ cc.Class({
                     amount: KeyValueManager['dingdan_rmb'],
                     memo: KeyValueManager['orderInfo']['memo'],
                     cpOrderId: KeyValueManager['orderInfo']['cpOrderId'],
-                    // paychannel:0,
+                    paychannel:'',
                     call_back_url:'https://sandboxpay.17m3.com/paytest/demo_agent_return.aspx',
                     merchant_url:'https://sandboxpay.17m3.com/paytest/demo_agent_return.aspx',
                     sign: KeyValueManager['orderInfo']['sign'],

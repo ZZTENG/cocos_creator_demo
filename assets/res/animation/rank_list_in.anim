@@ -1,0 +1,389 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "rank_list_in",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1.0833333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "head": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                1036,
+                0
+              ]
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": [
+                0,
+                0
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "bg": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                984,
+                0
+              ]
+            },
+            {
+              "frame": 0.4166666666666667,
+              "value": [
+                0,
+                0
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.4166666666666667,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "New ToggleGroup/toggle2": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                7,
+                17
+              ]
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": [
+                7,
+                -99
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "New ToggleGroup/toggle3": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                11,
+                19
+              ]
+            },
+            {
+              "frame": 1,
+              "value": [
+                11,
+                -204
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            },
+            {
+              "frame": 1,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "New ToggleGroup/toggle4": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                16,
+                13
+              ]
+            },
+            {
+              "frame": 1,
+              "value": [
+                16,
+                -309
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            },
+            {
+              "frame": 1,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "New ToggleGroup/toggle5": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                14,
+                11
+              ]
+            },
+            {
+              "frame": 1.0833333333333333,
+              "value": [
+                14,
+                -436
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            },
+            {
+              "frame": 1.0833333333333333,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "New ToggleGroup/toggle6": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                14,
+                18
+              ]
+            },
+            {
+              "frame": 1.0833333333333333,
+              "value": [
+                14,
+                -541
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            },
+            {
+              "frame": 1.0833333333333333,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "bg/New ToggleGroup/toggle2": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.4166666666666667,
+              "value": [
+                128,
+                -99
+              ]
+            },
+            {
+              "frame": 0.75,
+              "value": [
+                7,
+                -99
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.4166666666666667,
+              "value": 0
+            },
+            {
+              "frame": 0.75,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "bg/New ToggleGroup/toggle3": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.5,
+              "value": [
+                138,
+                -204
+              ]
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": [
+                11,
+                -204
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.5,
+              "value": 0
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "bg/New ToggleGroup/toggle4": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.5833333333333334,
+              "value": [
+                134,
+                -309
+              ]
+            },
+            {
+              "frame": 0.9166666666666666,
+              "value": [
+                16,
+                -309
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.5833333333333334,
+              "value": 0
+            },
+            {
+              "frame": 0.9166666666666666,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "bg/New ToggleGroup/toggle5": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                132,
+                -416
+              ]
+            },
+            {
+              "frame": 1,
+              "value": [
+                14,
+                -416
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            },
+            {
+              "frame": 1,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "bg/New ToggleGroup/toggle6": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.75,
+              "value": [
+                135,
+                -521
+              ]
+            },
+            {
+              "frame": 1.0833333333333333,
+              "value": [
+                14,
+                -521
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.75,
+              "value": 0
+            },
+            {
+              "frame": 1.0833333333333333,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "New Sprite(Splash)": {
+        "props": {
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": 255
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

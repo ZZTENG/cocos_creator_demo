@@ -93,7 +93,12 @@ cc.Class({
             }
             break;
             case "return": {
-                EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+                let clip = this.getComponent(cc.Animation);
+                let clips = clip.getClips();
+                if (clips && clips[1]) {
+                    KeyValueManager['anim_out_state'] = clip.play(clips[1].name);
+                }
+                KeyValueManager['anim_out_state'].on('finished',this.onCloseLayer,this);
             }
                 break;
         }
@@ -119,6 +124,9 @@ cc.Class({
         this._rankList = [];
         this._rankList.push(this.rankUnit.getComponent('NewRankUnit'));
         // this.reuse();
+    },
+    onCloseLayer: function () {
+        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
     },
     onEnable: function () {
         EventManager.registerHandler(C2G_REQ_GET_GAME_RANK , this);
@@ -249,10 +257,7 @@ cc.Class({
         }
         if(this.scrollView.node)
             this.scrollView.node.off('scroll-to-bottom', this.callback, this);
-        let clip = this.getComponent(cc.Animation);
-        if (clip && clip.currentClip) {
-            clip.stop();
-        }
+        KeyValueManager['anim_out_state'].off('finished',this.onCloseLayer,this);
     },
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {

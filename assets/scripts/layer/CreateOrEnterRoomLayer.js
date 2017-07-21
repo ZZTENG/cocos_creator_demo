@@ -42,10 +42,18 @@ cc.Class({
             }
             break;
             case 'return': {
-                EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
+                let clip = this.getComponent(cc.Animation);
+                let clips = clip.getClips();
+                if (clips && clips[1]) {
+                    KeyValueManager['anim_out_state'] = clip.play(clips[1].name);
+                }
+                KeyValueManager['anim_out_state'].on('finished',this.onCloseLayer,this);
             }
             break;
         }
+    },
+    onCloseLayer: function () {
+        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
     },
     // use this for initialization
     onLoad: function () {
@@ -61,10 +69,7 @@ cc.Class({
 
     onDisable: function () {
         EventManager.removeHandler(C2G_REQ_ENTER_GAME_ROOM, this);
-        let clip = this.getComponent(cc.Animation);
-        if (clip) {
-            clip.stop();
-        }
+        KeyValueManager['anim_out_state'].off('finished',this.onCloseLayer,this);
     },
     processEvent: function (event) {
         let msg_id = event['msg_id'];

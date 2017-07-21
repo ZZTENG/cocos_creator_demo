@@ -31,7 +31,12 @@ cc.Class({
         }
       switch (id) {
           case 'close': {
-              EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
+              let clip = this.getComponent(cc.Animation);
+              let clips = clip.getClips();
+              if (clips && clips[1]) {
+                  KeyValueManager['anim_out_state'] = clip.play(clips[1].name);
+              }
+              KeyValueManager['anim_out_state'].on('finished',this.onCloseLayer,this);
           }
           break;
           case 'music': {
@@ -70,6 +75,9 @@ cc.Class({
           }
       }
     },
+    onCloseLayer: function () {
+        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+    },
     // use this for initialization
     onLoad: function () {
         this.music_open.active = true;
@@ -106,10 +114,7 @@ cc.Class({
         }
     },
     onDisable: function () {
-        let clip = this.getComponent(cc.Animation);
-        if (clip) {
-            clip.stop();
-        }
+        KeyValueManager['anim_out_state'].off('finished',this.onCloseLayer,this);
     }
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
