@@ -114,7 +114,9 @@ cc.Class({
         }
     },
     onDisable: function () {
-        KeyValueManager['anim_out_state'].off('finished',this.onCloseLayer,this);
+        if(KeyValueManager['anim_out_state']) {
+            KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
+        }
     }
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {

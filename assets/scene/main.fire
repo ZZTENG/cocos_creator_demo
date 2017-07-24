@@ -5545,7 +5545,7 @@
       "__id__": 138
     },
     "_enabled": true,
-    "isAlignOnce": true,
+    "isAlignOnce": false,
     "_target": null,
     "_alignFlags": 33,
     "_left": 450,

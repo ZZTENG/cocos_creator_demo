@@ -105,7 +105,9 @@ cc.Class({
             if(this._shopList[i].node.active)
                 this._shopList[i].node.active = false;
         }
-        KeyValueManager['anim_out_state'].off('finished',this.onCloseLayer,this);
+        if(KeyValueManager['anim_out_state']) {
+            KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
+        }
     },
     onCloseLayer: function () {
         EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});

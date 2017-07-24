@@ -69,7 +69,9 @@ cc.Class({
 
     onDisable: function () {
         EventManager.removeHandler(C2G_REQ_ENTER_GAME_ROOM, this);
-        KeyValueManager['anim_out_state'].off('finished',this.onCloseLayer,this);
+        if(KeyValueManager['anim_out_state']) {
+            KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
+        }
     },
     processEvent: function (event) {
         let msg_id = event['msg_id'];

@@ -71,12 +71,12 @@ cc.Class({
                              // if(themeId != KeyValueManager['csv_kv']['default_theme']['value']){
                              //     Utils.useItem(ITEM_PACKAGE,themeId,'count',1);
                              // }
+                             KeyValueManager['currentTime'] = event['time'] * 1000;
                              KeyValueManager['loadingWaitMsg'] = false;
                              if(this.loadingOver && KeyValueManager['onLoadingEnd'])
                              {
                                  KeyValueManager['onLoadingEnd'].call();
                              }
-                             KeyValueManager['currentTime'] = event['time'] * 1000;
                          }
                      }
                          break;

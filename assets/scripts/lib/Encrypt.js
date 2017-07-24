@@ -1,7 +1,7 @@
 /**
  * Created by ZZTENG on 2017/07/07.
  **/
-var encrypt	=	module.exports;
+    var encrypt	=	module.exports;
 
 encrypt.encrypt_key = "testkey";	//密钥
 

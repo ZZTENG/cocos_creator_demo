@@ -90,7 +90,9 @@ cc.Class({
         // if(KeyValueManager['storeId']){
         //     delete KeyValueManager['storeId'];
         // }
-        KeyValueManager['anim_out_state'].off('finished',this.onCloseLayer,this);
+        if(KeyValueManager['anim_out_state']) {
+            KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
+        }
     },
     processEvent: function (event) {
         let msg_id = event['msg_id'];

@@ -247,7 +247,6 @@ cc.Class({
     },
     // use this for initialization
     onLoad: function () {
-
         EventManager.registerHandler(C2G_REQ_LOGIN, this);
         EventManager.registerHandler(C2G_REQ_PLAYER_LOGIN, this);
         EventManager.registerHandler(C2G_REQ_WATCH_HISTORY,this);

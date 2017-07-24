@@ -32,7 +32,9 @@ cc.Class({
         }
     },
     onDisable: function () {
-        KeyValueManager['anim_out_state'].off('finished',this.onCloseLayer,this);
+        if(KeyValueManager['anim_out_state']) {
+            KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
+        }
     },
     onCloseLayer: function () {
         EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});

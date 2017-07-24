@@ -125,7 +125,9 @@ cc.Class({
         EventManager.removeHandler(C2G_REQ_CHOOSE_LOGO,this);
         EventManager.removeHandler(C2G_REQ_CHOOSE_THEME,this);
         EventManager.removeHandler(C2G_REQ_GET_PLAYER,this);
-        KeyValueManager['anim_out_state'].off('finished',this.onCloseLayer,this);
+        if(KeyValueManager['anim_out_state']) {
+            KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
+        }
     },
     onClick:function (event, id) {
         if(id){
