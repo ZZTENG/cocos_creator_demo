@@ -176,6 +176,8 @@ cc.Class({
     },
     // use this for initialization
     onLoad: function () {
+        KeyValueManager['screen_direct'] = ScreenDirect.Portrait;
+        KeyValueManager['currentScene'] == CurrentScene.SCENE_MAIN;
         KeyValueManager['player_data']['player_info']['guide']  = true;
         if(KeyValueManager['player_data'] && KeyValueManager['player_data']['player_info'])
         {

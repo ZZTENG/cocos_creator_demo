@@ -47,16 +47,16 @@ cc.Class({
         else {
             this.rankSprite.node.active = false;
         }
-        // cc.loader.load(data[1], function (err, tex) {
-        //     if(err){
-        //         cc.log(err);
-        //     }
-        //     else {
-        //         let frame = new cc.SpriteFrame(tex);
-        //         self.headSprite.spriteFrame = frame;
-        //         cc.loader.setAutoReleaseRecursively(frame,true);
-        //     }
-        // });
+        cc.loader.load(data[1], function (err, tex) {
+            if(err){
+                cc.log(err);
+            }
+            else {
+                let frame = new cc.SpriteFrame(tex);
+                self.headSprite.spriteFrame = frame;
+                cc.loader.setAutoReleaseRecursively(frame,true);
+            }
+        });
         this.player_name.string = data[2];
         this.grade.string = data[3];
     },

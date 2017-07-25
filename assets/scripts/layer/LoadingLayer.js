@@ -28,6 +28,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         EventManager.registerHandler(C2G_REQ_GAME_START, this);
+        KeyValueManager['screen_direct'] = ScreenDirect.Portrait;
         this.loadingOver = false;
         let self = this;
 

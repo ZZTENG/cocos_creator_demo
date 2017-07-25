@@ -815,7 +815,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 660,
-      "height": 1116
+      "height": 1050
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -1035,7 +1035,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 1,
-      "y": 537
+      "y": 459
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1756,7 +1756,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": -1,
       "y": -28
     },
     "_skewX": 0,
@@ -1838,7 +1838,7 @@
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
-    "_N$string": "一棒宝石",
+    "_N$string": "一捧宝石",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2068,7 +2068,7 @@
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
     "_N$spacingX": 6,
-    "_N$spacingY": 10,
+    "_N$spacingY": 30,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0
   },

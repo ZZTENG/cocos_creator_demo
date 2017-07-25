@@ -14,6 +14,7 @@ cc.Class({
         //    readonly: false,    // optional, default is false
         // },
         // ...
+        animNode: cc.Node,
         msgLabel:cc.Label,
 
     },
@@ -22,16 +23,16 @@ cc.Class({
         this.reuse();
     },
     reuse: function () {
-        this.msgLabel.getComponent(cc.Animation).play();
-        let msgLabel = this.node.getChildByName("msg_label");
-        let label = msgLabel.getComponent('LabelLocalized');
-        label.textKey = KeyValueManager['msg_text'];
+        this.animNode.getComponent(cc.Animation).play();
+        // let msgLabel = this.node.getChildByName("msg_label");
+        // let label = msgLabel.getComponent('LabelLocalized');
+        this.msgLabel.textKey = KeyValueManager['msg_text'];
 
         var classMsgLayer = function () {
             EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
-            this.msgLabel.getComponent(cc.Animation).off("finished", classMsgLayer)
+            this.animNode.getComponent(cc.Animation).off("finished", classMsgLayer)
         }.bind(this);
-        this.msgLabel.getComponent(cc.Animation).on("finished",classMsgLayer);
+        this.animNode.getComponent(cc.Animation).on("finished",classMsgLayer);
         // 这里的 this 指向 component
     }
     // called every frame, uncomment this function to activate update callback

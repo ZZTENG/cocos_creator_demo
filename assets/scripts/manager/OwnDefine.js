@@ -37,6 +37,10 @@ window.ThemeName = cc.Enum({
     TM0010: '雪人',
     TM0011: '基本主题'
 });
+window.ScreenDirect = cc.Enum({
+    LandSpace: 1,
+    Portrait: 2,
+});
 const Guide_Unit = {          //单元小组编号
     Login_Start: 1101,
     Game_level: 1102,

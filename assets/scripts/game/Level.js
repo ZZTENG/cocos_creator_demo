@@ -1002,6 +1002,7 @@ cc.Class({
          this.mapWidth = KeyValueManager['width'];
          this.mapHeight = KeyValueManager['height'];
          KeyValueManager['currentScene'] = CurrentScene.SCENE_GAME;
+        KeyValueManager['screen_direct'] = ScreenDirect.Portrait;
          KeyValueManager['guideNode'] = {};
          KeyValueManager['arr'] = {};
          KeyValueManager['moveRound'] = 0;

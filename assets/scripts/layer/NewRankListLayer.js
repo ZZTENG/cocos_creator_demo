@@ -225,13 +225,10 @@ cc.Class({
                         }
                         let teams = event['rank_info'];
                         if (teams.length < this.index) {
-                            this.index = teams.length;
                             this._sendMsg = false;
                         }
-                        if (this.index == 0)
-                            this._sendMsg = false;
                         let data = [];
-                        for (let i = 0; i < this.index; i++) {
+                        for (let i = 0; i < teams.length; i++) {
                             data.push(teams[i]);
                         }
                         this._dataSource.data = data;

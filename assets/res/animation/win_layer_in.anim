@@ -523,6 +523,20 @@
             }
           ]
         }
+      },
+      "New Sprite(Splash)": {
+        "props": {
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": 177
+            }
+          ]
+        }
       }
     }
   },

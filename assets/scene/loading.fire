@@ -70,6 +70,9 @@
       },
       {
         "__id__": 23
+      },
+      {
+        "__id__": 24
       }
     ],
     "_prefab": null,
@@ -849,5 +852,15 @@
     "_heartTime": null,
     "_suspendTime": null,
     "_reloginTime": null
+  },
+  {
+    "__type__": "b004eMslU1DPaD9U+36JJZe",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "_canMiss": null
   }
 ]

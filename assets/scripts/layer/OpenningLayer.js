@@ -246,7 +246,7 @@ cc.Class({
         EventManager.removeHandler(C2G_REQ_WATCH_HISTORY,this);
     },
     // use this for initialization
-    onLoad: function () {
+    onLoad: function () {cc.view.getVisibleSize ()
         EventManager.registerHandler(C2G_REQ_LOGIN, this);
         EventManager.registerHandler(C2G_REQ_PLAYER_LOGIN, this);
         EventManager.registerHandler(C2G_REQ_WATCH_HISTORY,this);
@@ -254,6 +254,7 @@ cc.Class({
         // KeyValueManager['test_sign'] = true;
         // KeyValueManager['test_count'] = 0;
         cc.game.setFrameRate(30);                   //设置游戏帧率
+        // cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
         if(!KeyValueManager['audioId_bgm'])                 //setting bgm
             KeyValueManager['audioId_bgm'] = cc.audioEngine.play(this.musicURL,true,KeyValueManager['effect_volume']);
         //开始动画
@@ -281,7 +282,6 @@ cc.Class({
 
         Utils.loadCSV('csv_system', 'resources/csv/system.csv', 'ID', function () {
             Utils.loadCSV('csv_kv', 'resources/csv/kv.csv', 'key', function () {
-
             });
             let csv_system = KeyValueManager['csv_system'];
             let url = '';

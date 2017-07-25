@@ -48,7 +48,7 @@ cc.Class({
                  }
              },
              send_cancel: function () {
-                 this.scheduleOnce(this.send_match,6);
+                 this.scheduleOnce(this.send_match,0.001);
                  let event1 = {
                      url:KeyValueManager['server_url'],
                      msg_id:C2G_REQ_GAME_MATCH_CANCEL,
@@ -61,7 +61,7 @@ cc.Class({
 
 
                  EventManager.registerHandler(G2C_REQ_GET_MATCH_COUNT, this);
-                 this.schedule(this.send_cancel,0.001);
+                 this.schedule(this.send_cancel,6);
                  if(KeyValueManager['game_mode'] || KeyValueManager['game_mode'] == 0) {
                      let event1 = {
                          url: KeyValueManager['server_url'],
