@@ -26,10 +26,13 @@
     "_components": [
       {
         "__id__": 43
+      },
+      {
+        "__id__": 44
       }
     ],
     "_prefab": {
-      "__id__": 44
+      "__id__": 45
     },
     "_id": "",
     "_opacity": 255,
@@ -939,10 +942,12 @@
   },
   {
     "__type__": "cc.ClickEvent",
-    "target": null,
-    "component": "ExitGameLayer",
-    "handler": "onClick",
-    "customEventData": "cancel"
+    "target": {
+      "__id__": 1
+    },
+    "component": "GetCoinLayer",
+    "handler": "onClickClose",
+    "customEventData": ""
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1356,6 +1361,18 @@
       }
     ],
     "playOnLoad": false
+  },
+  {
+    "__type__": "39fb3uacaxB36cZwlqRF77G",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "coinCount": {
+      "__id__": 35
+    }
   },
   {
     "__type__": "cc.PrefabInfo",

@@ -55,11 +55,7 @@ cc.Class({
                      NetManager.sendMsg(event1);
                  }
                  if(time - this._reloginTime > SUSPEND_LOGIN_TIME){
-                     KeyValueManager['EncryptKey'] = 'De262tmqLW5w1zONwg6ajl63UJ7';
-                     KeyValueManager['currentScene'] = CurrentScene.SCENE_OPENGING;
-                     cc.director.preloadScene('openning',function (error, asset) {
-                         cc.director.loadScene('openning');
-                     });
+                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id':  'msg_button', 'hide_preLayer':false});
                  }
                  this._reloginTime = time;
              },

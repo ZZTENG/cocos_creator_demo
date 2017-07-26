@@ -510,7 +510,7 @@
       "__id__": 11
     },
     "_enabled": true,
-    "isAlignOnce": true,
+    "isAlignOnce": false,
     "_target": null,
     "_alignFlags": 8,
     "_left": -467,
@@ -1407,7 +1407,7 @@
     "_enabled": true,
     "__themeId": null,
     "themeSprite": {
-      "__id__": 39
+      "__id__": 37
     },
     "themeName": {
       "__id__": 34

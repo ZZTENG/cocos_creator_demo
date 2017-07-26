@@ -58,16 +58,15 @@ cc.Class({
         }
     },
     onCloseLayer: function () {
-        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER_WITH_ID', 'layer_id': 'choose_theme_layer', 'destroy': true});
     },
     // use this for initialization
     onLoad: function () {
         KeyValueManager['selectThemeNode'] = this.selectNode;
         this._themeList = [];
         this._themeList.push(this.themeUnit.getComponent('ThemeUnit'));
-        this.reuse();
     },
-    reuse:function () {
+    onEnable:function () {
         this._dataSource = this.getComponent('DataSource');
         this._dataSource = this._dataSource.getUnit();
         this._dataSource.host = this;

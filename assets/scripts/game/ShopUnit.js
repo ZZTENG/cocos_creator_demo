@@ -77,6 +77,7 @@ cc.Class({
             case 'buy': {
                 let coins = Utils.getItem(CURRENCY_PACKAGE,this._itemId,'count');
                 if(coins >= this._price) {
+                    KeyValueManager['storeId'] = this.storeId;
                     KeyValueManager['buy_price'] = this._price;
                     KeyValueManager['buy_themeId'] = this._themeId;
                     KeyValueManager['buy_useCount'] = this._useCount;
@@ -91,12 +92,13 @@ cc.Class({
                     NetManager.sendMsg(event1);
                 }
                 else {
-                    EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_coin_layer','hide_preLayer': false});
                     if(this._itemId == COIN_ID){
                         KeyValueManager['msg_text'] ='金币不足，请充值';
+                        EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_2_layer','hide_preLayer': false});
                     }
                     else if(this._itemId == GOLD_ID){
                         KeyValueManager['msg_text'] ='砖石不足，请充值';
+                        EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_coin_layer','hide_preLayer': false});
                     }
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                 }

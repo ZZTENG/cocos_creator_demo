@@ -40,7 +40,12 @@ cc.Class({
                          room_id: KeyValueManager['roomId']
                      };
                      NetManager.sendMsg(event1);
-                     EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
+                 let clip = this.getComponent(cc.Animation);
+                 let clips = clip.getClips();
+                 if (clips && clips[1]) {
+                     KeyValueManager['anim_out_state'] = clip.play(clips[1].name);
+                 }
+                 KeyValueManager['anim_out_state'].on('finished',this.onCloseLayer,this);
                  }
                  break;
              case 'change': {
@@ -81,6 +86,9 @@ cc.Class({
                  break;
          }
      },
+    onCloseLayer: function () {
+        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+    },
     onTeamUnit:function (index, unit, data) {
         if (unit&&unit.setData)
             unit.setData(data);
@@ -119,10 +127,9 @@ cc.Class({
          EventManager.removeHandler(C2G_REQ_CANCEL_READY, this);
          EventManager.removeHandler(C2G_REQ_TEAM_ENTER_ROOM , this);
 
-         let clip = this.getComponent(cc.Animation);
-         if (clip && clip.currentClip) {
-             clip.stop();
-         }
+        if(KeyValueManager['anim_out_state']) {
+            KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
+        }
      },
     setDataSource: function () {
         let data = [];

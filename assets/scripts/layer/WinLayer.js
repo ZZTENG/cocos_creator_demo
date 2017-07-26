@@ -87,7 +87,6 @@ cc.Class({
         for(let i = 0;i < this.memberList.length;i += 1)
             this.memberList[i].node.active = false;
         let keys = Object.keys(KeyValueManager['panel']);
-        //��ʤ���Ķ�������ǰ��
         let teamWin = [];
         for(let i =0;i < keys.length;i += 1){
             let team = this.whichTeam(keys[i]);

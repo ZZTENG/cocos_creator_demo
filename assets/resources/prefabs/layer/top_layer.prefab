@@ -1748,7 +1748,7 @@
     },
     "component": "TopLayer",
     "handler": "onClick",
-    "customEventData": "buy"
+    "customEventData": "buy_diamond"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2093,7 +2093,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 67
@@ -2122,8 +2122,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 37,
-      "height": 37
+      "width": 30,
+      "height": 30
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -2131,8 +2131,8 @@
     "_scaleY": 1.01,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 244,
-      "y": 2
+      "x": 73,
+      "y": 4
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2228,7 +2228,7 @@
     },
     "component": "TopLayer",
     "handler": "onClick",
-    "customEventData": "buy"
+    "customEventData": "buy_coin"
   },
   {
     "__type__": "cc.PrefabInfo",

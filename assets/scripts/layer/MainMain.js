@@ -177,7 +177,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         KeyValueManager['screen_direct'] = ScreenDirect.Portrait;
-        KeyValueManager['currentScene'] == CurrentScene.SCENE_MAIN;
+        KeyValueManager['currentScene'] = CurrentScene.SCENE_MAIN;
         KeyValueManager['player_data']['player_info']['guide']  = true;
         if(KeyValueManager['player_data'] && KeyValueManager['player_data']['player_info'])
         {
@@ -200,6 +200,7 @@ cc.Class({
         EventManager.registerHandler(C2G_REQ_GET_CHARGE_STATUS,this);
         EventManager.registerHandler( 'CLOSE_ALL_LAYER', this);
         EventManager.registerHandler(C2G_REQ_UPDATE_PLAYER,this);
+        EventManager.registerHandler(C2G_REQ_BUY_STORE_ITEM, this);
         if(KeyValueManager['roomId']){             //忽略新手新手指引
             EventManager.registerHandler(C2G_REQ_ENTER_GAME_ROOM,this);
             let event1 = {
@@ -250,6 +251,7 @@ cc.Class({
         EventManager.removeHandler(C2G_REQ_GET_CHARGE_STATUS,this);
         EventManager.removeHandler( 'CLOSE_ALL_LAYER', this);
         EventManager.removeHandler(C2G_REQ_UPDATE_PLAYER,this);
+        EventManager.removeHandler(C2G_REQ_BUY_STORE_ITEM, this);
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP,this.exitGame,this);
         if(KeyValueManager['paper_empire_roomId']){
             EventManager.removeHandler(C2G_REQ_ENTER_GAME_ROOM,this);
@@ -446,6 +448,39 @@ cc.Class({
                 //处理新手指引的主界面
             }
                 break;
+            case C2G_REQ_BUY_STORE_ITEM: {
+                if(event['result']){
+                    let payType = JSON.parse(KeyValueManager['csv_store'][KeyValueManager['storeId']]['PayType']);
+                    if(payType == PayType.Coin || payType == PayType.Diamond) {
+                        Utils.useItem(CURRENCY_PACKAGE, KeyValueManager['buy_itemId'], 'count', KeyValueManager['buy_price']);
+                        KeyValueManager['msg_text'] = '购买成功';
+                        EventManager.pushEvent({
+                            'msg_id': 'OPEN_LAYER',
+                            'layer_id': 'msg_layer',
+                            'hide_preLayer': false
+                        });
+                        if (KeyValueManager['player_data']['player_info']['theme_list'].indexOf(KeyValueManager['buy_themeId']) == -1) {
+                            KeyValueManager['player_data']['player_info']['theme_list'].push(KeyValueManager['buy_themeId'])
+                            Utils.setItem(ITEM_PACKAGE, KeyValueManager['buy_themeId'], 'count', KeyValueManager['buy_useCount']);
+                        }
+                        else {
+                            Utils.addItem(ITEM_PACKAGE, KeyValueManager['buy_themeId'], 'count', KeyValueManager['buy_useCount']);
+                        }
+                    }
+                    else if(payType == PayType.DiamondToCoin){
+                        let consume_package = JSON.parse(KeyValueManager['csv_store'][KeyValueManager['storeId']]['RealConsume'])[0][0];
+                        let consume_id = JSON.parse(KeyValueManager['csv_store'][KeyValueManager['storeId']]['RealConsume'])[0][1];
+                        let consume_count = JSON.parse(KeyValueManager['csv_store'][KeyValueManager['storeId']]['RealConsume'])[0][3];
+                        let content_package = JSON.parse(KeyValueManager['csv_store'][KeyValueManager['storeId']]['Content'])[0][0];
+                        let content_id = JSON.parse(KeyValueManager['csv_store'][KeyValueManager['storeId']]['Content'])[0][1];
+                        let content_count = JSON.parse(KeyValueManager['csv_store'][KeyValueManager['storeId']]['Content'])[0][3];
+                        Utils.useItem(consume_package,consume_id,'count',consume_count);
+                        Utils.addItem(content_package,content_id,'count',content_count)
+                    }
+                    EventManager.pushEvent({'msg_id': 'update_coin'});
+                }
+            }
+            break;
         }
     },
     // called every frame, uncomment this function to activate update callback

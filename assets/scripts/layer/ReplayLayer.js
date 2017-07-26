@@ -55,7 +55,7 @@ cc.Class({
         }
         switch (id) {
             case 'play': {
-                KeyValueManager['history'] = {}
+                KeyValueManager['history'] = {};
                 KeyValueManager['initReplay'] = true;
                 KeyValueManager['history_start'] = 0;
                 let start = KeyValueManager['history_start'];

@@ -177,10 +177,16 @@ cc.Class({
                 EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'player_info_layer','hide_preLayer': false});
             }
                 break;
-            case 'buy': {
+            case 'buy_diamond': {
+                KeyValueManager['pay_type'] = PayType.RMB;
                 EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_coin_layer','hide_preLayer': false});
             }
                 break;
+            case 'buy_coin': {
+                KeyValueManager['pay_type'] = PayType.DiamondToCoin;
+                EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_2_layer','hide_preLayer': false});
+            }
+            break;
         }
     },
     processEvent: function (event) {
@@ -190,7 +196,7 @@ cc.Class({
                 if (event['result']) {
                     KeyValueManager['msg_text'] = '充值成功';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer': false});
-                    this.coin_label.string = Utils.getItem(CURRENCY_PACKAGE, GOLD_ID, 'count');
+                    this.diamond_label.string = Utils.getItem(CURRENCY_PACKAGE, GOLD_ID, 'count');
                 }
             }
                 break;

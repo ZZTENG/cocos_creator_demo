@@ -140,6 +140,8 @@ cc.Class({
                              if(event['win'])
                              {
                                  Utils.addItem(CURRENCY_PACKAGE,COIN_ID,'count',event['coin']);
+                                 KeyValueManager['win_get_coin'] = event['coin'];
+
                                  cc.audioEngine.play(KeyValueManager['win_clip'],false,KeyValueManager['effect_volume']);
                                  EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'win_layer', 'hide_preLayer':false});
                              }

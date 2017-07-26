@@ -34,7 +34,7 @@ cc.Class({
          this.memberNameBG.active = false;
          this.head.node.active = false;
          this.headBorder.node.active = false;
-         this.themeBG.node.active = false;
+         // this.themeBG.node.active = false;
          this.tickOutBtn.node.active = false;
          this.addBtn.node.active = false;
          this.crownSpr.node.active = false;
@@ -44,19 +44,19 @@ cc.Class({
                 this.addBtn.node.active = true;
              return;
          }
-         this.themeBG.node.active = true;
+         // this.themeBG.node.active = true;
          this.memberNameBG.active = true;
          this.memberName.string = data[0];
          let theme_id = data[1];
-         cc.loader.loadRes(KeyValueManager['csv_kv']['person_theme_path']['value'] + KeyValueManager['csv_theme'][theme_id]['Theme'],cc.SpriteFrame,function (err,spriteFrame) {
-             if(err){
-                 cc.log(err);
-             }
-             else {
-                 self.themeBG.spriteFrame = spriteFrame;
-                 cc.loader.setAutoReleaseRecursively(spriteFrame,true);
-             }
-         });
+         // cc.loader.loadRes(KeyValueManager['csv_kv']['person_theme_path']['value'] + KeyValueManager['csv_theme'][theme_id]['Theme'],cc.SpriteFrame,function (err,spriteFrame) {
+         //     if(err){
+         //         cc.log(err);
+         //     }
+         //     else {
+         //         self.themeBG.spriteFrame = spriteFrame;
+         //         cc.loader.setAutoReleaseRecursively(spriteFrame,true);
+         //     }
+         // });
          if(data[5])
          {
              this.crownSpr.node.active = true;

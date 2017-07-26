@@ -35,14 +35,21 @@ cc.Class({
             KeyValueManager['order_require'][cpOrderId]['timestamp'] = String(KeyValueManager['orderInfo']['timestamp']);
         }
     },
-
+    onCloseLayer: function () {
+        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+    },
     onClick: function (event,id) {
         if(id){
             cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
         }
         switch (id) {
             case 'cancel': {
-                EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+                let clip = this.getComponent(cc.Animation);
+                let clips = clip.getClips();
+                if (clips && clips[1]) {
+                    KeyValueManager['anim_out_state'] = clip.play(clips[1].name);
+                }
+                KeyValueManager['anim_out_state'].on('finished',this.onCloseLayer,this);
             }
             break;
             case 'pay': {
@@ -88,6 +95,9 @@ cc.Class({
             delete KeyValueManager['dingdan_coin'];
         if(KeyValueManager['dingdan_rmb'])
             delete KeyValueManager['dingdan_rmb'];
+        if(KeyValueManager['anim_out_state']) {
+            KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
+        }
     },
     processEvent: function (event) {
         let msg_id = event['msg_id'];

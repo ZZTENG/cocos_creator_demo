@@ -58,7 +58,7 @@ cc.Class({
         }
     },
     onCloseLayer: function () {
-        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER_WITH_ID', 'layer_id': 'choose_logo_layer', 'destroy': true});
     },
     // use this for initialization
     onLoad: function () {

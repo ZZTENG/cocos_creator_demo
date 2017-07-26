@@ -33,7 +33,6 @@ cc.Class({
         this.reuse();
     },
     reuse: function () {
-        EventManager.registerHandler(C2G_REQ_BUY_STORE_ITEM, this);
         this.shopUnit.active = false;
         this._dataSource = this.getComponent('DataSource');
         this._dataSource = this._dataSource.getUnit();
@@ -63,26 +62,6 @@ cc.Class({
             clip.play();
         }
     },
-    processEvent: function (event) {
-        let msg_id = event['msg_id'];
-        switch (msg_id){
-            case C2G_REQ_BUY_STORE_ITEM: {
-                if(event['result']){
-                    Utils.useItem(CURRENCY_PACKAGE,KeyValueManager['buy_itemId'],'count',KeyValueManager['buy_price']);
-                    KeyValueManager['msg_text'] ='购买成功';
-                    EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
-                    EventManager.pushEvent({'msg_id':'update_coin'});
-                    if(KeyValueManager['player_data']['player_info']['theme_list'].indexOf(KeyValueManager['buy_themeId']) == -1){
-                        KeyValueManager['player_data']['player_info']['theme_list'].push(KeyValueManager['buy_themeId'])
-                        Utils.setItem(ITEM_PACKAGE,KeyValueManager['buy_themeId'],'count',KeyValueManager['buy_useCount']);
-                    }
-                    else {
-                        Utils.addItem(ITEM_PACKAGE,KeyValueManager['buy_themeId'],'count',KeyValueManager['buy_useCount']);
-                    }
-                }
-            }
-        }
-    },
     onTeamUnit:function (index, unit, data) {
         if (unit&&unit.setData)
             unit.setData(data);
@@ -100,7 +79,6 @@ cc.Class({
         return this._shopList[index];
     },
     onDisable: function () {
-        EventManager.removeHandler(C2G_REQ_BUY_STORE_ITEM, this);
         for(let i = 0;i < this._shopList.length;i += 1){
             if(this._shopList[i].node.active)
                 this._shopList[i].node.active = false;
