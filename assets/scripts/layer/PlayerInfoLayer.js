@@ -279,7 +279,7 @@ cc.Class({
                         }
                         if (record[GameMode.MODE_2V2V2]) {
                             this.gameCount_2v2v2.string = '场次:  ' + record[GameMode.MODE_2V2V2]['game_count'];
-                            this.rate_2v2v2.string =  '胜率:  ' + ecord[GameMode.MODE_2V2V2]['rate'] + '%';
+                            this.rate_2v2v2.string =  '胜率:  ' + record[GameMode.MODE_2V2V2]['rate'] + '%';
                         }
                         if (record[GameMode.MODE_IDENTITY]) {
                             this.gameCount_3k.string = '场次:  ' + record[GameMode.MODE_IDENTITY]['game_count'];

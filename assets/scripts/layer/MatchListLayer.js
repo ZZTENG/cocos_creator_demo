@@ -142,7 +142,7 @@ cc.Class({
         this._dataSource.bindFunc = this.onmatchUnit;
         this._dataSource.getElementFunc = this.getTeamElement;
         let clip = this.getComponent(cc.Animation);
-        if (clip && clip.currentClip) {
+        if (clip) {
             clip.play();
         }
         this.scrollView.node.on('scroll-to-bottom', this.callback, this)

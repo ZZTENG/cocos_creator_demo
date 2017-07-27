@@ -137,10 +137,7 @@ cc.Class({
 
                  }
                  else if(event['error_code'] == 10010){
-                     cc.sys.localStorage.removeItem('player_data')
-                     cc.director.preloadScene('openning',function (error, asset) {
-                         cc.director.loadScene('openning');
-                     });
+                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_button', 'hide_preLayer': false});
                  }
              }
              break
