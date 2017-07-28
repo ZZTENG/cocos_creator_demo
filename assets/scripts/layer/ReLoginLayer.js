@@ -25,7 +25,6 @@ cc.Class({
     onclick: function () {
         cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
         KeyValueManager['EncryptKey'] = 'De262tmqLW5w1zONwg6ajl63UJ7';
-        KeyValueManager['currentScene'] = CurrentScene.SCENE_OPENGING;
         cc.director.preloadScene('openning',function (error, asset) {
             cc.director.loadScene('openning');
         });

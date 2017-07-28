@@ -37,7 +37,7 @@ cc.Class({
             case 'replay': {
                 EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
                 EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'replay_layer', 'hide_preLayer':false});
-                KeyValueManager['mapNode'].setScale(0.5,0.5);
+                // KeyValueManager['mapNode'].setScale(0.5,0.5);
                 KeyValueManager['mapNode'].setPosition(0,0);
             }
             break;
@@ -117,7 +117,7 @@ cc.Class({
             this.memberList[i].killCount.string = KeyValueManager['panel'][keys[i]]['kill'];
             this.memberList[i].landCount.string = KeyValueManager['panel'][keys[i]]['count'];
             if(KeyValueManager['platformLogin']) {
-                cc.loader.load(KeyValueManager['panel'][keys[i]]['head'], function (err, tex) {
+                cc.loader.load(KeyValueManager['head'][keys[i]], function (err, tex) {
                     if(err){
                         cc.log(err);
                     }

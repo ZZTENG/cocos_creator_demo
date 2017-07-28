@@ -337,6 +337,14 @@ cc.Class({
                     let self = this;
 
                     EventManager.pushEvent({'msg_id': 'CLOSE_ALL_LAYER'});
+                    //消耗主题，TM0011是默认主题
+                    if(KeyValueManager['player_data']['player_info']['theme_id'] != 'TM0011'){
+                        Utils.useItem(ITEM_PACKAGE,KeyValueManager['player_data']['player_info']['theme_id'],1);
+                        let count = Utils.getItem(ITEM_PACKAGE,KeyValueManager['player_data']['player_info']['theme_id'],'count');
+                        if(count == 0){
+                            KeyValueManager['player_data']['player_info']['theme_id'] = 'TM0011';
+                        }
+                    }
                     //初始map数据
                     // event['map_data'] = {145: [3, -1, 0], 146: [3, -1, 0], 122: [3, -1, 0], 166: [1, 1, 0], 143: [3, -1, 0]};
                     // event['camps'] = [[0], [1]];
@@ -349,31 +357,10 @@ cc.Class({
                     KeyValueManager['camps'] = event['camps'];
                     KeyValueManager['camp'] = event['camp'];
                     KeyValueManager['name'] = event['name'];
+                    KeyValueManager['head'] = event['head'];
                     KeyValueManager['width'] = event['width'];
                     KeyValueManager['height'] = event['height'];
                     let theme_id = event['theme'];
-                    for (let i in theme_id) {
-                        let id = theme_id[i];
-                        let teamType = i;
-                        cc.loader.loadRes(KeyValueManager['csv_kv']['theme_path']['value'] + KeyValueManager['csv_theme'][id]['Theme'], cc.Prefab,
-                            function (err, prefab) {
-                                KeyValueManager['themeList'][teamType] = prefab;
-                            });
-                    }
-                    for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
-                        for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
-                            let camp = KeyValueManager['camps'][i][j];
-                            cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
-                                function (err, prefab) {
-                                    if(err){
-                                        cc.log(err);
-                                    }
-                                    else{
-                                        KeyValueManager['land_around'][camp] = prefab;
-                                    }
-                                });
-                        }
-                    }
                     KeyValueManager['onLoadingEnd'] = function () {
                         cc.director.loadScene(KeyValueManager['preloadScene']);
                     };
@@ -392,6 +379,32 @@ cc.Class({
                         KeyValueManager['loadProcess'] = 0;
                         KeyValueManager['loadTotalCount'] = 0;
 
+                        for (let i in theme_id) {
+                            let id = theme_id[i];
+                            let teamType = i;
+                            cc.loader.loadRes(KeyValueManager['csv_kv']['theme_path']['value'] + KeyValueManager['csv_theme'][id]['Theme'], cc.Prefab,
+                                function (err, prefab) {
+                                    KeyValueManager['themeList'][teamType] = prefab;
+                                    onProgress.call(this, ++KeyValueManager['loadProcess'], KeyValueManager['loadTotalCount']);
+                                });
+                            KeyValueManager['loadTotalCount']++;
+                        }
+                        for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
+                            for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
+                                let camp = KeyValueManager['camps'][i][j];
+                                cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
+                                    function (err, prefab) {
+                                        if(err){
+                                            cc.log(err);
+                                        }
+                                        else{
+                                            KeyValueManager['land_around'][camp] = prefab;
+                                            onProgress.call(this, ++KeyValueManager['loadProcess'], KeyValueManager['loadTotalCount']);
+                                        }
+                                    });
+                                KeyValueManager['loadTotalCount']++;
+                            }
+                        }
                         //根据当前的关卡去生成关卡节点
                         KeyValueManager['preloadScene'] = 'game';
                         cc.director.preloadScene('game', function (error, asset) {

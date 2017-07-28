@@ -1,9 +1,17 @@
 {
+  "appKey": "",
+  "appSecret": "",
   "excludeScenes": [],
   "includeAnySDK": false,
+  "includeSDKBox": false,
   "includeSdk": [
     "anysdk"
   ],
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
   "orientation": {
     "landscapeLeft": true,
     "landscapeRight": true,
@@ -11,17 +19,9 @@
     "upsideDown": false
   },
   "packageName": "org.cocos2d.Code",
-  "startScene": "1fe62cc3-d77e-4a67-90e8-379a59bbb92e",
-  "title": "Code",
-  "webOrientation": "auto",
-  "oauthLoginServer": "",
-  "appKey": "",
-  "appSecret": "",
   "privateKey": "",
   "renderMode": "0",
-  "inlineSpriteFrames": true,
-  "inlineSpriteFrames_native": true,
-  "mergeStartScene": false,
-  "optimizeHotUpdate": false,
-  "includeSDKBox": false
+  "startScene": "1fe62cc3-d77e-4a67-90e8-379a59bbb92e",
+  "title": "Code",
+  "webOrientation": "auto"
 }

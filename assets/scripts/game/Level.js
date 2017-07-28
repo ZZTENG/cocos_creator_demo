@@ -1066,7 +1066,12 @@ cc.Class({
         //旗子和dest frame替换
         this.destNode.getComponent(cc.Sprite).spriteFrame = KeyValueManager['themeList'][this._power].data.getComponent('ThemeGroup').destFrame;
         this.flag.getComponent(cc.Sprite).spriteFrame = KeyValueManager['themeList'][this._power].data.getComponent('ThemeGroup').flagFrame;
-         if(!KeyValueManager['isReplay'] && ! KeyValueManager['danmu']) {
+        //修改迷雾贴图采样模式(LINEAR -> NEAREST)
+        //解决web打包下迷雾出现缝线
+        for(let i = 0; i < this.fogSprite.length;i += 1){
+            this.fogSprite[i].getTexture().setAliasTexParameters();
+        }
+        if(!KeyValueManager['isReplay'] && ! KeyValueManager['danmu']) {
              //生成迷雾
              for (let i = 0;i < this._groundList.length;i += 1) {
                  let LT = null;

@@ -137,6 +137,7 @@ cc.Class({
 
                  }
                  else if(event['error_code'] == 10010){
+                     KeyValueManager['currentScene'] = CurrentScene.SCENE_OPENGING;
                      EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_button', 'hide_preLayer': false});
                  }
              }

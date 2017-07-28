@@ -141,7 +141,9 @@ cc.Class({
                              {
                                  Utils.addItem(CURRENCY_PACKAGE,COIN_ID,'count',event['coin']);
                                  KeyValueManager['win_get_coin'] = event['coin'];
-
+                                 this.scheduleOnce(function () {
+                                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'get_coin', 'hide_preLayer':false});
+                                 },1);
                                  cc.audioEngine.play(KeyValueManager['win_clip'],false,KeyValueManager['effect_volume']);
                                  EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'win_layer', 'hide_preLayer':false});
                              }

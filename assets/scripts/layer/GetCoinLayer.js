@@ -35,6 +35,9 @@ cc.Class({
     },
     onCloseLayer: function () {
         EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+        if(KeyValueManager['win_get_coin']){
+            delete KeyValueManager['win_get_coin'];
+        }
     },
     onDisable: function () {
         if(KeyValueManager['win_get_coin']){
