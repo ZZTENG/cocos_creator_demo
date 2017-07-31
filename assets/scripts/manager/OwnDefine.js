@@ -19,17 +19,20 @@ window.RecordMode = cc.Enum({
     MODE_IDENTITY: 6, //三国身份模式
     MODE_TIANTI: 7   //天梯模式
 });
+//当前场景
 window.CurrentScene = cc.Enum({
     SCENE_OPENGING: 0,
     SCENE_LOIN: 1,
     SCENE_MAIN: 2,
     SCENE_GAME: 3
 });
+//记录数据类型
 window.RecordData = cc.Enum({
     RECODE_MAP_DATA: 1,
     RECODE_RANK: 2,
     RECODE_DEATH: 3
 });
+//主题名字
 window.ThemeName = cc.Enum({
     TM007: '火山',
     TM008: '海洋',
@@ -37,21 +40,31 @@ window.ThemeName = cc.Enum({
     TM0010: '雪人',
     TM0011: '基本主题'
 });
+//屏幕方向
 window.ScreenDirect = cc.Enum({
     LandSpace: 1,
     Portrait: 2,
 });
+/*
+支付类型：
+0： 金币购买皮肤
+1： 砖石购买皮肤
+2： RMB买砖石
+3： 砖石换金币
+ */
 window.PayType = cc.Enum({
     Coin: 0,
     Diamond: 1,
     RMB: 2,
     DiamondToCoin: 3,
-})
-const Guide_Unit = {          //单元小组编号
+});
+//新手指引单元小组编号
+const Guide_Unit = {
     Login_Start: 1101,
     Game_level: 1102,
 };
-const Unit_Step = {             //小组操作编号
+//单元小组操作编号
+const Unit_Step = {
     Login_Start: {
         Game_1v1: 1101001,          //当成消息id，进行单元监听，前缀加110来区分与服务器的消息id
     },
@@ -65,6 +78,7 @@ const Unit_Step = {             //小组操作编号
 };
 const EVENT_FLAG = 21586;
 const NET_HTTP = false;
+//android端版署标识
 const ANDROID_CHECK = false;
 window.GAME_PLATFORM = {
     ANDROID: 1,
@@ -72,6 +86,7 @@ window.GAME_PLATFORM = {
     WEB: 3,
     ANDROID_CHECK: 4
 };
+//地块边缘条名字
 const LAND_AROUND = ['cheng','hong','huang','lan','lv','zi'];
 const SLOT_MAP =
 {
@@ -112,25 +127,38 @@ const SLOT_MAP =
         'level': 0,
     },
 };
-const ROUND_TIME = 0.5;    //回合时间
-const LAND_ROUND_COUNT = 50;  //普通方块添加兵的回合数
-const CITY_ROUND_COUNT = 2;   //城池添加兵的回合数
+//回合时间
+const ROUND_TIME = 0.5;
+//普通方块添加兵的回合数
+const LAND_ROUND_COUNT = 50;
+//城池添加兵的回合数
+const CITY_ROUND_COUNT = 2;
+//初始地块上兵的数量
 const INIT_COUNT = 0;
+//初始地块数量
 const INIT_LAND = 1;
+//初始城池数量
 const INIT_CITY = 1;
+//游戏设计场景分辨率
 const SCENE_WIGHT = 960;
 const SCENE_HIGHT = 1280;
+//电魂接入app_id,游戏名字，渠道id
 const APPID = '1571601337';
 const GAMENAME = '纸上帝国H5';
 const CHANNEL = '10000';
+//查询订单间隔时间，订单查询持续时间，订单查询过期
 const ORDER_REQUIRE_SPACE_TIME = 3;
 const ORDER_REQUIRE_LAST_TIME = 1 * 60;
 const ORDER_REQUIRE_OVER_TIMESTAMP = 0;
+//向服务器一次拿回放数
 const HISTORY_TURN_COUNT = 200;
+//提前向服务器拿回合的数
 const HISTORY_LAST_COUNT = 50;
 const HEARTBEAT_LAST_TIME = 60;
+//游戏中脚本挂起时间拿最新数据
 const SUSPEND_TIME = 2;
 const SUSPEND_LOGIN_TIME = 5 * 60;
+//loading等待时间
 const WAIT_GAME_START = 10;
 
 const CURRENCY_PACKAGE = 'currency';

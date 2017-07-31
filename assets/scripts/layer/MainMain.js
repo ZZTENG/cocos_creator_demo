@@ -339,7 +339,7 @@ cc.Class({
                     EventManager.pushEvent({'msg_id': 'CLOSE_ALL_LAYER'});
                     //消耗主题，TM0011是默认主题
                     if(KeyValueManager['player_data']['player_info']['theme_id'] != 'TM0011'){
-                        Utils.useItem(ITEM_PACKAGE,KeyValueManager['player_data']['player_info']['theme_id'],1);
+                        Utils.useItem(ITEM_PACKAGE,KeyValueManager['player_data']['player_info']['theme_id'],'count',1);
                         let count = Utils.getItem(ITEM_PACKAGE,KeyValueManager['player_data']['player_info']['theme_id'],'count');
                         if(count == 0){
                             KeyValueManager['player_data']['player_info']['theme_id'] = 'TM0011';
@@ -481,6 +481,12 @@ cc.Class({
                         }
                     }
                     else if(payType == PayType.DiamondToCoin){
+                        KeyValueManager['msg_text'] = '兑换成功';
+                        EventManager.pushEvent({
+                            'msg_id': 'OPEN_LAYER',
+                            'layer_id': 'msg_layer',
+                            'hide_preLayer': false
+                        });
                         let consume_package = JSON.parse(KeyValueManager['csv_store'][KeyValueManager['storeId']]['RealConsume'])[0][0];
                         let consume_id = JSON.parse(KeyValueManager['csv_store'][KeyValueManager['storeId']]['RealConsume'])[0][1];
                         let consume_count = JSON.parse(KeyValueManager['csv_store'][KeyValueManager['storeId']]['RealConsume'])[0][3];
@@ -507,7 +513,7 @@ cc.Class({
             for (let i in KeyValueManager['order_require']) {
                 let timestamp = KeyValueManager['order_require'][i]['timestamp'];
                 if (timestamp == ORDER_REQUIRE_OVER_TIMESTAMP)
-                    continue;
+                    return;
                 let time = NetManager.getCurrentTime();
                 let spaceTime = time - KeyValueManager['order_require'][i]['time'];
                 if (spaceTime < ORDER_REQUIRE_LAST_TIME) {

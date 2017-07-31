@@ -64,12 +64,16 @@ cc.Class({
          this.memberCount.string = data[4] + '/3';
          this.memberName.string = data[6];
          let self = this;
-         // cc.loader.loadRes(KeyValueManager['csv_kv']['spr_path']['value'] + data[5], cc.SpriteFrame,
-         //                   function (err, spriteFrame) {
-         //                       self.head.spriteFrame = spriteFrame;
-         //                       cc.loader.setAutoReleaseRecursively(
-         //                           KeyValueManager['csv_kv']['spr_path']['value'] + data[7], true);
-         //                   });
+         cc.loader.loadRes(KeyValueManager['csv_kv']['logo_path']['value'] + KeyValueManager['csv_teamlogo'][data[5]]['TeamLogo'], cc.SpriteFrame,
+             function (err, spriteFrame) {
+                  if(err){
+                      cc.log(err);
+                  }
+                  else {
+                      self.head.spriteFrame = spriteFrame;
+                      cc.loader.setAutoReleaseRecursively(KeyValueManager['csv_kv']['logo_path']['value'] + KeyValueManager['csv_teamlogo'][data[5]]['TeamLogo'], true);
+                  }
+             });
      },
      // use this for initialization
     onLoad: function () {

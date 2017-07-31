@@ -80,13 +80,11 @@ cc.Class({
         this.reuse();
     },
     reuse: function () {
-        EventManager.registerHandler(C2G_REQ_GET_CHARGE_STATUS,this);
         this.coin .string = KeyValueManager['dingdan_coin'];
         this.price.string = KeyValueManager['dingdan_rmb'] / 100 + ' 元';
         this.dingdan.string = KeyValueManager['orderInfo']['cpOrderId'];
     },
     onDisable: function () {
-        EventManager.removeHandler(C2G_REQ_GET_CHARGE_STATUS,this);
         if(KeyValueManager['orderInfo']){
             KeyValueManager['orderInfo'] = {};
             delete KeyValueManager['orderInfo'];

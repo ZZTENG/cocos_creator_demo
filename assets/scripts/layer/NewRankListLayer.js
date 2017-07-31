@@ -38,6 +38,8 @@ cc.Class({
         _rankList:[],
         index:20,
         scrollView: cc.ScrollView,
+        timeToggleGroup: cc.ToggleGroup,
+        modeToggleGroup: cc.ToggleGroup,
         ownRank: cc.Label,
         ownHead: cc.Sprite,
         ownName: cc.Label,
@@ -150,6 +152,22 @@ cc.Class({
         this.rankUnit.active = false;
         this._gameType = game_type.game_type_1v1;
         this._rankType = rank_type.rank_type_week;
+        this.scheduleOnce(function () {
+            for(let i = 0;i < this.modeToggleGroup.toggleItems.length;i += 1){
+                if(i == 0){
+                    self.modeToggleGroup.toggleItems[i].isChecked = true;
+                    continue;
+                }
+                self.modeToggleGroup.toggleItems[i].isChecked = false;
+            }
+            for(let i = 0;i < this.timeToggleGroup.toggleItems.length;i += 1){
+                if(i == 0){
+                    self.timeToggleGroup.toggleItems[i].isChecked = true;
+                    continue;
+                }
+                self.timeToggleGroup.toggleItems[i].isChecked = false;
+            }
+        },0.17);
         let start = (this._page - 1) * this.index + 1;
         let end = this._page * this.index;
         let event = {
@@ -173,6 +191,9 @@ cc.Class({
             clip.play();
         }
         this.scrollView.node.on('scroll-to-bottom', this.callback, this);
+    },
+    start: function () {
+
     },
     callback: function () {
         if(this._sendMsg) {

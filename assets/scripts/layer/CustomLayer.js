@@ -144,9 +144,11 @@ cc.Class({
           case C2G_REQ_EXIT_GAME_ROOM: {
               if (event['result']) {
                   let camp = event['camp'];
-                  KeyValueManager['customData'][camp] = 0;
-                  let data = KeyValueManager['customData'][camp];
-                  this.memberList[camp].setData(data);
+                  if (camp) {
+                      KeyValueManager['customData'][camp] = 0;
+                      let data = KeyValueManager['customData'][camp];
+                      this.memberList[camp].setData(data);
+                  }
               }
           }
           break;

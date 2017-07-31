@@ -253,9 +253,11 @@ cc.Class({
         KeyValueManager['currentScene'] = CurrentScene.SCENE_OPENGING;
         // KeyValueManager['test_sign'] = true;
         // KeyValueManager['test_count'] = 0;
-        cc.game.setFrameRate(30);                   //设置游戏帧率
+        //设置游戏帧率
+        cc.game.setFrameRate(30);
         // cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
-        if(!KeyValueManager['audioId_bgm'])                 //setting bgm
+        //setting bgm
+        if(!KeyValueManager['audioId_bgm'])
             KeyValueManager['audioId_bgm'] = cc.audioEngine.play(this.musicURL,true,KeyValueManager['effect_volume']);
         //开始动画
         let animation = this.node.getComponent(cc.Animation);
@@ -268,7 +270,9 @@ cc.Class({
         KeyValueManager['themeList'] = {};
         KeyValueManager['land_around'] = {};
         KeyValueManager['order_require'] = {};
-        KeyValueManager['effect_volume'] = 1;       //音效大小
+        //音效大小
+        KeyValueManager['effect_volume'] = 1;
+        //音效音频缓存
         KeyValueManager['unlock_clip'] = this.unlock;
         KeyValueManager['wrong_click_clip'] = this.wrong_click;
         KeyValueManager['plane_click_clip'] = this.plane_click;
@@ -278,6 +282,7 @@ cc.Class({
         KeyValueManager['city_win_clip'] = this.city_win;
         KeyValueManager['city_lose_clip'] = this.city_lose;
         KeyValueManager['flag_clip'] = this.flag;
+
         KeyValueManager['reconnect_layer'] = cc.instantiate(this.reconnect_layer);
 
         Utils.loadCSV('csv_system', 'resources/csv/system.csv', 'ID', function () {

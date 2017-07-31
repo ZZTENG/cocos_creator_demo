@@ -497,7 +497,7 @@
       "__id__": 10
     },
     "_enabled": true,
-    "isAlignOnce": true,
+    "isAlignOnce": false,
     "_target": null,
     "_alignFlags": 8,
     "_left": -467,
@@ -1815,7 +1815,7 @@
     "node": {
       "__id__": 54
     },
-    "_enabled": true,
+    "_enabled": false,
     "_spriteFrame": {
       "__uuid__": "11678d8a-5f50-4e3f-ac2d-6247ee4fe519"
     },

@@ -94,10 +94,12 @@ cc.Class({
                 else {
                     if(this._itemId == COIN_ID){
                         KeyValueManager['msg_text'] ='金币不足，请充值';
+                        KeyValueManager['pay_type'] = PayType.DiamondToCoin;
                         EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_2_layer','hide_preLayer': false});
                     }
                     else if(this._itemId == GOLD_ID){
                         KeyValueManager['msg_text'] ='砖石不足，请充值';
+                        KeyValueManager['pay_type'] = PayType.RMB;
                         EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_coin_layer','hide_preLayer': false});
                     }
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
