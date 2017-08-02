@@ -171,7 +171,6 @@ cc.Class({
                         NetManager.sendMsg(event1);
                         return;
                     }
-                    Utils.enterGame();
                     //掉线重连的游戏登录
                     if (KeyValueManager['in_game']) {
                         KeyValueManager['startMap'] = event['map_data'];
@@ -184,6 +183,7 @@ cc.Class({
                         KeyValueManager['currentTime'] = event['start_time'] * 1000;
                         KeyValueManager['reTheme'] = event['theme'];
                     }
+                    Utils.enterGame();
                     cc.director.loadScene('loading');
                 }
                 else {
@@ -246,20 +246,19 @@ cc.Class({
         EventManager.removeHandler(C2G_REQ_WATCH_HISTORY,this);
     },
     // use this for initialization
-    onLoad: function () {cc.view.getVisibleSize ()
+    onLoad: function () {
         EventManager.registerHandler(C2G_REQ_LOGIN, this);
         EventManager.registerHandler(C2G_REQ_PLAYER_LOGIN, this);
         EventManager.registerHandler(C2G_REQ_WATCH_HISTORY,this);
         KeyValueManager['currentScene'] = CurrentScene.SCENE_OPENGING;
-        // KeyValueManager['test_sign'] = true;
-        // KeyValueManager['test_count'] = 0;
         //设置游戏帧率
         cc.game.setFrameRate(30);
+        //设置游戏竖屏
         // cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
         //setting bgm
-        if(!KeyValueManager['audioId_bgm'])
+        if(typeof KeyValueManager['audioId_bgm'] == 'undefined')
             KeyValueManager['audioId_bgm'] = cc.audioEngine.play(this.musicURL,true,KeyValueManager['effect_volume']);
-        //开始动画
+        //开始防沉迷动画
         let animation = this.node.getComponent(cc.Animation);
         animation.play();
         animation.on('finished',this.onFinishedAni,this);
@@ -282,9 +281,9 @@ cc.Class({
         KeyValueManager['city_win_clip'] = this.city_win;
         KeyValueManager['city_lose_clip'] = this.city_lose;
         KeyValueManager['flag_clip'] = this.flag;
-
+        //web网络重连层,放在初始一看加载进来
         KeyValueManager['reconnect_layer'] = cc.instantiate(this.reconnect_layer);
-
+        //加载配置表
         Utils.loadCSV('csv_system', 'resources/csv/system.csv', 'ID', function () {
             Utils.loadCSV('csv_kv', 'resources/csv/kv.csv', 'key', function () {
             });
@@ -293,6 +292,7 @@ cc.Class({
             if(cc.sys.isBrowser)
                 url = window.location['href'];
             KeyValueManager['platformLogin'] = true;
+            //确定闪电玩平台（可以计算sign，计较相同来验证）
             if(url.indexOf('sign') == - 1){
                 KeyValueManager['platformLogin'] = false;
             }

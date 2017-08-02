@@ -38,8 +38,8 @@ cc.Class({
                      }
                      break;
                      case 'donghua': {
-                         let action_in = cc.moveBy(1,cc.p(223,0));
-                         let action_out = cc.moveBy(1,cc.p(-223,0));
+                         let action_in = cc.moveBy(1 / 3 ,cc.p(223,0));
+                         let action_out = cc.moveBy(1 / 3,cc.p(-223,0));
                          if(this.rankState == RankState.SHOW){
                              this.rankState = RankState.HIDE;
                              this.donghuaNode.getChildByName('button_pic').getComponent(cc.Sprite).spriteFrame = this.rankLeftSpr;

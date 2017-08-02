@@ -36,6 +36,7 @@ cc.Class({
                     'title': '纸上帝国',
                     'desc': '来和我一决雌雄吧！',
                     'link':  'http://www.shandw.com/pc/game/?gid=1571601337&channel=10000',
+                    'imgUrl': '',
                     'success': function () {
                         cc.log('share success');
                     },

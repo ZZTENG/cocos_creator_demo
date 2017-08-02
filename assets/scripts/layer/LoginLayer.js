@@ -27,7 +27,7 @@ cc.Class({
         pwdNode:cc.Node,
         _state: null,
     },
-    onClickLogin:function (event, data) {cc.PolygonCollider
+    onClickLogin:function (event, data) {
         let accountEdit = this.accountNode.getComponent(cc.EditBox);
         let pwdEdit = this.pwdNode.getComponent(cc.EditBox);
         if(!accountEdit.string)
@@ -250,45 +250,20 @@ cc.Class({
                     KeyValueManager['timeDiff'] = currentTime - server_time;
                     KeyValueManager['in_game'] = event['in_game'];
                     Utils.savePlayerData();
-                    Utils.enterGame();
                     //掉线重连的游戏登录
-                    if(KeyValueManager['in_game']){
+                    if (KeyValueManager['in_game']) {
                         KeyValueManager['startMap'] = event['map_data'];
                         KeyValueManager['camps'] = event['camps'];
                         KeyValueManager['camp'] = event['camp'];
                         KeyValueManager['name'] = event['name'];
-                        KeyValueManager['rank'] = event['rank']
-                        KeyValueManager['currentTime'] = event['start_time'] * 1000;
-                        let theme_id = event['theme'];
+                        KeyValueManager['rank'] = event['rank'];
                         KeyValueManager['width'] = event['width'];
-                        KeyValueManager['height'] =event['height'];
-                        KeyValueManager['onLoadingFinished']= function () {
-                            for(let i in theme_id){
-                                let id = theme_id[i];
-                                let teamType = i;
-                                cc.loader.loadRes(KeyValueManager['csv_kv']['theme_path']['value'] + KeyValueManager['csv_theme'][id]['Theme'], cc.Prefab,
-                                    function (err, prefab) {
-                                        KeyValueManager['themeList'][teamType] = prefab;
-                                    });
-                            }
-                            for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
-                                for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
-                                    let camp = KeyValueManager['camps'][i][j];
-                                    cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
-                                        function (err, prefab) {
-                                            if(err){
-                                                cc.log(err);
-                                            }
-                                            else{
-                                                KeyValueManager['land_around'][camp] = prefab;
-                                            }
-                                        });
-                                }
-                            }
-                        };
+                        KeyValueManager['height'] = event['height'];
+                        KeyValueManager['currentTime'] = event['start_time'] * 1000;
+                        KeyValueManager['reTheme'] = event['theme'];
                     }
+                    Utils.enterGame();
                     cc.director.loadScene('loading');
-
                 }
             }
                 break;
@@ -311,36 +286,13 @@ cc.Class({
                         KeyValueManager['camps'] = event['camps'];
                         KeyValueManager['camp'] = event['camp'];
                         KeyValueManager['name'] = event['name'];
-                        KeyValueManager['rank'] = event['rank']
-                        KeyValueManager['currentTime'] = event['start_time'] * 1000;
-                        let theme_id = event['theme'];
+                        KeyValueManager['rank'] = event['rank'];
                         KeyValueManager['width'] = event['width'];
-                        KeyValueManager['height'] =event['height'];
-                        KeyValueManager['onLoadingFinished'] = function () {
-                            for (let i in theme_id) {
-                                let id = theme_id[i];
-                                let teamType = i;
-                                cc.loader.loadRes(KeyValueManager['csv_kv']['theme_path']['value'] + KeyValueManager['csv_theme'][id]['Theme'], cc.Prefab,
-                                    function (err, prefab) {
-                                        KeyValueManager['themeList'][teamType] = prefab;
-                                    });
-                            }
-                            for(let i = 0;i < KeyValueManager['camps'].length;i += 1){
-                                for(let j = 0;j < KeyValueManager['camps'][i].length;j += 1){
-                                    let camp = KeyValueManager['camps'][i][j];
-                                    cc.loader.loadRes(KeyValueManager['csv_kv']['land_around_path']['value'] + LAND_AROUND[camp], cc.Prefab,
-                                        function (err, prefab) {
-                                            if(err){
-                                                cc.log(err);
-                                            }
-                                            else{
-                                                KeyValueManager['land_around'][camp] = prefab;
-                                            }
-                                        });
-                                }
-                            }
-                        };
+                        KeyValueManager['height'] = event['height'];
+                        KeyValueManager['currentTime'] = event['start_time'] * 1000;
+                        KeyValueManager['reTheme'] = event['theme'];
                     }
+                    Utils.enterGame();
                     cc.director.loadScene('loading');
                 }
             }

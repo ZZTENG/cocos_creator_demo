@@ -26,7 +26,8 @@ cc.Class({
         memberList:[require('CustomMemberUnit')],
         toggle: [cc.Toggle],
         _dataSource: null,
-        _canChage: null
+        _canChage: null,
+        _camp: null
     },
     onTeamUnit:function (index, unit, data) {
         if (unit&&unit.setData)
@@ -63,6 +64,8 @@ cc.Class({
         let data = [];
         for (let i = 0; i < 6; ++i ){
             if(KeyValueManager['customData'][i]){
+                if(KeyValueManager['customData'][i][0] == KeyValueManager['player_data']['player_info']['name'])
+                    this._camp = i;
                 let memberData = Utils.deepCopy(KeyValueManager['customData'][i]);
                 data.push(memberData);
             }
@@ -115,6 +118,10 @@ cc.Class({
           case C2G_REQ_READY: {
               if(event['result']) {
                   let camp = event['camp'];
+                  if(camp == this._camp){
+                      this.prepare.active = false;
+                      this.cancelPrepare.active = true;
+                  }
                   KeyValueManager['customData'][camp][3] = true;
                   let data = KeyValueManager['customData'][camp];
                   this.memberList[camp].setData(data);
@@ -124,6 +131,10 @@ cc.Class({
           case C2G_REQ_CANCEL_READY: {
               if(event['result']) {
                   let camp = event['camp'];
+                  if(camp == this._camp){
+                      this.prepare.active = true;
+                      this.cancelPrepare.active = false;
+                  }
                   KeyValueManager['customData'][camp][3] = false;
                   let data = KeyValueManager['customData'][camp];
                   this.memberList[camp].setData(data);
@@ -197,11 +208,6 @@ cc.Class({
                     room_id: KeyValueManager['roomId']
                 };
                 NetManager.sendMsg(event1);
-                this.prepare.active = false;
-                this.cancelPrepare.active = true;
-                KeyValueManager['customData'][KeyValueManager['camp']][3] = true;
-                let data = KeyValueManager['customData'][KeyValueManager['camp']];
-                this.memberList[KeyValueManager['camp']].setData(data);
             }
             break;
             case 'cancel_prepare': {
@@ -214,11 +220,6 @@ cc.Class({
                     room_id: KeyValueManager['roomId']
                 };
                 NetManager.sendMsg(event1);
-                this.prepare.active = true;
-                this.cancelPrepare.active = false;
-                KeyValueManager['customData'][KeyValueManager['camp']][3] = false;
-                let data = KeyValueManager['customData'][KeyValueManager['camp']];
-                this.memberList[KeyValueManager['camp']].setData(data);
             }
             break;
             case 'team1':{
@@ -239,6 +240,9 @@ cc.Class({
                     NetManager.sendMsg(event1);
                 }
                 else {
+                    this.toggle[0].isChecked = false;
+                    let old_team = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                    this.toggle[old_team].isChecked = true;
                     KeyValueManager['msg_text'] ='准备时不能换队伍';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                 }
@@ -262,6 +266,9 @@ cc.Class({
                     NetManager.sendMsg(event1);
                 }
                 else {
+                    this.toggle[1].isChecked = false;
+                    let old_team = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                    this.toggle[old_team].isChecked = true;
                     KeyValueManager['msg_text'] ='准备时不能换队伍';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                 }
@@ -285,6 +292,9 @@ cc.Class({
                     NetManager.sendMsg(event1);
                 }
                 else {
+                    this.toggle[2].isChecked = false;
+                    let old_team = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                    this.toggle[old_team].isChecked = true;
                     KeyValueManager['msg_text'] ='准备时不能换队伍';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                 }
@@ -308,6 +318,9 @@ cc.Class({
                     NetManager.sendMsg(event1);
                 }
                 else {
+                    this.toggle[3].isChecked = false;
+                    let old_team = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                    this.toggle[old_team].isChecked = true;
                     KeyValueManager['msg_text'] ='准备时不能换队伍';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                 }
@@ -331,6 +344,9 @@ cc.Class({
                     NetManager.sendMsg(event1);
                 }
                 else {
+                    this.toggle[4].isChecked = false;
+                    let old_team = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                    this.toggle[old_team].isChecked = true;
                     KeyValueManager['msg_text'] ='准备时不能换队伍';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                 }
@@ -354,6 +370,9 @@ cc.Class({
                     NetManager.sendMsg(event1);
                 }
                 else {
+                    this.toggle[5].isChecked = false;
+                    let old_team = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                    this.toggle[old_team].isChecked = true;
                     KeyValueManager['msg_text'] ='准备时不能换队伍';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                 }

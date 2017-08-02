@@ -137,7 +137,7 @@ let NetManager = {
         if(pNetEvent['error_code']){
             ErrorCodeManager.handle_error_code(pNetEvent['error_code']);
         }
-        cc.log('msg_id: ',pNetEvent['msg_id']);
+        cc.log('msg_id: ',pNetEvent['msg_id'],'error_code:',pNetEvent['error_code']);
         if(pNetEvent['error_code'] == 10004){           //token not right
             cc.sys.localStorage.removeItem('player_data')
             cc.director.preloadScene('openning',function (error, asset) {
@@ -249,7 +249,7 @@ let NetManager = {
         NetManager.connectToServer(this.serverAddr, this.serverPort, function (result) {
             if(result == 1)
                 NetManager.sendMsg(pEvent);
-            else if(result == 1)
+            else
             {
                 if(cc.sys.isNative) {
                     var event = EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'reconnect_layer'});

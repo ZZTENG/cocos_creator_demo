@@ -70,7 +70,7 @@ cc.Class({
          this._dataSource.bindFunc = this.onTeamUnit;
          this._dataSource.getElementFunc = this.getTeamElement;
          let clip = this.getComponent(cc.Animation);
-         if (clip && clip.currentClip) {
+         if (clip && clip.defaultClip) {
              clip.play();
          }
          this.scrollView.node.on('scroll-to-bottom', this.callback, this);

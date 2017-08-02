@@ -48,6 +48,7 @@ cc.Class({
                         'title': '纸上帝国',
                         'desc': '来和我一决雌雄吧！',
                         'link': link,
+                        'imgUrl': '',
                         'success': function () {
                             cc.log('share success');
                         },

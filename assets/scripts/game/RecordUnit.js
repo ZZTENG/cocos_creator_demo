@@ -61,19 +61,23 @@ cc.Class({
                 this.winPic[i].active = false;
             }
             for(let j = 0;j < data[2][i].length;j += 1){
-                if(KeyValueManager['record_mode'] == RecordMode.MODE_1V1 || KeyValueManager['record_mode'] == RecordMode.MODE_TEAM){
+                if(KeyValueManager['record_mode'] == RecordMode.MODE_1V1 || KeyValueManager['record_mode'] == RecordMode.MODE_SELF_TEAM){
                     this.memberName[i].string = data[2][i][j][0];
                 }
                 let self = this;
-                cc.loader.load(data[2][i][j][1], function (err, tex) {
+                let url = data[2][i][j][1];
+                if(KeyValueManager['record_mode'] == RecordMode.MODE_SELF_TEAM){
+                    url = KeyValueManager['csv_kv']['logo_path']['value'] + KeyValueManager['csv_teamlogo'][data[2][i][j][1]]['TeamLogo'];
+                }
+                cc.loader.loadRes(url, function (err, tex) {
                     if(err){
                         cc.log(err);
                     }
                     else {
-                        number = i * data[2].length + j;
+                        number = i * data[2][i].length + j;
                         let frame = new cc.SpriteFrame(tex);
                         self.head[number].spriteFrame = frame;
-                        cc.loader.setAutoReleaseRecursively(data[2][i][j][1], true);
+                        cc.loader.setAutoReleaseRecursively(url, true);
                     }
                 });
             }
