@@ -376,6 +376,36 @@
             }
           ]
         }
+      },
+      "share": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -555,
+                456
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": [
+                -294,
+                456
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.5,
+              "value": 255
+            }
+          ]
+        }
       }
     }
   },

@@ -1353,7 +1353,7 @@
       "__id__": 40
     },
     "_enabled": true,
-    "transition": 2,
+    "transition": 3,
     "pressedColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1406,7 +1406,7 @@
     "target": {
       "__id__": 1
     },
-    "component": "SettingLayer",
+    "component": "Share_Layer",
     "handler": "onClick",
     "customEventData": "close"
   },
@@ -1664,7 +1664,7 @@
     "target": {
       "__id__": 1
     },
-    "component": "SettingLayer",
+    "component": "Share_Layer",
     "handler": "onClick",
     "customEventData": "exit"
   },
@@ -1691,25 +1691,6 @@
     "sync": false
   },
   {
-    "__type__": "ac5e1wiiGBCvrNLdnrvy0AE",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "music_open": null,
-    "music_close": null,
-    "music_label": {
-      "__id__": 21
-    },
-    "volume_open": null,
-    "volume_close": null,
-    "volume_label": {
-      "__id__": 12
-    }
-  },
-  {
     "__type__": "cc.Animation",
     "_name": "",
     "_objFlags": 0,
@@ -1729,6 +1710,15 @@
       }
     ],
     "playOnLoad": false
+  },
+  {
+    "__type__": "d55b7muNI1DaY7D96MCa8Oa",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true
   },
   {
     "__type__": "cc.PrefabInfo",

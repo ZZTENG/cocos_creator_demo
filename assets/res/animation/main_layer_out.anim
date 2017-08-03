@@ -3,7 +3,7 @@
   "_name": "main_layer_out",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 0.5833333333333334,
+  "_duration": 0.58,
   "sample": 60,
   "speed": 1,
   "wrapMode": 1,
@@ -247,6 +247,36 @@
             },
             {
               "frame": 0.5833333333333334,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "share": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -294,
+                456
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": [
+                -555,
+                456
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 255
+            },
+            {
+              "frame": 0.5,
               "value": 0
             }
           ]

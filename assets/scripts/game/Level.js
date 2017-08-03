@@ -2388,6 +2388,13 @@ cc.Class({
                      if(this._mapData[i][0] == 1 && this._mapData[i][1] == this._power){
                          cc.audioEngine.play(KeyValueManager['city_lose_clip'],false,KeyValueManager['effect_volume']);
                      }
+                     //自己和队友副城被占
+                     if(this._mapData[i][0] == 2){
+                         let ani = this._buildingList[i].getChildByName('BANG').getComponent(cc.Animation);
+                         if(ani && ani.defaultClip){
+                             ani.play();
+                         }
+                     }
                      this.updateWatchData(i, 1);
                      //地块被占，此时光标在被侵占地块上，失去焦点
                      let curPos = this.cursor.getPosition();

@@ -32,11 +32,12 @@ cc.Class({
         }
         switch (id) {
             case 'share': {
+                EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'share', 'hide_preLayer':false});
                 let OBJECT = {
-                    'title': '纸上帝国',
-                    'desc': '来和我一决雌雄吧！',
+                    'title': '整条街的智商都被我拉高了',
+                    'desc': '你说你很强，敢来和我一决雌雄吗？',
                     'link':  'http://www.shandw.com/pc/game/?gid=1571601337&channel=10000',
-                    'imgUrl': '',
+                    'imgUrl': 'http://castle-pic-online.oss-cn-shanghai.aliyuncs.com/icon/icon_1.png',
                     'success': function () {
                         cc.log('share success');
                     },

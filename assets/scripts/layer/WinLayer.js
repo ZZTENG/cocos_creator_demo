@@ -35,20 +35,23 @@ cc.Class({
             }
             break;
             case 'replay': {
-                EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
-                EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'replay_layer', 'hide_preLayer':false});
-                // KeyValueManager['mapNode'].setScale(0.5,0.5);
-                KeyValueManager['mapNode'].setPosition(0,0);
+                let clip = this.getComponent(cc.Animation);
+                let clips = clip.getClips();
+                if (clips && clips[1]) {
+                    KeyValueManager['anim_out_state'] = clip.play(clips[1].name);
+                }
+                KeyValueManager['anim_out_state'].on('finished',this.onCloseLayer,this);
             }
             break;
             case 'xuanyao': {
                 if (KeyValueManager['gameId']) {
+                    EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'share', 'hide_preLayer':false});
                     let link = 'http://www.shandw.com/pc/game/?gid=1571601337&channel=10000&paper_empire_gameId=' + KeyValueManager['gameId'];
                     let OBJECT = {
-                        'title': '纸上帝国',
-                        'desc': '来和我一决雌雄吧！',
+                        'title': '也许这就是传说中的大佬吧',
+                        'desc': '分分钟教对手做人，快来看我打下的江山！！',
                         'link': link,
-                        'imgUrl': '',
+                        'imgUrl': 'http://castle-pic-online.oss-cn-shanghai.aliyuncs.com/icon/icon_1.png',
                         'success': function () {
                             cc.log('share success');
                         },
@@ -141,10 +144,15 @@ cc.Class({
         }
     },
     onDisable: function () {
-        let clip = this.getComponent(cc.Animation);
-        if (clip && clip.currentClip) {
-            clip.stop();
+        if(KeyValueManager['anim_out_state']) {
+            KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
         }
+    },
+    onCloseLayer: function () {
+        EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
+        EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'replay_layer', 'hide_preLayer':false});
+        // KeyValueManager['mapNode'].setScale(0.5,0.5);
+        KeyValueManager['mapNode'].setPosition(0,0);
     },
     onMemberUnit:function (index, unit, data) {
         if (unit&&unit.setData)
