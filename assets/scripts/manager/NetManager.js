@@ -257,6 +257,8 @@ let NetManager = {
                 }
                 else if(cc.sys.isBrowser) {
                     KeyValueManager['reconnect_layer'].active = true;
+                    KeyValueManager['reconnect_layer'].parent = self.node;
+                    KeyValueManager['reconnect_layer'].setPosition(0, 0);
                 }
                 KeyValueManager['Reconnect_Event'] = reconnect_event;
             }

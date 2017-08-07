@@ -1380,7 +1380,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 45
@@ -1857,7 +1857,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 53.92,
+      "width": 87.2,
       "height": 40
     },
     "_rotationX": 0,
@@ -1866,7 +1866,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 106,
+      "x": 117,
       "y": 0
     },
     "_skewX": 0,
@@ -1894,7 +1894,7 @@
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
-    "_N$string": "123",
+    "_N$string": "12356",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",

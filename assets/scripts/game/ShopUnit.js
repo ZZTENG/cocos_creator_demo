@@ -27,6 +27,7 @@ cc.Class({
         useCount: cc.Label,
         icon: cc.Sprite,
         icon_SpriteFrame: [cc.SpriteFrame],
+        discount_node: cc.Node,
         storeId: null,
         _price: null,
         _themeId: null,
@@ -57,6 +58,12 @@ cc.Class({
         }
         let discount = String(parseInt(data[3][0][3] / data[2][0][3] * 100)) + '%';
         this.discount.string = discount;
+        if(data[3][0][3] / data[2][0][3] == 1){
+            this.discount_node.active = true;
+        }
+        else {
+            this.discount_node.active = false;
+        }
         let self = this;
         cc.loader.loadRes(KeyValueManager['csv_kv']['shop_theme_path']['value'] + data[4],cc.SpriteFrame,function (err,spriteFrame) {
             if(err){

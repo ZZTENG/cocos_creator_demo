@@ -159,11 +159,15 @@ cc.Class({
     let endY = parseInt(end / this.mapWidth);
     let arr = {};
     let roadLine = [];
-    for (let i in this._mapData){
-        let x = i % this.mapWidth;
-        let y = parseInt(i / this.mapWidth);
-        let team = this.whichTeam(this._mapData[i][1])
-        KeyValueManager['arr'][x][y] = team;
+    for (let i in this._mapData) {
+        if (!this._mapData.hasOwnProperty(i))
+            continue;
+        if (this._mapData[i] && typeof(this._mapData[i].length) != "undefined" && this._mapData[i].length > 1) {
+            let x = i % this.mapWidth;
+            let y = parseInt(i / this.mapWidth);
+            let team = this.whichTeam(this._mapData[i][1])
+            KeyValueManager['arr'][x][y] = team;
+        }
     }
     let resultStart = [{'x': startX, 'y': startY}]; //将起点的坐标添加进去
     let result = AStart.searchRoad(startX,startY,endX,endY,this.mapWidth,this.mapHeight,KeyValueManager['arr']);
@@ -431,7 +435,7 @@ cc.Class({
                           }
                       }
                       else {
-                          if(this._mapData[current] == this._power) {
+                          if(this._mapData[current]  && this._mapData[current][1] == this._power) {
                               this._currentSelect = current;
                               let pos = this._groundList[current].getPosition();
                               this.cursor.active = true;
@@ -951,9 +955,13 @@ cc.Class({
     teamMemberDeath: function (death) {
         if(this.belongTeam(death)) {
             for (let i in this._mapData) {
-                if(this._mapData[i][1] == death){
-                    this.updateWatchData(i,1);
-                    delete this._mapData[i];
+                if (!this._mapData.hasOwnProperty(i))
+                    continue;
+                if (this._mapData[i] && typeof(this._mapData[i].length) != "undefined" && this._mapData[i].length > 1) {
+                    if (this._mapData[i][1] == death) {
+                        this.updateWatchData(i, 1);
+                        delete this._mapData[i];
+                    }
                 }
             }
         }
@@ -1137,6 +1145,8 @@ cc.Class({
              }
              //主城定位
              for(let i in this._mapData){
+                 if(!this._mapData.hasOwnProperty(i))
+                     continue;
                  if(this._power == KeyValueManager['masterID'] && this._mapData[i][1] != KeyValueManager['masterID'])
                      continue;
                  if(this.belongTeam(this._mapData[i][1]) || this._mapData[i][1] == KeyValueManager['masterID']) {
@@ -1791,7 +1801,9 @@ cc.Class({
          let halfLen = this.mapWidth * this.gridWidth * 0.5;
 
          for(let index in this._mapData) {
-
+             if(!this._mapData.hasOwnProperty(index))
+                 continue;
+             if(this._mapData[index] && typeof(this._mapData[index].length) != "undefined" && this._mapData[index].length > 1){
                  if (this._mapData[index][0] == 0 && this._mapData[index][1] == -1 && this._mapData[index][2] == 0) {
                      if (this._armyList[index] && this._armyList[index].active) {
                          this._armyList[index].active = false;
@@ -1956,6 +1968,7 @@ cc.Class({
                                  newNode.getComponent(cc.Sprite).spriteFrame = this.initBuildingFrame[buildType];
                          }
                  }
+             }
          }
          for (let i in this._delWatchData) {
              let index = this._delWatchData[i];
@@ -1985,19 +1998,22 @@ cc.Class({
      lastData: function () {
          this._lastData = [];
          for(let i in this._mapData) {
-             if(this._mapData[i] && typeof(this._mapData[i].length) != "undefined" && this._mapData[i].length > 1 && this._mapData[i][1] != -1)
-             {
-                 if (this._roundCount % CITY_ROUND_COUNT == 0 && (this._mapData[i][0] == 1 || this._mapData[i][0] == 2)) {
-                     this._lastData.push(i);
+             if (!this._mapData.hasOwnProperty(i))
+                 continue;
+             if (this._mapData[i] && typeof(this._mapData[i].length) != "undefined" && this._mapData[i].length > 1) {
+                 if (this._mapData[i][1] != -1) {
+                     if (this._roundCount % CITY_ROUND_COUNT == 0 && (this._mapData[i][0] == 1 || this._mapData[i][0] == 2)) {
+                         this._lastData.push(i);
+                     }
+                     else if (this._roundCount % LAND_ROUND_COUNT == 0 && this._mapData[i][0] == 0) {
+                         this._lastData.push(i);
+                     }
                  }
-                 else if(this._roundCount % LAND_ROUND_COUNT == 0 && this._mapData[i][0] == 0) {
-                     this._lastData.push(i);
-                 }
-             }
-             else {
-                 if(this._mapData[i][0] == 2 && this._mapData[i][2] < this._emptyCityData[i] && this._roundCount % 2 == 0){
-                        //空城增兵
-                     this._lastData.push(i);
+                 else {
+                     if (this._mapData[i][0] == 2 && this._mapData[i][2] < this._emptyCityData[i] && this._roundCount % 2 == 0) {
+                         //空城增兵
+                         this._lastData.push(i);
+                     }
                  }
              }
          }
@@ -2081,100 +2097,83 @@ cc.Class({
          //将行为数据尾干掉一个
      },
      roundLoop:function () {
-         if(this._state == FightState.E_STATE_START)
-         {
+         if(this._state == FightState.E_STATE_START) {
              //计算每个势力的地块数和兵力数
-             if(!KeyValueManager['serverRank']) {
+             if (!KeyValueManager['serverRank']) {
                  this.addCount();
              }
              else
                  KeyValueManager['serverRank'] = false;
              //持续数据计算 保持与服务器同步
              this.lastData(this._roundCount);
-             for(let i = 0;i < this._lastData.length;i += 1)
-             {
+             for (let i = 0; i < this._lastData.length; i += 1) {
                  this._mapData[this._lastData[i]][2] += 1;
              }
              this._lastData = [];
 
              //处理行为数据,行为数据为从pos1移动到pos2
              let postData = {};
-             if(this._behaviorData[this._roundCount])
-             {
+             if (this._behaviorData[this._roundCount]) {
                  postData[1] = {};
                  postData[0] = {};
                  //先处理行为数据
                  let hasBehavior = false;
-                 for (let i in this._behaviorData[this._roundCount])
-                 {
+                 for (let i in this._behaviorData[this._roundCount]) {
                      let index = this._behaviorData[this._roundCount][i][0];
                      let index1 = this._behaviorData[this._roundCount][i][1];
                      //如果无效那么继续
                      if (!this._mapData[index] || this._mapData[index][1] != this._power
-                         || !this.canMove(index, index1) || this._mapData[index][2] <= 0)
-                     {
+                         || !this.canMove(index, index1) || this._mapData[index][2] <= 0) {
                          continue;
                      }
                      hasBehavior = true;
                      let moveCount = this._mapData[index][2];
-                     if( this._mapData[index][2] <= 0)
-                     {
+                     if (this._mapData[index][2] <= 0) {
                          moveCount = 0;
                      }
 
-                     if(moveCount != 0)
-                     {
+                     if (moveCount != 0) {
                          let ifHas = false;
 
-                         if (postData[1][index])
-                         {
+                         if (postData[1][index]) {
                              postData[1][index] += moveCount;
                              ifHas = true;
                          }
 
-                         if(!ifHas)
-                         {
-                             postData[1][index]=  moveCount;
+                         if (!ifHas) {
+                             postData[1][index] = moveCount;
                          }
                          ifHas = false;
 
-                         if (postData[0][index1])
-                         {
+                         if (postData[0][index1]) {
                              postData[0][index1] += moveCount;
                              ifHas = true;
                          }
 
-                         if(!ifHas)
-                         {
-                             postData[0][index1]= moveCount;
+                         if (!ifHas) {
+                             postData[0][index1] = moveCount;
                          }
                      }
                      this._mapData[index][2] = 0;
-                     if(!this._mapData[index1])
-                     {
-                         this._mapData[index1]=[0, -1, 0];
+                     if (!this._mapData[index1]) {
+                         this._mapData[index1] = [0, -1, 0];
                      }
                      //如果不是你的地盘，那么就减去
-                     if(this._mapData[index1][1] == -1)
-                     {
-                         if(this._mapData[index1][0] > 0)
-                         {
-                             if(moveCount > this._mapData[index1][2])
-                             {
+                     if (this._mapData[index1][1] == -1) {
+                         if (this._mapData[index1][0] > 0) {
+                             if (moveCount > this._mapData[index1][2]) {
                                  //解开小城堡
-                                 cc.audioEngine.play(KeyValueManager['unlock_clip'],false,KeyValueManager['effect_volume']);
+                                 cc.audioEngine.play(KeyValueManager['unlock_clip'], false, KeyValueManager['effect_volume']);
                                  //成功占地盘
                                  this.updateWatchData(index1, 0);
                                  this._mapData[index1][2] = moveCount - this._mapData[index1][2];
                                  this._mapData[index1][1] = this._power;
                              }
-                             else
-                             {
+                             else {
                                  this._mapData[index1][2] -= moveCount;
                              }
                          }
-                         else
-                         {
+                         else {
                              //成功占地盘
                              this.updateWatchData(index1, 0);
                              this._mapData[index1][2] = moveCount - 1;
@@ -2182,32 +2181,28 @@ cc.Class({
                          }
 
                      }
-                     else  if(this.belongTeam(this._mapData[index1][1]))
-                     {
+                     else if (this.belongTeam(this._mapData[index1][1])) {
                          // if(this._partnerData[index]){
                          //     this._mapData[index][1] = this._partnerData[index];
                          //     cc.log('is ok');
                          // }
                          //主城不变势力
-                         if(this._mapData[index1][0] != 1)
+                         if (this._mapData[index1][0] != 1)
                              this._mapData[index1][1] = this._power;
                          this._mapData[index1][2] += moveCount;
                      }
-                     else if(!this.belongTeam(this._mapData[index1][1]))
-                     {
-                         if(moveCount > this._mapData[index1][2])
-                         {
+                     else if (!this.belongTeam(this._mapData[index1][1])) {
+                         if (moveCount > this._mapData[index1][2]) {
                              //占领敌方主城
-                             if(this._mapData[index1][0] == 1){
-                                 cc.audioEngine.play(KeyValueManager['city_win_clip'],false,KeyValueManager['effect_volume']);
+                             if (this._mapData[index1][0] == 1) {
+                                 cc.audioEngine.play(KeyValueManager['city_win_clip'], false, KeyValueManager['effect_volume']);
                              }
                              //成功占地盘
                              this.updateWatchData(index1, 0);
                              this._mapData[index1][2] = moveCount - this._mapData[index1][2] - 1;
                              this._mapData[index1][1] = this._power;
                          }
-                         else
-                         {
+                         else {
                              this._mapData[index1][2] -= moveCount;
                          }
                      }
@@ -2220,16 +2215,15 @@ cc.Class({
                      let endNode = this.flag.parent.convertToNodeSpaceAR(endWorld);
                      this.flag.active = true;
                      this.flag.setPosition(startNode);
-                     let moveAction = cc.moveTo(0.2,cc.v2(endNode.x,endNode.y));
-                     let newAction = cc.speed(moveAction,10);
+                     let moveAction = cc.moveTo(0.2, cc.v2(endNode.x, endNode.y));
+                     let newAction = cc.speed(moveAction, 10);
                      this.flag.runAction(newAction);
-                     if(this._mapData[index1][2] < 1)
-                     {
+                     if (this._mapData[index1][2] < 1) {
                          this.scheduleOnce(function () {
                              this.flag.active = false;
-                         },0.5);
-                         if(KeyValueManager['guideNode'][this._roundCount]){
-                             for(let i= 0;i < KeyValueManager['guideNode'][this._roundCount].length; i += 1){
+                         }, 0.5);
+                         if (KeyValueManager['guideNode'][this._roundCount]) {
+                             for (let i = 0; i < KeyValueManager['guideNode'][this._roundCount].length; i += 1) {
                                  KeyValueManager['guideNode'][this._roundCount][i].active = false;
                                  this._directPool.put(KeyValueManager['guideNode'][this._roundCount][i]);
                              }
@@ -2239,10 +2233,9 @@ cc.Class({
                      }
                  }
                  //把数据发给服务器端,指引不发
-                 if(hasBehavior && !KeyValueManager['is_guide'])
-                 {
+                 if (hasBehavior && !KeyValueManager['is_guide']) {
                      let event = {
-                         url:KeyValueManager['server_url'],
+                         url: KeyValueManager['server_url'],
                          msg_id: C2G_REQ_SYNC_CHANGE,
                          user_id: KeyValueManager['player_data']['user_id'],
                          session_key: KeyValueManager['session'],
@@ -2268,26 +2261,28 @@ cc.Class({
              //显示更新
              this.dataShow();
 
-             for(let i in KeyValueManager['guideNode']){
-                 if(this._roundCount >= parseInt(i)){
+             for (let i in KeyValueManager['guideNode']) {
+                 if (this._roundCount >= parseInt(i)) {
                      cc.log(i);
-                     for(let j = 0;KeyValueManager['guideNode'][this._roundCount] && j < KeyValueManager['guideNode'][this._roundCount].length; j += 1){
-                         cc.log(i);cc.log(KeyValueManager['guideNode']);cc.log(j);
+                     for (let j = 0; KeyValueManager['guideNode'][this._roundCount] && j < KeyValueManager['guideNode'][this._roundCount].length; j += 1) {
+                         cc.log(i);
+                         cc.log(KeyValueManager['guideNode']);
+                         cc.log(j);
                          KeyValueManager['guideNode'][i][j].active = false;
                          this._directPool.put(KeyValueManager['guideNode'][i][j]);
                      }
                      delete KeyValueManager['guideNode'][i];
                  }
              }
-             for(let i in KeyValueManager['destRound']) {
-                 for (let j  = 0;KeyValueManager['destRound'][i] && j < KeyValueManager['destRound'][i].length;j += 1) {
+             for (let i in KeyValueManager['destRound']) {
+                 for (let j = 0; KeyValueManager['destRound'][i] && j < KeyValueManager['destRound'][i].length; j += 1) {
                      if (this._roundCount >= KeyValueManager['destRound'][i][j][1]) {
                          KeyValueManager['destRound'][i].shift();
                          cc.log('test');
                      }
                      let end = KeyValueManager['destRound'][i].length;
-                     if(end == 0){
-                         for(let k = 0;k < KeyValueManager['destNode'][i].length;k += 1) {
+                     if (end == 0) {
+                         for (let k = 0; k < KeyValueManager['destNode'][i].length; k += 1) {
                              KeyValueManager['destNode'][i][k].active = false;
                              this._destNodePool.put(KeyValueManager['destNode'][i][k]);
                          }
@@ -2296,26 +2291,29 @@ cc.Class({
                      }
                  }
              }
-             if(KeyValueManager['is_guide']) {
+             if (KeyValueManager['is_guide']) {
                  KeyValueManager['rank'][this._power][0] = 0;
                  KeyValueManager['rank'][this._power][1] = 0;
                  KeyValueManager['rank'][this._power][2] = 0;
              }
-             for(let i in this._mapData)
-             {
-                 if(!this._oldMapData[i])
-                    this._oldMapData[i] = [];
-                 this._oldMapData[i][0] = this._mapData[i][0];
-                 this._oldMapData[i][1] = this._mapData[i][1];
-                 this._oldMapData[i][2] = this._mapData[i][2];
+             for (let i in this._mapData) {
+                 if (this._mapData.hasOwnProperty(i))
+                     continue;
+                 if (this._mapData[i] && typeof(this._mapData[i].length) != "undefined" && this._mapData[i].length > 1) {
+                     if (!this._oldMapData[i])
+                         this._oldMapData[i] = [];
+                     this._oldMapData[i][0] = this._mapData[i][0];
+                     this._oldMapData[i][1] = this._mapData[i][1];
+                     this._oldMapData[i][2] = this._mapData[i][2];
 
-                 //指引rank自己势力数据客户端统计
-                 if(KeyValueManager['is_guide']){
-                     if(this._mapData[i][1] == this._power){
-                         KeyValueManager['rank'][this._power][0] += this._mapData[i][2];
-                         KeyValueManager['rank'][this._power][1] += 1;
-                         if(this._mapData[i][0] == 1 || this._mapData[i][0] == 2){
-                             KeyValueManager['rank'][this._power][2] += 1;
+                     //指引rank自己势力数据客户端统计
+                     if (KeyValueManager['is_guide']) {
+                         if (this._mapData[i][1] == this._power) {
+                             KeyValueManager['rank'][this._power][0] += this._mapData[i][2];
+                             KeyValueManager['rank'][this._power][1] += 1;
+                             if (this._mapData[i][0] == 1 || this._mapData[i][0] == 2) {
+                                 KeyValueManager['rank'][this._power][2] += 1;
+                             }
                          }
                      }
                  }

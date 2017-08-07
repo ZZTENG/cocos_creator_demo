@@ -281,8 +281,9 @@ cc.Class({
         KeyValueManager['city_win_clip'] = this.city_win;
         KeyValueManager['city_lose_clip'] = this.city_lose;
         KeyValueManager['flag_clip'] = this.flag;
-        //web网络重连层,放在初始一看加载进来
-        KeyValueManager['reconnect_layer'] = cc.instantiate(this.reconnect_layer);
+        //web网络重连层,放在初始一看加载进来,设置常驻节点
+        KeyValueManager['reconnect_layer'] = this.reconnect_layer;
+        cc.game.addPersistRootNode(this.reconnect_layer);
         //加载配置表
         Utils.loadCSV('csv_system', 'resources/csv/system.csv', 'ID', function () {
             Utils.loadCSV('csv_kv', 'resources/csv/kv.csv', 'key', function () {

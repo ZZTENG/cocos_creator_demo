@@ -140,7 +140,7 @@ let utils =
     copyProperties: function (params, target) {
         if (!params || !target) return;
         for (let k in params) {
-            target[k] = params[k];CC_JSB
+            target[k] = params[k];
         }
     },
 

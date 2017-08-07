@@ -2400,8 +2400,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
-      "height": 100
+      "width": 140,
+      "height": 140
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -2410,7 +2410,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 15
+      "y": 17
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3584,8 +3584,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
-      "height": 100
+      "width": 140,
+      "height": 140
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -3594,7 +3594,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 15
+      "y": 17
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -4768,8 +4768,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
-      "height": 100
+      "width": 140,
+      "height": 140
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -4778,7 +4778,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 15
+      "y": 18
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6333,7 +6333,7 @@
     },
     "component": "TeamLayer",
     "handler": "onClick",
-    "customEventData": "sendmsg1"
+    "customEventData": "sendmsg"
   },
   {
     "__type__": "cc.PrefabInfo",

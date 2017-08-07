@@ -30,8 +30,6 @@ cc.Class({
     },
     // use this for initialization
              onLoad: function () {
-
-
                  this.reuse();
              },
 
@@ -58,8 +56,6 @@ cc.Class({
                  NetManager.sendMsg(event1);
              },
              reuse:function () {
-
-
                  EventManager.registerHandler(G2C_REQ_GET_MATCH_COUNT, this);
                  this.schedule(this.send_cancel,6);
                  if(KeyValueManager['game_mode'] || KeyValueManager['game_mode'] == 0) {

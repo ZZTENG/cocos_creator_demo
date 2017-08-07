@@ -1410,7 +1410,9 @@
       "__id__": 28
     },
     "_teamLogoList": [],
-    "selectNode": null
+    "selectNode": {
+      "__id__": 43
+    }
   },
   {
     "__type__": "cc.Animation",

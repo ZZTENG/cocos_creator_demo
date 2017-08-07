@@ -48,7 +48,6 @@ cc.Class({
         _sendMsg: null,
         _gameType: null,
         _rankType: null,
-        _updateOwnData: null
     },
 
     onClick:function (event, id) {
@@ -132,7 +131,6 @@ cc.Class({
     },
     onEnable: function () {
         EventManager.registerHandler(C2G_REQ_GET_GAME_RANK , this);
-        this._updateOwnData = true;
         this.ownName.string = KeyValueManager['player_data']['player_info']['name'];
         this.ownRank.string = 0;
         this.ownGrade.string = 0;
@@ -239,11 +237,8 @@ cc.Class({
                 if (event['result']) {
                     if (event['result']) {
                         this._sendMsg = true;          //收到消息可以sendMsg
-                        if(this._updateOwnData){
-                            this._updateOwnData = false;
-                            this.ownRank.string = event['player_rank_info'][0];
-                            this.ownGrade.string = event['player_rank_info'][1];
-                        }
+                        this.ownRank.string = event['player_rank_info'][0];
+                        this.ownGrade.string = event['player_rank_info'][1];
                         let teams = event['rank_info'];
                         if (teams.length < this.index) {
                             this._sendMsg = false;

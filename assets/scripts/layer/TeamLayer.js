@@ -135,26 +135,33 @@ cc.Class({
                          break;
                      case "sendmsg":
                      {
-                         if(this.editMsg.string){
-                             let msg = this.editMsg.string;
-                             this.editMsg.string = '';
-                             let msgNode = cc.instantiate(this.chatMsg.node);
-                             msgNode.active = true;
-                             msgNode.parent = this.chatMsg.node.parent;
-                             msgNode.setSiblingIndex(0);
-                             this._msgList.push(msgNode);
-                             msgNode.getComponent(cc.RichText).string = msg;
-                             let event1 = {
-                                 url:KeyValueManager['server_url'],
-                                 msg_id:C2G_REQ_SEND_MESSAGE,
-                                 user_id:KeyValueManager['player_data']['user_id'],
-                                 session_key: KeyValueManager['session'],
-                                 message: msg,
-                                 type: 1
-                             };
-                             NetManager.sendMsg(event1);
-                             cc.log('chatmsg');
-                         }
+                         //暂未开放
+                         KeyValueManager['msg_text'] = '暂未开放';
+                         EventManager.pushEvent({
+                             'msg_id': 'OPEN_LAYER',
+                             'layer_id': 'msg_layer',
+                             'hide_preLayer': false
+                         });
+                         // if(this.editMsg.string){
+                         //     let msg = this.editMsg.string;
+                         //     this.editMsg.string = '';
+                         //     let msgNode = cc.instantiate(this.chatMsg.node);
+                         //     msgNode.active = true;
+                         //     msgNode.parent = this.chatMsg.node.parent;
+                         //     msgNode.setSiblingIndex(0);
+                         //     this._msgList.push(msgNode);
+                         //     msgNode.getComponent(cc.RichText).string = msg;
+                         //     let event1 = {
+                         //         url:KeyValueManager['server_url'],
+                         //         msg_id:C2G_REQ_SEND_MESSAGE,
+                         //         user_id:KeyValueManager['player_data']['user_id'],
+                         //         session_key: KeyValueManager['session'],
+                         //         message: msg,
+                         //         type: 1
+                         //     };
+                         //     NetManager.sendMsg(event1);
+                         //     cc.log('chatmsg');
+                         // }
                      }
                          break;
                      case "quit": {
