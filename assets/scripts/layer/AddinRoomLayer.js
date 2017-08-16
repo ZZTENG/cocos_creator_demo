@@ -74,7 +74,7 @@ cc.Class({
             else
                 this.number[i].node.active = false;
         }
-        if(this.numberData.length == 6){
+        if(this.numberData.length == 4){
             let room_id = parseInt(this.numberData.join(''));
             let event1 = {
                 url:KeyValueManager['server_url'],

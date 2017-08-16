@@ -35,6 +35,11 @@ cc.Class({
             }
             break;
             case 'replay': {
+                if(KeyValueManager['is_guide']){
+                    KeyValueManager['msg_text'] ='暂不能回放';
+                    EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
+                    return;
+                }
                 let clip = this.getComponent(cc.Animation);
                 let clips = clip.getClips();
                 if (clips && clips[1]) {
@@ -65,7 +70,7 @@ cc.Class({
                     sdw.onSetShareOperate(OBJECT)
                 }
                 else {
-                    KeyValueManager['msg_text'] ='分享异常';
+                    KeyValueManager['msg_text'] ='暂不能分享';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                 }
             }
@@ -132,11 +137,6 @@ cc.Class({
                     }
                 });
             }
-        }
-
-        if(KeyValueManager['is_guide']){            //指引屏蔽回放
-            this.goOn.setPositionX(0);
-            this.replay.active = false;
         }
         let clip = this.getComponent(cc.Animation);
         if (clip && clip.defaultClip) {

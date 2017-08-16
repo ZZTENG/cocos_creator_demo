@@ -22,7 +22,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        this.coinCount.string = KeyValueManager['win_get_coin']
+        this.coinCount.string = KeyValueManager['win_get_coin'];
     },
     onClickClose: function () {
         cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);

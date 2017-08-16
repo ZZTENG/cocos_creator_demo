@@ -48,6 +48,7 @@ cc.Class({
         _rmb: null,
         _coin: null,
         _subject: null,
+        _payType: null,
     },
 
     // use this for initialization
@@ -66,16 +67,20 @@ cc.Class({
         this._storeId = data[0];
         this.coin.string = data[1][0][3];
         this._coin = data[1][0][3];
-        if(KeyValueManager['pay_type'] == PayType.RMB) {
+        this._payType = KeyValueManager['pay_type']
+        if(this._payType == PayType.RMB) {
             this.rmb.string = data[2] / 100 + '元';
         }
-        else if(KeyValueManager['pay_type'] == PayType.DiamondToCoin){
+        else if(this._payType == PayType.DiamondToCoin){
             this.rmb.string = data[5][0][3];
         }
         this._rmb = data[2];
         this._subject = data[3];
         cc.loader.loadRes(data[4],cc.SpriteFrame,function (err,spriteFrame) {
             if(err){
+                /*加载失败处理，已经向官方提了资源加载失败处理这块,新版本加载机制会做处理
+                暂没对加载失败做封装处理
+                */
                 cc.log('load fail');
             }
             else {
@@ -91,8 +96,8 @@ cc.Class({
         }
         switch (id){
           case 'charge': {
-              if(KeyValueManager['platformLogin']) {
-                  if(KeyValueManager['pay_type'] == PayType.RMB) {
+              if(this._payType == PayType.RMB){
+                  if(KeyValueManager['platformLogin']){
                       KeyValueManager['subject'] = this._subject;
                       KeyValueManager['dingdan_coin'] = this._coin;
                       KeyValueManager['dingdan_rmb'] = this._rmb;
@@ -106,31 +111,7 @@ cc.Class({
                       };
                       NetManager.sendMsg(event1);
                   }
-              }
-              else{
-                  if(KeyValueManager['pay_type'] == PayType.DiamondToCoin){
-                      KeyValueManager['storeId'] = this._storeId;
-                      let consume_id = JSON.parse(KeyValueManager['csv_store'][this._storeId]['RealConsume'])[0][1];
-                      let consume_count = JSON.parse(KeyValueManager['csv_store'][this._storeId]['RealConsume'])[0][3];
-                      let diamond = Utils.getItem(CURRENCY_PACKAGE,consume_id,'count');
-                      if(diamond >= consume_count){
-                          let event1 = {
-                              url: KeyValueManager['server_url'],
-                              msg_id: C2G_REQ_BUY_STORE_ITEM,
-                              user_id: KeyValueManager['player_data']['user_id'],
-                              session_key: KeyValueManager['session'],
-                              store_item_id: this._storeId
-                          };
-                          NetManager.sendMsg(event1);
-                      }
-                      else {
-                          KeyValueManager['msg_text'] ='砖石不足，请充值';
-                          KeyValueManager['pay_type'] = PayType.RMB;
-                          EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_coin_layer','hide_preLayer': false});
-                          EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
-                      }
-                  }
-                  else if(KeyValueManager['pay_type'] == PayType.RMB) {
+                  else {
                       let event1 = {
                           url: KeyValueManager['server_url'],
                           msg_id: C2G_REQ_ADD_COIN,
@@ -140,6 +121,28 @@ cc.Class({
                       };
                       Utils.addItem(CURRENCY_PACKAGE, GOLD_ID, 'count', this._coin);
                       NetManager.sendMsg(event1);
+                  }
+              }
+              else if(this._payType == PayType.DiamondToCoin){
+                  KeyValueManager['storeId'] = this._storeId;
+                  let consume_id = JSON.parse(KeyValueManager['csv_store'][this._storeId]['RealConsume'])[0][1];
+                  let consume_count = JSON.parse(KeyValueManager['csv_store'][this._storeId]['RealConsume'])[0][3];
+                  let diamond = Utils.getItem(CURRENCY_PACKAGE,consume_id,'count');
+                  if(diamond >= consume_count){
+                      let event1 = {
+                          url: KeyValueManager['server_url'],
+                          msg_id: C2G_REQ_BUY_STORE_ITEM,
+                          user_id: KeyValueManager['player_data']['user_id'],
+                          session_key: KeyValueManager['session'],
+                          store_item_id: this._storeId
+                      };
+                      NetManager.sendMsg(event1);
+                  }
+                  else {
+                      KeyValueManager['msg_text'] ='砖石不足，请充值';
+                      KeyValueManager['pay_type'] = PayType.RMB;
+                      EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_coin_layer','hide_preLayer': false});
+                      EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                   }
               }
           }

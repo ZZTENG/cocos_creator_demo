@@ -366,9 +366,7 @@
       "__id__": 6
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "8295cfad-7dc6-424a-92f9-38615ff28f2a"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -3319,9 +3317,7 @@
       "__id__": 78
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "a307a78c-5d2f-449a-a016-4402dc0902dd"
-    },
+    "_spriteFrame": null,
     "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -3389,9 +3385,7 @@
       "b": 255,
       "a": 255
     },
-    "_N$normalSprite": {
-      "__uuid__": "0a9d83e2-4984-4b5c-b21b-91f1224f9d0a"
-    },
+    "_N$normalSprite": null,
     "_N$disabledSprite": {
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
@@ -3444,7 +3438,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 86
@@ -3720,9 +3714,7 @@
       "__id__": 89
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "17c8c169-8270-4ff6-a3a5-d7a7d430a5fb"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -4920,7 +4912,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 58,
+      "x": 46,
       "y": 563
     },
     "_skewX": 0,
@@ -5400,7 +5392,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 340.5,
+      "x": 350,
       "y": 563
     },
     "_skewX": 0,
@@ -5785,7 +5777,7 @@
     "_target": null,
     "_alignFlags": 33,
     "_left": 450,
-    "_right": -436,
+    "_right": -445.5,
     "_top": -592,
     "_bottom": 1173,
     "_verticalCenter": 0,
@@ -5923,7 +5915,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 189
@@ -5961,8 +5953,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": -100,
+      "y": 253
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6067,8 +6059,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 248,
-      "height": 94
+      "width": 704,
+      "height": 491
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -6076,8 +6068,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 138,
-      "y": -124
+      "x": 100,
+      "y": -68
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6191,7 +6183,7 @@
     },
     "component": "MainMain",
     "handler": "onClick",
-    "customEventData": "1V1"
+    "customEventData": "jingdian"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6212,10 +6204,12 @@
       "__id__": 166
     },
     "_enabled": true,
-    "_type": 0,
+    "_type": 2,
     "_segements": 64,
-    "_N$spriteFrame": null,
-    "_N$alphaThreshold": 1,
+    "_N$spriteFrame": {
+      "__uuid__": "31e5cef1-9a58-40e2-a800-4aa34295f5bf"
+    },
+    "_N$alphaThreshold": 0.2,
     "_N$inverted": true
   },
   {
@@ -6238,7 +6232,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 175
@@ -6517,7 +6511,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 483.2,
+      "width": 400,
       "height": 50
     },
     "_rotationX": 0,
@@ -6554,7 +6548,7 @@
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
-    "_N$string": "点击1v1进行新手教程",
+    "_N$string": "选择经典模式进入",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 0,
     "_N$fontFamily": "Arial",

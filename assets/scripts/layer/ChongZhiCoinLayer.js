@@ -29,9 +29,9 @@ cc.Class({
     onLoad: function () {
         this._chargeList = [];
         this._chargeList.push(this.chargeUnit.getComponent('ChargeUnit'));
-        this.reuse();
+        // this.reuse();
     },
-    reuse: function () {
+    onEnable: function () {
         EventManager.registerHandler(C2G_REQ_CHARGE, this);
         this._dataSource = this.getComponent('DataSource');
         this._dataSource = this._dataSource.getUnit();

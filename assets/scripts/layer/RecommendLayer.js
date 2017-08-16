@@ -87,7 +87,8 @@ cc.Class({
                 let cur_index = this.pageView._curPageIdx;
                 let recommendId  = Object.keys(KeyValueManager['csv_recommend'])[cur_index];
                 let price = this._dataSource.data[cur_index][2][3];
-                let coins = Utils.getItem(CURRENCY_PACKAGE,GOLD_ID,'count');
+                let item_id = this._dataSource.data[cur_index][2][1];
+                let coins = Utils.getItem(CURRENCY_PACKAGE,item_id,'count');
                 if(coins >= price) {
                     let event2 = {
                         url: KeyValueManager['server_url'],
@@ -100,7 +101,7 @@ cc.Class({
                 }
                 else {
                     EventManager.pushEvent({'msg_id':'OPEN_LAYER','layer_id': 'chongzhi_coin_layer','hide_preLayer': false});
-                    KeyValueManager['msg_text'] ='金币不足，请充值';
+                    KeyValueManager['msg_text'] ='砖石不足，请充值';
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
                 }
             }

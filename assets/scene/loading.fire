@@ -173,7 +173,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "b726488e-9eab-499d-9242-94c74fe498f3"
+      "__uuid__": "664e3aea-19c2-4785-ad01-143a3f27ee2a"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -399,9 +399,7 @@
       "__id__": 8
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "435b6c61-d7f0-4608-a255-bd3e7781506c"
-    },
+    "_spriteFrame": null,
     "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,

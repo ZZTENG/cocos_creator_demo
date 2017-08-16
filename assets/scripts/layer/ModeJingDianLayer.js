@@ -19,6 +19,7 @@ cc.Class({
         //    readonly: false,    // optional, default is false
         // },
         // ...
+        zhiyin_node: cc.Node
     },
 
     // use this for initialization
@@ -29,6 +30,12 @@ cc.Class({
         let clip = this.getComponent(cc.Animation);
         if (clip && clip.defaultClip){
             clip.play();
+        }
+        if(KeyValueManager['is_guide']){
+            this.zhiyin_node.active = true;
+        }
+        else {
+            this.zhiyin_node.active = false;
         }
     },
     onDisable: function () {
@@ -62,7 +69,9 @@ cc.Class({
                 break;
             case "3V3":
             {
-
+                KeyValueManager['msg_text'] ='暂未开放';
+                EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
+                return;
                 KeyValueManager['game_mode'] = GameMode.MODE_3V3;
                 EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'automatch_layer', 'hide_preLayer':false});
             }
@@ -98,6 +107,9 @@ cc.Class({
                 break;
             case "2V2V2":
             {
+                KeyValueManager['msg_text'] ='暂未开放';
+                EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer':false});
+                return;
                 KeyValueManager['game_mode'] = GameMode.MODE_2V2V2;
                 EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'automatch_layer', 'hide_preLayer':false});
             }

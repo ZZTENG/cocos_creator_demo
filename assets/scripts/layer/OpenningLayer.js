@@ -61,9 +61,6 @@ cc.Class({
         },
         reconnect_layer: cc.Node,
     },
-    onFinishedAni:function () {
-        cc.director.loadScene('loading');
-    },
     processEvent: function (event) {
         let msg_id = event['msg_id'];
         switch (msg_id){
@@ -256,6 +253,8 @@ cc.Class({
         //设置游戏竖屏
         // cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
         //setting bgm
+        //音效大小
+        KeyValueManager['effect_volume'] = 1;
         if(typeof KeyValueManager['audioId_bgm'] == 'undefined')
             KeyValueManager['audioId_bgm'] = cc.audioEngine.play(this.musicURL,true,KeyValueManager['effect_volume']);
         //开始防沉迷动画
@@ -269,8 +268,6 @@ cc.Class({
         KeyValueManager['themeList'] = {};
         KeyValueManager['land_around'] = {};
         KeyValueManager['order_require'] = {};
-        //音效大小
-        KeyValueManager['effect_volume'] = 1;
         //音效音频缓存
         KeyValueManager['unlock_clip'] = this.unlock;
         KeyValueManager['wrong_click_clip'] = this.wrong_click;
@@ -282,8 +279,9 @@ cc.Class({
         KeyValueManager['city_lose_clip'] = this.city_lose;
         KeyValueManager['flag_clip'] = this.flag;
         //web网络重连层,放在初始一看加载进来,设置常驻节点
-        KeyValueManager['reconnect_layer'] = this.reconnect_layer;
         cc.game.addPersistRootNode(this.reconnect_layer);
+        cc.loader.setAutoReleaseRecursively(this.reconnect_layer, false);
+        KeyValueManager['reconnect_layer'] = this.reconnect_layer;
         //加载配置表
         Utils.loadCSV('csv_system', 'resources/csv/system.csv', 'ID', function () {
             Utils.loadCSV('csv_kv', 'resources/csv/kv.csv', 'key', function () {

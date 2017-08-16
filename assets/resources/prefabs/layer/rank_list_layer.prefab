@@ -4323,7 +4323,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 67,
+      "x": 52,
       "y": 0
     },
     "_skewX": 0,
@@ -4412,7 +4412,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 236,
+      "x": 211,
       "y": 0
     },
     "_skewX": 0,
@@ -5098,7 +5098,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 39,
+      "x": 33,
       "y": 0
     },
     "_skewX": 0,
@@ -5185,7 +5185,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 221,
+      "x": 196,
       "y": 0
     },
     "_skewX": 0,
@@ -7811,7 +7811,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 221,
+      "x": 199,
       "y": 0
     },
     "_skewX": 0,
@@ -8257,8 +8257,7 @@
     "_page": null,
     "_sendMsg": null,
     "_gameType": null,
-    "_rankType": null,
-    "_updateOwnData": null
+    "_rankType": null
   },
   {
     "__type__": "cc.PrefabInfo",

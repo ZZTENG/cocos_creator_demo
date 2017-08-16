@@ -40,6 +40,13 @@ cc.Class({
                     'imgUrl': 'http://castle-pic-online.oss-cn-shanghai.aliyuncs.com/icon/icon_1.png',
                     'success': function () {
                         cc.log('share success');
+                        let event1 = {
+                            url:KeyValueManager['server_url'],
+                            msg_id:C2G_REQ_GET_SHARE_REWARD,
+                            user_id:KeyValueManager['player_data']['user_id'],
+                            session_key: KeyValueManager['session'],
+                        };
+                        NetManager.sendMsg(event1);
                     },
                     'fail': function () {
                         cc.log('share fail');
@@ -203,45 +210,26 @@ cc.Class({
         EventManager.registerHandler( 'CLOSE_ALL_LAYER', this);
         EventManager.registerHandler(C2G_REQ_UPDATE_PLAYER,this);
         EventManager.registerHandler(C2G_REQ_BUY_STORE_ITEM, this);
-        if(KeyValueManager['roomId']){             //忽略新手新手指引
-            EventManager.registerHandler(C2G_REQ_ENTER_GAME_ROOM,this);
-            let event1 = {
-                url:KeyValueManager['server_url'],
-                msg_id:C2G_REQ_ENTER_GAME_ROOM,
-                user_id:KeyValueManager['player_data']['user_id'],
-                session_key: KeyValueManager['session'],
-                room_id: KeyValueManager['roomId']
-            };
-            NetManager.sendMsg(event1);
-            return;
-        }
+        EventManager.registerHandler(C2G_REQ_GET_SHARE_REWARD,this);
         if(KeyValueManager['is_guide']){
             this.zhiyin_node.active = true;
             EventManager.registerHandler(Guide_Unit.Login_Start,this);
         }
         else {
             this.zhiyin_node.active  = false;
+            if(KeyValueManager['roomId']){
+                EventManager.registerHandler(C2G_REQ_ENTER_GAME_ROOM,this);
+                let event1 = {
+                    url:KeyValueManager['server_url'],
+                    msg_id:C2G_REQ_ENTER_GAME_ROOM,
+                    user_id:KeyValueManager['player_data']['user_id'],
+                    session_key: KeyValueManager['session'],
+                    room_id: KeyValueManager['roomId']
+                };
+                NetManager.sendMsg(event1);
+                return;
+            }
         }
-        // //测试游戏初始数据是否正确
-        // let event = {
-        //     url: KeyValueManager['server_url'],
-        //     msg_id: C2G_REQ_GET_FRIEND_HIGHEST_LEVEL,
-        //     user_id: KeyValueManager['player_data']['user_id'],
-        //     session_key: KeyValueManager['session'],
-        // };
-        // NetManager.sendMsg(event);
-        // if(KeyValueManager['test_sign']){
-        //     this.scheduleOnce(function () {
-        //         let event1 = {
-        //             url: KeyValueManager['server_url'],
-        //             msg_id: C2G_REQ_GAME_MATCH,
-        //             user_id: KeyValueManager['player_data']['user_id'],
-        //             session_key: KeyValueManager['session'],
-        //             mode: GameMode.MODE_1V1
-        //         };
-        //         NetManager.sendMsg(event1);
-        //     },1)
-        // }
     },
 
     onDestroy: function () {
@@ -254,8 +242,9 @@ cc.Class({
         EventManager.removeHandler( 'CLOSE_ALL_LAYER', this);
         EventManager.removeHandler(C2G_REQ_UPDATE_PLAYER,this);
         EventManager.removeHandler(C2G_REQ_BUY_STORE_ITEM, this);
+        EventManager.removeHandler(C2G_REQ_GET_SHARE_REWARD,this);
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP,this.exitGame,this);
-        if(KeyValueManager['paper_empire_roomId']){
+        if(KeyValueManager['roomId']){
             EventManager.removeHandler(C2G_REQ_ENTER_GAME_ROOM,this);
             delete KeyValueManager['paper_empire_roomId'];
             return;
@@ -268,9 +257,16 @@ cc.Class({
     processEvent: function (event) {
         let msg_id = event['msg_id'];
         switch (msg_id) {
+            case C2G_REQ_GET_SHARE_REWARD: {
+                if(event['result']){
+                    KeyValueManager['win_get_coin'] = 100;
+                    Utils.addItem(CURRENCY_PACKAGE,GOLD_ID,'count', 100);
+                    EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'get_diamond', 'hide_preLayer':false});
+                }
+            }
+            break;
             case C2G_REQ_ENTER_GAME_ROOM: {
                 if(event['result']){
-                    EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'custom_layer', 'hide_preLayer':false});
                     KeyValueManager['customData'] = {};
                     KeyValueManager['customData'] = event['data'];

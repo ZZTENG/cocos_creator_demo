@@ -45,7 +45,7 @@
     "_globalZOrder": 0,
     "_opacityModifyRGB": false,
     "groupIndex": 0,
-    "autoReleaseAssets": false
+    "autoReleaseAssets": true
   },
   {
     "__type__": "cc.Node",
@@ -367,7 +367,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "8cfe1993-f063-4466-ae0c-b87332dad58f"
+      "__uuid__": "2b320fb9-9a7e-44f4-9740-929363d2ca4b"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -8263,9 +8263,7 @@
       "__id__": 215
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "d4696461-cdc6-41b1-a88d-03fce677e4d4"
-    },
+    "_spriteFrame": null,
     "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -8419,9 +8417,7 @@
     "textChanged": [],
     "editingDidEnded": [],
     "editingReturn": [],
-    "_N$backgroundImage": {
-      "__uuid__": "e08d4b16-765e-4d8c-90b7-39cec42c8bcf"
-    },
+    "_N$backgroundImage": null,
     "_N$returnType": 0,
     "_N$inputFlag": 5,
     "_N$inputMode": 6,

@@ -143,7 +143,6 @@ let utils =
             target[k] = params[k];
         }
     },
-
     loadCSV: function (name, path, key, callback) {
         let storagePath = path;
         // if(CC_JSB && cc.sys.isMobile && cc.sys.isNative)

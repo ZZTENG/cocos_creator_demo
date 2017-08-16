@@ -155,7 +155,7 @@ cc.Class({
           case C2G_REQ_EXIT_GAME_ROOM: {
               if (event['result']) {
                   let camp = event['camp'];
-                  if (camp) {
+                  if(camp || camp == 0) {
                       KeyValueManager['customData'][camp] = 0;
                       let data = KeyValueManager['customData'][camp];
                       this.memberList[camp].setData(data);
@@ -186,6 +186,7 @@ cc.Class({
                     room_id: KeyValueManager['roomId']
                 };
                 NetManager.sendMsg(event1);
+                delete KeyValueManager['roomId'];
                 let clip = this.getComponent(cc.Animation);
                 let clips = clip.getClips();
                 if (clips && clips[1]) {

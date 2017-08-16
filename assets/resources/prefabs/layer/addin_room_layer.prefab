@@ -833,7 +833,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 18,
-      "y": 70
+      "y": 39
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -885,11 +885,11 @@
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
+    "_scaleX": 1.2,
+    "_scaleY": 1.2,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -100,
+      "x": -70,
       "y": 0
     },
     "_skewX": 0,
@@ -1134,11 +1134,11 @@
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
+    "_scaleX": 1.2,
+    "_scaleY": 1.2,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -10,
+      "x": 80,
       "y": 0
     },
     "_skewX": 0,
@@ -1383,11 +1383,11 @@
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
+    "_scaleX": 1.2,
+    "_scaleY": 1.2,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 80,
+      "x": 230,
       "y": 0
     },
     "_skewX": 0,
@@ -1632,11 +1632,11 @@
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
+    "_scaleX": 1.2,
+    "_scaleY": 1.2,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 170,
+      "x": 380,
       "y": 0
     },
     "_skewX": 0,
@@ -1854,7 +1854,7 @@
       }
     ],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": {
       "__id__": 64
@@ -2103,7 +2103,7 @@
       }
     ],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": {
       "__id__": 72
@@ -2134,7 +2134,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 350,
+      "x": 260,
       "y": 0
     },
     "_skewX": 0,
@@ -2358,11 +2358,11 @@
       "height": 40
     },
     "_N$startAxis": 0,
-    "_N$paddingLeft": 0,
+    "_N$paddingLeft": 30,
     "_N$paddingRight": 0,
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
-    "_N$spacingX": 90,
+    "_N$spacingX": 150,
     "_N$spacingY": 0,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0
@@ -5836,12 +5836,6 @@
       },
       {
         "__id__": 54
-      },
-      {
-        "__id__": 62
-      },
-      {
-        "__id__": 70
       }
     ],
     "numberData": null

@@ -1,4 +1,4 @@
-±àºÅ,ÄÚÈİ,Ô­ÏûºÄ,Êµ¼ÊÏûºÄ,Ê×³äÔùËÍ,ÉÌÆ·Í¼±ê,"Ö§¸¶ÀàĞÍID(0ÊÇ½ğ±Ò£¬1ÊÇ×©Ê¯£¬2ÊÇRMB,3ÊÇ×©Ê¯»»½ğ±Ò)",³äÖµÈËÃñ±Ò£¨·Ö£©,ÉÌÆ·Ãû³ÆÃèÊö
+ç¼–å·,å†…å®¹,åŸæ¶ˆè€—,å®é™…æ¶ˆè€—,é¦–å……èµ é€,å•†å“å›¾æ ‡,"æ”¯ä»˜ç±»å‹ID(0æ˜¯é‡‘å¸ï¼Œ1æ˜¯ç –çŸ³ï¼Œ2æ˜¯RMB,3æ˜¯ç –çŸ³æ¢é‡‘å¸)",å……å€¼äººæ°‘å¸ï¼ˆåˆ†ï¼‰,å•†å“åç§°æè¿°
 ID,Content,Consume,RealConsume,FirstCount,Ico,PayType,RMB,Name
 ST0107,"[[""item"",""TM007"",""count"",50]]","[[""currency"",""IT0002"",""count"",3000]]","[[""currency"",""IT0002"",""count"",3000]]",,"""""",0,0,Theme
 ST0108,"[[""item"",""TM008"",""count"",500]]","[[""currency"",""IT0003"",""count"",300]]","[[""currency"",""IT0003"",""count"",300]]",,"""""",1,0,Theme
@@ -10,9 +10,9 @@ ST0212,"[[""currency"",""IT0003"",""count"",75]]",[],[],,texture/diamond_store/v
 ST0213,"[[""currency"",""IT0003"",""count"",175]]",[],[],,texture/diamond_store/vc_gem4,2,6400,Diamond
 ST0214,"[[""currency"",""IT0003"",""count"",400]]",[],[],,texture/diamond_store/vc_gem5,2,12800,Diamond
 ST0215,"[[""currency"",""IT0003"",""count"",700]]",[],[],,texture/diamond_store/vc_gem6,2,19800,Diamond
-ST0310,"[[""currency"",""IT0002"",""count"",10]]",[],"[[""currency"",""IT0003"",""count"",10]]",,texture/coin_store/coin_1,3,0,Coin
-ST0311,"[[""currency"",""IT0002"",""count"",10]]",[],"[[""currency"",""IT0003"",""count"",10]]",,texture/coin_store/coin_2,3,0,Coin
-ST0312,"[[""currency"",""IT0002"",""count"",10]]",[],"[[""currency"",""IT0003"",""count"",10]]",,texture/coin_store/coin_3,3,0,Coin
-ST0313,"[[""currency"",""IT0002"",""count"",10]]",[],"[[""currency"",""IT0003"",""count"",10]]",,texture/coin_store/coin_4,3,0,Coin
-ST0314,"[[""currency"",""IT0002"",""count"",10]]",[],"[[""currency"",""IT0003"",""count"",10]]",,texture/coin_store/coin_5,3,0,Coin
-ST0315,"[[""currency"",""IT0002"",""count"",10]]",[],"[[""currency"",""IT0003"",""count"",10]]",,texture/coin_store/coin_6,3,0,Coin
+ST0310,"[[""currency"",""IT0002"",""count"",500]]",[],"[[""currency"",""IT0003"",""count"",10]]",,texture/coin_store/coin_1,3,0,Coin
+ST0311,"[[""currency"",""IT0002"",""count"",2750]]",[],"[[""currency"",""IT0003"",""count"",50]]",,texture/coin_store/coin_2,3,0,Coin
+ST0312,"[[""currency"",""IT0002"",""count"",12000]]",[],"[[""currency"",""IT0003"",""count"",200]]",,texture/coin_store/coin_3,3,0,Coin
+ST0313,"[[""currency"",""IT0002"",""count"",32500]]",[],"[[""currency"",""IT0003"",""count"",500]]",,texture/coin_store/coin_4,3,0,Coin
+ST0314,"[[""currency"",""IT0002"",""count"",70000]]",[],"[[""currency"",""IT0003"",""count"",1000]]",,texture/coin_store/coin_5,3,0,Coin
+ST0315,"[[""currency"",""IT0002"",""count"",225000]]",[],"[[""currency"",""IT0003"",""count"",3000]]",,texture/coin_store/coin_6,3,0,Coin
