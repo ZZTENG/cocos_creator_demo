@@ -56,7 +56,7 @@ cc.Class({
                         'title': '也许这就是传说中的大佬吧',
                         'desc': '分分钟教对手做人，快来看我打下的江山！！',
                         'link': link,
-                        'imgUrl': 'http://castle-pic-online.oss-cn-shanghai.aliyuncs.com/icon/icon_1.png',
+                        'imgUrl': 'http://castle-pic-online.oss-cn-shanghai.aliyuncs.com/icon/icon_2.png',
                         'success': function () {
                             cc.log('share success');
                         },

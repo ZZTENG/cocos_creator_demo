@@ -77,9 +77,13 @@ cc.Class({
     },
     // use this for initialization
     onLoad: function () {
-        this.reuse();
+        // this.reuse();
     },
-    reuse: function () {
+    onEnable: function () {
+        let clip = this.getComponent(cc.Animation);
+        if (clip && clip.defaultClip){
+            clip.play();
+        }
         this.coin .string = KeyValueManager['dingdan_coin'];
         this.price.string = KeyValueManager['dingdan_rmb'] / 100 + ' 元';
         this.dingdan.string = KeyValueManager['orderInfo']['cpOrderId'];

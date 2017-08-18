@@ -1925,6 +1925,16 @@ cc.Class({
                          if (!this._armyList[index].active)
                              this._armyList[index].active = true;
                          this._armyList[index].getComponent(cc.Label).string = this._mapData[index][2];
+                         }
+                     //添加数字颜色：自己队伍绿色，敌人红色
+                     let power = this._mapData[index][1];
+                     if(this.belongTeam(power)){
+                         if(this._armyList[index].color != cc.Color.GREEN)
+                             this._armyList[index].color = cc.Color.GREEN;
+                     }
+                     else {
+                         if(this._armyList[index].color != cc.Color.RED)
+                             this._armyList[index].color = cc.Color.RED;
                      }
                  }
                  else {

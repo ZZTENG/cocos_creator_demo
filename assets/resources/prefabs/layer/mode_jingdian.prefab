@@ -1160,7 +1160,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "9c8b1179-93df-4030-9e45-dc2728b8d9e0"
+      "__uuid__": "ab299e4b-412e-4a42-ba56-1737720c27bd"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1210,9 +1210,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 120,
-      "g": 188,
-      "b": 66,
+      "r": 141,
+      "g": 139,
+      "b": 165,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -1286,7 +1286,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "ac9cc62a-1974-4255-bfa7-4a5b0af09db3"
+      "__uuid__": "38c547ce-4363-41c1-9d5d-69174a6a7b9c"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -1504,7 +1504,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "1218f75c-b95d-4618-89dd-7e3df89403c5"
+      "__uuid__": "c529bc63-f7b2-41fc-af0f-dc5f88cc8a3d"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1554,9 +1554,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 205,
-      "g": 111,
-      "b": 175,
+      "r": 141,
+      "g": 139,
+      "b": 165,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -1630,7 +1630,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "d887ef21-6fe7-4783-bbdb-e4fd60249b2f"
+      "__uuid__": "38c547ce-4363-41c1-9d5d-69174a6a7b9c"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -4440,7 +4440,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 166
@@ -5031,8 +5031,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 225,
-      "height": 45
+      "width": 405,
+      "height": 90
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -5068,7 +5068,7 @@
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
-    "_N$string": "点击主城堡",
+    "_N$string": "  点击主1V1进入\n游戏开始新手教程！",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 0,
     "_N$fontFamily": "Arial",

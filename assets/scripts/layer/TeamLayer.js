@@ -273,7 +273,7 @@ cc.Class({
                          if (event['result']) {
                              let self = this;
                              let is_master = null;
-                             if(event['master_id'] == KeyValueManager['player_data']['player_id'])
+                             if(event['master_id'] == KeyValueManager['player_data']['player_info']['player_id'])
                              {
                                  KeyValueManager['player_data']['player_info']['is_master'] = true;
                                  is_master = 1;

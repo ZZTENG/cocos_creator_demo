@@ -86,7 +86,8 @@ cc.Class({
                     KeyValueManager['search_move_over'] = false;
                     KeyValueManager['camps'] = [[5],[1]];
                     KeyValueManager['camp'] = 5;
-                    KeyValueManager['name'] = {'5': KeyValueManager['player_data']['player_info']['name'],'1': '疼疼疼'};
+                    KeyValueManager['name'] = {'5': KeyValueManager['player_data']['player_info']['name'],'1': 'zzteng'};
+                    KeyValueManager['head'] = {'5': KeyValueManager['player_data']['player_info']['head'], '1': 'http://castle-pic-online.oss-cn-shanghai.aliyuncs.com/head/zzteng.png' };
                     KeyValueManager['width'] = 20;
                     KeyValueManager['height'] = 20;
                     KeyValueManager['reTheme'] = {'5': 'TM0011','1': 'TM007'};
@@ -197,7 +198,7 @@ cc.Class({
     },
     exitGame: function (event) {
         if(event.keyCode == cc.KEY.back){
-            EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'exit_game_layer', 'hide_preLayer': false});
+                EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'exit_game_layer', 'hide_preLayer': false});
         }
     },
     reuse:function () {
@@ -244,11 +245,6 @@ cc.Class({
         EventManager.removeHandler(C2G_REQ_BUY_STORE_ITEM, this);
         EventManager.removeHandler(C2G_REQ_GET_SHARE_REWARD,this);
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP,this.exitGame,this);
-        if(KeyValueManager['roomId']){
-            EventManager.removeHandler(C2G_REQ_ENTER_GAME_ROOM,this);
-            delete KeyValueManager['paper_empire_roomId'];
-            return;
-        }
         if(KeyValueManager['is_guide']){
             Guide.removeUnitListenList(Guide_Unit.Login_Start);
             EventManager.removeHandler(Guide_Unit.Login_Start,this);
@@ -266,6 +262,9 @@ cc.Class({
             }
             break;
             case C2G_REQ_ENTER_GAME_ROOM: {
+                if(KeyValueManager['roomId']){
+                    EventManager.removeHandler(C2G_REQ_ENTER_GAME_ROOM,this);
+                }
                 if(event['result']){
                     EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'custom_layer', 'hide_preLayer':false});
                     KeyValueManager['customData'] = {};
@@ -274,6 +273,7 @@ cc.Class({
                     KeyValueManager['camp'] = event['camp'];
                 }
                 else {
+                    delete KeyValueManager['roomId'];
                     cc.log('not enter room')
                 }
             }

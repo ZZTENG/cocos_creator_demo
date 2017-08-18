@@ -325,7 +325,7 @@
   //
   // Provides a warning in the console if a phrase key is missing.
   function warn(message) {
-    root.console && root.console.warn && root.console.warn('WARNING: ' + message);
+    window.console && window.console.warn && window.console.warn('WARNING: ' + message);
   }
 
   // ### clone

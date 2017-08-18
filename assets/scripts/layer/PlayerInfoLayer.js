@@ -25,6 +25,7 @@ cc.Class({
         person_theme: cc.Sprite,
         teamName: cc.Label,
         teamLogo: cc.Node,
+        teamLogoBg: cc.Node,
         teamRate: cc.Label,
         teamGameCount: cc.Label,
         gameCount_1v1: cc.Label,
@@ -79,6 +80,7 @@ cc.Class({
         this.myName.string = KeyValueManager['player_data']['player_info']['name'];
         this.id.string = KeyValueManager['player_data']['player_info']['player_id'];
         if(KeyValueManager['player_data']['player_info']['team'] && KeyValueManager['player_data']['player_info']['team_info']){
+            this.teamLogoBg.active = false;
             if(KeyValueManager['player_data']['player_info']['team_info']['name']) {
                 this.teamName.node.active = true;
                 this.teamName.string = KeyValueManager['player_data']['player_info']['team_info']['name'];
@@ -106,6 +108,7 @@ cc.Class({
             this.teamRate.string = '0%';
             this.teamGameCount.string = '0';
             this.teamLogo.active = false;
+            // this.teamLogoBg.active = true;
         }
         let event = {
             url: KeyValueManager['server_url'],

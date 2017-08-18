@@ -174,7 +174,26 @@ cc.Class({
         }
         switch (id) {
             case 'share': {
-
+                if (KeyValueManager['roomId']) {
+                    EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'share', 'hide_preLayer':false});
+                    let link = 'http://www.shandw.com/pc/game/?gid=1571601337&channel=10000&paper_empire_roomId=' + KeyValueManager['roomId'];
+                    let OBJECT = {
+                        'title': '纸上帝国自定义战场',
+                        'desc': '点击立即加入，你想成为我的队友还是要与我一战？',
+                        'link': link,
+                        'imgUrl': 'http://castle-pic-online.oss-cn-shanghai.aliyuncs.com/icon/icon_1.png',
+                        'success': function () {
+                            cc.log('share success');
+                        },
+                        'fail': function () {
+                            cc.log('share fail');
+                        },
+                        'cancel': function () {
+                            cc.log('share cancel');
+                        }
+                    };
+                    sdw.onSetShareOperate(OBJECT)
+                }
             }
             break;
             case 'return': {

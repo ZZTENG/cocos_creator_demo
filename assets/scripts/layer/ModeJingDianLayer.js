@@ -87,7 +87,8 @@ cc.Class({
                     KeyValueManager['search_move_over'] = false;
                     KeyValueManager['camps'] = [[5],[1]];
                     KeyValueManager['camp'] = 5;
-                    KeyValueManager['name'] = {'5': KeyValueManager['player_data']['player_info']['name'],'1': '疼疼疼'};
+                    KeyValueManager['name'] = {'5': KeyValueManager['player_data']['player_info']['name'],'1': 'zzteng'};
+                    KeyValueManager['head'] = {'5': KeyValueManager['player_data']['player_info']['head'], '1': 'http://castle-pic-online.oss-cn-shanghai.aliyuncs.com/head/zzteng.png' };
                     KeyValueManager['width'] = 20;
                     KeyValueManager['height'] = 20;
                     KeyValueManager['reTheme'] = {'5': 'TM0011','1': 'TM007'};

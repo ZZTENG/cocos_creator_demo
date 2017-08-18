@@ -94,10 +94,10 @@ cc.Class({
                                 continue;
                             }
                             else if(arr[0] == 'paper_empire_gameId'){
-                                KeyValueManager['gameId'] = event['paper_empire_gameId'];
+                                KeyValueManager['gameId'] = parseInt(event['paper_empire_gameId']);
                             }
                             else if(arr[0] == 'paper_empire_roomId'){
-                                KeyValueManager['roomId'] = event['paper_empire_roomId'];
+                                KeyValueManager['roomId'] = parseInt(event['paper_empire_roomId']);
                             }
                             event1[arr[0]] = decodeURIComponent(arr[1]);
                         }
