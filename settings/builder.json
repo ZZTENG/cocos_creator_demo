@@ -9,6 +9,7 @@
   ],
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": false,
+  "md5Cache": true,
   "mergeStartScene": false,
   "oauthLoginServer": "",
   "optimizeHotUpdate": false,

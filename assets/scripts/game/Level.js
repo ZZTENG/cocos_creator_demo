@@ -1218,7 +1218,7 @@ cc.Class({
         this.node.on('touchend',this.setCursor,this);
         let self = this;
         this.node.on('touchmove',function (event) {
-            let touches = event.getTouches();
+            let touches = event.getTouches();cc.EventListener
             if (touches.length >= 2){
                 let parent = self.node.parent;
                 let touch1 = touches[0], touch2 = touches[1];

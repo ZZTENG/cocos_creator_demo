@@ -148,7 +148,7 @@ cc.Class({
                     // KeyValueManager['player_data']['player_package'] = event['data']['package'];
                     // KeyValueManager['player_data']['player_info'] = event['data']['player_info'];
                     // KeyValueManager['player_data']['player_cd_pool'] = event['data']['player_cd_pool'];
-                    // KeyValueManager['player_data']['player_id'] = event['player_id'];
+                    KeyValueManager['player_data']['player_id'] = event['player_id'];
 
                     let server_time = event['server_time'] * 1000;
                     let currentTime = NetManager.getCurrentMT();

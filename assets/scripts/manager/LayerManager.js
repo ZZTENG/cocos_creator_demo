@@ -175,17 +175,16 @@ let LayerManager = cc.Class(
         },
         closeLayer: function (bKillCurrent) {
             let currentLayerID = this.activeIDList[this.activeIDList.length - 1];
-
             if (bKillCurrent) {
 
-                if (this.activeLayerList[currentLayerID] != null) {
+                if (this.activeLayerList[currentLayerID] != null && this.activeLayerList[currentLayerID] != this.defaultLayer) {
 
                     this._layerPool.put(this.activeLayerList[currentLayerID], currentLayerID);
                     delete this.activeLayerList[currentLayerID];
                 }
             }
             else {
-                if (this.activeLayerList[currentLayerID]) {
+                if (this.activeLayerList[currentLayerID]  && this.activeLayerList[currentLayerID] != this.defaultLayer) {
                     this.activeLayerList[currentLayerID].active = false;
                 }
             }

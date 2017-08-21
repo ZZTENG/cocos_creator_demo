@@ -69,7 +69,7 @@ cc.Class({
                 if(KeyValueManager['record_mode'] == RecordMode.MODE_SELF_TEAM){
                     url = KeyValueManager['csv_kv']['logo_path']['value'] + KeyValueManager['csv_teamlogo'][data[2][i][j][1]]['TeamLogo'];
                 }
-                cc.loader.loadRes(url, function (err, tex) {
+                cc.loader.load(url, function (err, tex) {
                     if(err){
                         cc.log(err);
                     }
