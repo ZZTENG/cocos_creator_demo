@@ -3,7 +3,7 @@
   "_name": "main_layer_in",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 1.17,
+  "_duration": 1.1666666666666667,
   "sample": 60,
   "speed": 1,
   "wrapMode": 1,
@@ -384,14 +384,44 @@
               "frame": 0,
               "value": [
                 -555,
-                456
+                496.5
               ]
             },
             {
               "frame": 0.5,
               "value": [
                 -294,
-                456
+                496.5
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.5,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "button": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -555,
+                405.9
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": [
+                -294,
+                405.9
               ]
             }
           ],

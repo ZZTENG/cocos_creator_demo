@@ -31,6 +31,10 @@ cc.Class({
             cc.log(id);
         }
         switch (id) {
+            case'weiduan': {
+                EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'share2', 'hide_preLayer':false});
+            }
+            break;
             case 'share': {
                 EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'share', 'hide_preLayer':false});
                 let OBJECT = {
@@ -212,6 +216,7 @@ cc.Class({
         EventManager.registerHandler(C2G_REQ_UPDATE_PLAYER,this);
         EventManager.registerHandler(C2G_REQ_BUY_STORE_ITEM, this);
         EventManager.registerHandler(C2G_REQ_GET_SHARE_REWARD,this);
+        EventManager.registerHandler(C2G_REQ_GET_WD_REWARD,this);
         if(KeyValueManager['is_guide']){
             this.zhiyin_node.active = true;
             EventManager.registerHandler(Guide_Unit.Login_Start,this);
@@ -244,6 +249,7 @@ cc.Class({
         EventManager.removeHandler(C2G_REQ_UPDATE_PLAYER,this);
         EventManager.removeHandler(C2G_REQ_BUY_STORE_ITEM, this);
         EventManager.removeHandler(C2G_REQ_GET_SHARE_REWARD,this);
+        EventManager.removeHandler(C2G_REQ_GET_WD_REWARD,this);
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP,this.exitGame,this);
         if(KeyValueManager['is_guide']){
             Guide.removeUnitListenList(Guide_Unit.Login_Start);
@@ -254,6 +260,14 @@ cc.Class({
         let msg_id = event['msg_id'];
         switch (msg_id) {
             case C2G_REQ_GET_SHARE_REWARD: {
+                if(event['result']){
+                    KeyValueManager['win_get_coin'] = 100;
+                    Utils.addItem(CURRENCY_PACKAGE,GOLD_ID,'count', 100);
+                    EventManager.pushEvent({'msg_id': 'OPEN_LAYER', 'layer_id': 'get_diamond', 'hide_preLayer':false});
+                }
+            }
+            break;
+            case C2G_REQ_GET_WD_REWARD: {
                 if(event['result']){
                     KeyValueManager['win_get_coin'] = 100;
                     Utils.addItem(CURRENCY_PACKAGE,GOLD_ID,'count', 100);

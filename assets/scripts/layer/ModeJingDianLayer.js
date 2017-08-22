@@ -24,7 +24,6 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-
     },
     onEnable: function () {
         let clip = this.getComponent(cc.Animation);

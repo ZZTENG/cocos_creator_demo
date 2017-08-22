@@ -60,7 +60,7 @@ cc.Class({
                             var event = EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
                         }
                         else if(cc.sys.isBrowser){
-                            KeyValueManager['reconnect_layer'].active = false;
+                            // KeyValueManager['reconnect_layer'].active = false;
                         }
                         EventManager.pushEvent(event);
                     }

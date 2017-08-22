@@ -99,6 +99,15 @@ cc.Class({
                             else if(arr[0] == 'paper_empire_roomId'){
                                 KeyValueManager['roomId'] = parseInt(event['paper_empire_roomId']);
                             }
+                            else if(arr[0] == 'sdw_from'){
+                                //闪电玩微端入口
+                                if(event['sdw_from'] == 'sdw_desktop'){
+                                    KeyValueManager['sdw_desktop'] = true;
+                                }
+                                else {
+                                    KeyValueManager['sdw_desktop'] = false;
+                                }
+                            }
                             event1[arr[0]] = decodeURIComponent(arr[1]);
                         }
                     }

@@ -170,7 +170,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "3bc2cSxIY1F0LNQQvLjSyZE",
     "sync": false
@@ -333,7 +333,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "c50b7CUnTNH2qaOmpY5Lvol",
     "sync": false
@@ -424,7 +424,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "cd7cbXI8q9LK6fWdUwpGXpA",
     "sync": false
@@ -515,7 +515,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "90b71SpkHJBUplVq/AiJjmo",
     "sync": false
@@ -606,7 +606,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "9ebe86Cs6tNOJ8hfRzzeksX",
     "sync": false
@@ -688,7 +688,7 @@
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 1,
-    "_N$textKey": "获得砖石"
+    "_N$textKey": "获得钻石"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -696,7 +696,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "a9600sS0iBNxbHqbXlSz90U",
     "sync": false
@@ -847,7 +847,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "062a6oy8AdLAYqsA2w5E+fl",
     "sync": false
@@ -955,7 +955,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "316dcI3sRhD7qsbchyn8Fmd",
     "sync": false
@@ -1110,7 +1110,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "29784O8ihVP04Nkho9T/QbO",
     "sync": false
@@ -1199,7 +1199,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "64dd0DLpgVI+7kYqh+R/34j",
     "sync": false
@@ -1288,7 +1288,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "c752f9E2RVBE6z+OGvDTT+v",
     "sync": false
@@ -1325,7 +1325,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "a4f27dA9blIs6n4OHgFmeaI",
     "sync": false
@@ -1336,7 +1336,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "e25f8V3LQxLSKoe89klnNWy",
     "sync": false
@@ -1380,7 +1380,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "605fa2e8-e7af-48d7-9a9a-e2b270ef6ec8"
     },
     "fileId": "b95c7f1gbdIXaKuPf62aaEa",
     "sync": false
