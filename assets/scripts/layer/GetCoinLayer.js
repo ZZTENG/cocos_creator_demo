@@ -30,6 +30,8 @@ cc.Class({
     },
     onClickClose: function () {
         cc.audioEngine.play(KeyValueManager['click_clip'],false,KeyValueManager['effect_volume']);
+        if(KeyValueManager['currentScene'] == CurrentScene.SCENE_MAIN)
+            EventManager.pushEvent({'msg_id': 'update_coin'});
         let clip = this.getComponent(cc.Animation);
         let clips = clip.getClips();
         if (clips && clips[1]) {

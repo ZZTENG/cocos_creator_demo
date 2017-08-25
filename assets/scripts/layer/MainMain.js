@@ -24,6 +24,7 @@ cc.Class({
         // },
         // ...
         zhiyin_node: cc.Node,
+        weiduan: cc.Node
     },
     onClick:function (event, id) {
         if(id){
@@ -192,12 +193,21 @@ cc.Class({
     onLoad: function () {
         KeyValueManager['screen_direct'] = ScreenDirect.Portrait;
         KeyValueManager['currentScene'] = CurrentScene.SCENE_MAIN;
-        KeyValueManager['player_data']['player_info']['guide']  = true;
+        // KeyValueManager['player_data']['player_info']['guide']  = true;
         if(KeyValueManager['player_data'] && KeyValueManager['player_data']['player_info'])
         {
             KeyValueManager['is_guide'] = !KeyValueManager['player_data']['player_info']['guide'];
         }
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP,this.exitGame,this);
+        // 闪电玩app和口袋app有微端分享
+        if(cc.sys.isBrowser) {
+            if (OS.onKD || OS.onShandw) {
+                this.weiduan.active = true;
+            }
+            else {
+                this.weiduan.active = false;
+            }
+        }
         this.reuse();
     },
     exitGame: function (event) {

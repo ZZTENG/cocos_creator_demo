@@ -906,7 +906,9 @@ cc.Class({
             }
             break;
             case 'guide_dianji': {
-                cc.log(event['touch_event']);
+                // cc.log("1",event['touch_event']);
+                // cc.log("2",event['touch_event'].touch);
+                // cc.log("3",event['touch_event'].touch.getLocation());
                 // KeyValueManager['startPos'] = event['touch_event'].touch.getLocation();
                 // this.setCursor(event['touch_event']);
                 KeyValueManager['startPos'] = KeyValueManager['touch_event'].touch.getLocation();

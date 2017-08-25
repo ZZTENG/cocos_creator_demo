@@ -1,0 +1,434 @@
+(function() {"use strict";var __module = CC_EDITOR ? module : {exports:{}};var __filename = 'preview-scripts/assets/scripts/layer/CustomLayer.js';var __require = CC_EDITOR ? function (request) {return cc.require(request, require);} : function (request) {return cc.require(request, __filename);};function __define (exports, require, module) {"use strict";
+cc._RF.push(module, 'f7c80XJ4thPg6eaKDbluqcb', 'CustomLayer', __filename);
+// scripts/layer/CustomLayer.js
+
+'use strict';
+
+/**
+ * Created by ZZTENG on 2017/03/22.
+ **/
+var KeyValueManager = require('KeyValueManager');
+var EventManager = require('EventManager');
+var NetManager = require('NetManager');
+var DataSend = require('dataSend');
+var Utils = require('utils');
+cc.Class({
+    extends: cc.Component,
+
+    properties: {
+        // foo: {
+        //    default: null,      // The default value will be used only when the component attaching
+        //                           to a node for the first time
+        //    url: cc.Texture2D,  // optional, default is typeof default
+        //    serializable: true, // optional, default is true
+        //    visible: true,      // optional, default is true
+        //    displayName: 'Foo', // optional
+        //    readonly: false,    // optional, default is false
+        // },
+        // ...
+        roomIdLabel: cc.Label,
+        prepare: cc.Node,
+        cancelPrepare: cc.Node,
+        memberList: [require('CustomMemberUnit')],
+        toggle: [cc.Toggle],
+        _dataSource: null,
+        _canChage: null,
+        _camp: null
+    },
+    onTeamUnit: function onTeamUnit(index, unit, data) {
+        if (unit && unit.setData) unit.setData(data);
+    },
+    getTeamElement: function getTeamElement(index) {
+        return this.memberList[index];
+    },
+    // use this for initialization
+    onLoad: function onLoad() {
+        this.reuse();
+    },
+    reuse: function reuse() {
+        EventManager.registerHandler(C2G_REQ_ENTER_GAME_ROOM, this);
+        EventManager.registerHandler(C2G_REQ_EXIT_GAME_ROOM, this);
+        EventManager.registerHandler(C2G_REQ_CHANGE_TEAM, this);
+        EventManager.registerHandler(C2G_REQ_READY, this);
+        EventManager.registerHandler(C2G_REQ_CANCEL_READY, this);
+
+        this._canChage = true;
+        for (var i = 0; i < this.toggle.length; i += 1) {
+            if (i == 0) {
+                this.toggle[i].isChecked = true;
+                continue;
+            }
+            this.toggle[i].isChecked = false;
+        }
+        this.roomIdLabel.string = KeyValueManager['roomId'];
+        this._dataSource = this.getComponent('DataSource');
+        this._dataSource = this._dataSource.getUnit();
+        this._dataSource.host = this;
+        this._dataSource.bindFunc = this.onTeamUnit;
+        this._dataSource.getElementFunc = this.getTeamElement;
+        var data = [];
+        for (var _i = 0; _i < 6; ++_i) {
+            if (KeyValueManager['customData'][_i]) {
+                if (KeyValueManager['customData'][_i][0] == KeyValueManager['player_data']['player_info']['name']) this._camp = _i;
+                var memberData = Utils.deepCopy(KeyValueManager['customData'][_i]);
+                data.push(memberData);
+            } else {
+                data.push(0);
+            }
+        }
+        this._dataSource.data = data;
+        var clip = this.getComponent(cc.Animation);
+        if (clip && clip.defaultClip) {
+            clip.play();
+        }
+    },
+    onDisable: function onDisable() {
+        EventManager.removeHandler(C2G_REQ_ENTER_GAME_ROOM, this);
+        EventManager.removeHandler(C2G_REQ_EXIT_GAME_ROOM, this);
+        EventManager.removeHandler(C2G_REQ_CHANGE_TEAM, this);
+        EventManager.removeHandler(C2G_REQ_READY, this);
+        EventManager.removeHandler(C2G_REQ_CANCEL_READY, this);
+
+        if (KeyValueManager['anim_out_state']) {
+            KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
+        }
+    },
+    processEvent: function processEvent(event) {
+        var msg_id = event['msg_id'];
+        switch (msg_id) {
+            case C2G_REQ_ENTER_GAME_ROOM:
+                {
+                    if (event['result']) {
+                        var custom_data = event['data'];
+                        for (var i in custom_data) {
+                            KeyValueManager['customData'][i] = custom_data[i];
+                        }
+                        KeyValueManager['roomId'] = event['room_id'];
+                        KeyValueManager['camp'] = event['camp'];
+                        var data = [];
+                        for (var _i2 = 0; _i2 < 6; ++_i2) {
+                            if (KeyValueManager['customData'][_i2]) {
+                                var memberData = Utils.deepCopy(KeyValueManager['customData'][_i2]);
+                                data.push(memberData);
+                            } else {
+                                data.push(0);
+                            }
+                        }
+                        this._dataSource.data = data;
+                    }
+                }
+                break;
+            case C2G_REQ_READY:
+                {
+                    if (event['result']) {
+                        var camp = event['camp'];
+                        if (camp == this._camp) {
+                            this.prepare.active = false;
+                            this.cancelPrepare.active = true;
+                        }
+                        KeyValueManager['customData'][camp][3] = true;
+                        var _data = KeyValueManager['customData'][camp];
+                        this.memberList[camp].setData(_data);
+                    }
+                }
+                break;
+            case C2G_REQ_CANCEL_READY:
+                {
+                    if (event['result']) {
+                        var _camp = event['camp'];
+                        if (_camp == this._camp) {
+                            this.prepare.active = true;
+                            this.cancelPrepare.active = false;
+                        }
+                        KeyValueManager['customData'][_camp][3] = false;
+                        var _data2 = KeyValueManager['customData'][_camp];
+                        this.memberList[_camp].setData(_data2);
+                    }
+                }
+                break;
+            case C2G_REQ_CHANGE_TEAM:
+                {
+                    if (event['result']) {
+                        var _camp2 = event['camp'];
+                        cc.log(_camp2, event['camp']);
+                        var new_team = event['new_team'];
+                        KeyValueManager['customData'][_camp2][4] = new_team;
+                        var _data3 = KeyValueManager['customData'][_camp2];
+                        this.memberList[_camp2].setData(_data3);
+                    }
+                }
+                break;
+            case C2G_REQ_EXIT_GAME_ROOM:
+                {
+                    if (event['result']) {
+                        var _camp3 = event['camp'];
+                        if (_camp3 || _camp3 == 0) {
+                            KeyValueManager['customData'][_camp3] = 0;
+                            var _data4 = KeyValueManager['customData'][_camp3];
+                            this.memberList[_camp3].setData(_data4);
+                        }
+                    }
+                }
+                break;
+        }
+    },
+    onCloseLayer: function onCloseLayer() {
+        EventManager.pushEvent({ 'msg_id': 'CLOSE_LAYER', 'destroy': true });
+    },
+    onClick: function onClick(event, id) {
+        if (id) {
+            cc.audioEngine.play(KeyValueManager['click_clip'], false, KeyValueManager['effect_volume']);
+        }
+        switch (id) {
+            case 'share':
+                {
+                    if (KeyValueManager['roomId']) {
+                        EventManager.pushEvent({ 'msg_id': 'OPEN_LAYER', 'layer_id': 'share', 'hide_preLayer': false });
+                        var link = 'http://www.shandw.com/pc/game/?gid=1571601337&channel=10000&paper_empire_roomId=' + KeyValueManager['roomId'];
+                        var OBJECT = {
+                            'title': '纸上帝国自定义战场',
+                            'desc': '点击立即加入，你想成为我的队友还是要与我一战？',
+                            'link': link,
+                            'imgUrl': 'http://castle-pic-online.oss-cn-shanghai.aliyuncs.com/icon/icon_1.png',
+                            'success': function success() {
+                                cc.log('share success');
+                            },
+                            'fail': function fail() {
+                                cc.log('share fail');
+                            },
+                            'cancel': function cancel() {
+                                cc.log('share cancel');
+                            }
+                        };
+                        sdw.onSetShareOperate(OBJECT);
+                    }
+                }
+                break;
+            case 'return':
+                {
+                    var event1 = {
+                        url: KeyValueManager['server_url'],
+                        msg_id: C2G_REQ_EXIT_GAME_ROOM,
+                        user_id: KeyValueManager['player_data']['user_id'],
+                        session_key: KeyValueManager['session'],
+                        room_id: KeyValueManager['roomId']
+                    };
+                    NetManager.sendMsg(event1);
+                    delete KeyValueManager['roomId'];
+                    var clip = this.getComponent(cc.Animation);
+                    var clips = clip.getClips();
+                    if (clips && clips[1]) {
+                        KeyValueManager['anim_out_state'] = clip.play(clips[1].name);
+                    }
+                    KeyValueManager['anim_out_state'].on('finished', this.onCloseLayer, this);
+                }
+                break;
+            case 'change':
+                {
+                    EventManager.pushEvent({ 'msg_id': 'OPEN_LAYER', 'layer_id': 'choose_theme_layer', 'hide_preLayer': false });
+                }
+                break;
+            case 'prepare':
+                {
+                    this._canChage = false;
+                    var _event = {
+                        url: KeyValueManager['server_url'],
+                        msg_id: C2G_REQ_READY,
+                        user_id: KeyValueManager['player_data']['user_id'],
+                        session_key: KeyValueManager['session'],
+                        room_id: KeyValueManager['roomId']
+                    };
+                    NetManager.sendMsg(_event);
+                }
+                break;
+            case 'cancel_prepare':
+                {
+                    this._canChage = true;
+                    var _event2 = {
+                        url: KeyValueManager['server_url'],
+                        msg_id: C2G_REQ_CANCEL_READY,
+                        user_id: KeyValueManager['player_data']['user_id'],
+                        session_key: KeyValueManager['session'],
+                        room_id: KeyValueManager['roomId']
+                    };
+                    NetManager.sendMsg(_event2);
+                }
+                break;
+            case 'team1':
+                {
+                    if (this._canChage) {
+                        var old_team = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        KeyValueManager['customData'][KeyValueManager['camp']][4] = 0;
+                        var data = KeyValueManager['customData'][KeyValueManager['camp']];
+                        this.memberList[KeyValueManager['camp']].setData(data);
+                        var _event3 = {
+                            url: KeyValueManager['server_url'],
+                            msg_id: C2G_REQ_CHANGE_TEAM,
+                            user_id: KeyValueManager['player_data']['user_id'],
+                            session_key: KeyValueManager['session'],
+                            new_team: 0,
+                            old_team: old_team,
+                            room_id: KeyValueManager['roomId']
+                        };
+                        NetManager.sendMsg(_event3);
+                    } else {
+                        this.toggle[0].isChecked = false;
+                        var _old_team = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        this.toggle[_old_team].isChecked = true;
+                        KeyValueManager['msg_text'] = '准备时不能换队伍';
+                        EventManager.pushEvent({ 'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer': false });
+                    }
+                }
+                break;
+            case 'team2':
+                {
+                    if (this._canChage) {
+                        var _old_team2 = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        KeyValueManager['customData'][KeyValueManager['camp']][4] = 1;
+                        var _data5 = KeyValueManager['customData'][KeyValueManager['camp']];
+                        this.memberList[KeyValueManager['camp']].setData(_data5);
+                        var _event4 = {
+                            url: KeyValueManager['server_url'],
+                            msg_id: C2G_REQ_CHANGE_TEAM,
+                            user_id: KeyValueManager['player_data']['user_id'],
+                            session_key: KeyValueManager['session'],
+                            new_team: 1,
+                            old_team: _old_team2,
+                            room_id: KeyValueManager['roomId']
+                        };
+                        NetManager.sendMsg(_event4);
+                    } else {
+                        this.toggle[1].isChecked = false;
+                        var _old_team3 = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        this.toggle[_old_team3].isChecked = true;
+                        KeyValueManager['msg_text'] = '准备时不能换队伍';
+                        EventManager.pushEvent({ 'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer': false });
+                    }
+                }
+                break;
+            case 'team3':
+                {
+                    if (this._canChage) {
+                        var _old_team4 = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        KeyValueManager['customData'][KeyValueManager['camp']][4] = 2;
+                        var _data6 = KeyValueManager['customData'][KeyValueManager['camp']];
+                        this.memberList[KeyValueManager['camp']].setData(_data6);
+                        var _event5 = {
+                            url: KeyValueManager['server_url'],
+                            msg_id: C2G_REQ_CHANGE_TEAM,
+                            user_id: KeyValueManager['player_data']['user_id'],
+                            session_key: KeyValueManager['session'],
+                            new_team: 2,
+                            old_team: _old_team4,
+                            room_id: KeyValueManager['roomId']
+                        };
+                        NetManager.sendMsg(_event5);
+                    } else {
+                        this.toggle[2].isChecked = false;
+                        var _old_team5 = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        this.toggle[_old_team5].isChecked = true;
+                        KeyValueManager['msg_text'] = '准备时不能换队伍';
+                        EventManager.pushEvent({ 'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer': false });
+                    }
+                }
+                break;
+            case 'team4':
+                {
+                    if (this._canChage) {
+                        var _old_team6 = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        KeyValueManager['customData'][KeyValueManager['camp']][4] = 3;
+                        var _data7 = KeyValueManager['customData'][KeyValueManager['camp']];
+                        this.memberList[KeyValueManager['camp']].setData(_data7);
+                        var _event6 = {
+                            url: KeyValueManager['server_url'],
+                            msg_id: C2G_REQ_CHANGE_TEAM,
+                            user_id: KeyValueManager['player_data']['user_id'],
+                            session_key: KeyValueManager['session'],
+                            new_team: 3,
+                            old_team: _old_team6,
+                            room_id: KeyValueManager['roomId']
+                        };
+                        NetManager.sendMsg(_event6);
+                    } else {
+                        this.toggle[3].isChecked = false;
+                        var _old_team7 = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        this.toggle[_old_team7].isChecked = true;
+                        KeyValueManager['msg_text'] = '准备时不能换队伍';
+                        EventManager.pushEvent({ 'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer': false });
+                    }
+                }
+                break;
+            case 'team5':
+                {
+                    if (this._canChage) {
+                        var _old_team8 = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        KeyValueManager['customData'][KeyValueManager['camp']][4] = 4;
+                        var _data8 = KeyValueManager['customData'][KeyValueManager['camp']];
+                        this.memberList[KeyValueManager['camp']].setData(_data8);
+                        var _event7 = {
+                            url: KeyValueManager['server_url'],
+                            msg_id: C2G_REQ_CHANGE_TEAM,
+                            user_id: KeyValueManager['player_data']['user_id'],
+                            session_key: KeyValueManager['session'],
+                            new_team: 4,
+                            old_team: _old_team8,
+                            room_id: KeyValueManager['roomId']
+                        };
+                        NetManager.sendMsg(_event7);
+                    } else {
+                        this.toggle[4].isChecked = false;
+                        var _old_team9 = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        this.toggle[_old_team9].isChecked = true;
+                        KeyValueManager['msg_text'] = '准备时不能换队伍';
+                        EventManager.pushEvent({ 'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer': false });
+                    }
+                }
+                break;
+            case 'team6':
+                {
+                    if (this._canChage) {
+                        var _old_team10 = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        KeyValueManager['customData'][KeyValueManager['camp']][4] = 5;
+                        var _data9 = KeyValueManager['customData'][KeyValueManager['camp']];
+                        this.memberList[KeyValueManager['camp']].setData(_data9);
+                        var _event8 = {
+                            url: KeyValueManager['server_url'],
+                            msg_id: C2G_REQ_CHANGE_TEAM,
+                            user_id: KeyValueManager['player_data']['user_id'],
+                            session_key: KeyValueManager['session'],
+                            new_team: 5,
+                            old_team: _old_team10,
+                            room_id: KeyValueManager['roomId']
+                        };
+                        NetManager.sendMsg(_event8);
+                    } else {
+                        this.toggle[5].isChecked = false;
+                        var _old_team11 = KeyValueManager['customData'][KeyValueManager['camp']][4];
+                        this.toggle[_old_team11].isChecked = true;
+                        KeyValueManager['msg_text'] = '准备时不能换队伍';
+                        EventManager.pushEvent({ 'msg_id': 'OPEN_LAYER', 'layer_id': 'msg_layer', 'hide_preLayer': false });
+                    }
+                }
+                break;
+        }
+    }
+
+    // called every frame, uncomment this function to activate update callback
+    // update: function (dt) {
+
+    // },
+});
+
+cc._RF.pop();
+        }
+        if (CC_EDITOR) {
+            __define(__module.exports, __require, __module);
+        }
+        else {
+            cc.registerModuleFunc(__filename, function () {
+                __define(__module.exports, __require, __module);
+            });
+        }
+        })();
+        //# sourceMappingURL=CustomLayer.js.map
+        

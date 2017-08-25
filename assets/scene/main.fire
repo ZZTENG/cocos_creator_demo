@@ -3733,7 +3733,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 94
@@ -3799,7 +3799,7 @@
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 1,
-    "_N$textKey": "1.0.5.3"
+    "_N$textKey": "1.0.6"
   },
   {
     "__type__": "cc.Node",
@@ -6192,6 +6192,9 @@
     "_enabled": true,
     "zhiyin_node": {
       "__id__": 172
+    },
+    "weiduan": {
+      "__id__": 8
     }
   },
   {
@@ -6210,7 +6213,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 197
@@ -6239,8 +6242,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 1280
+      "width": 2000,
+      "height": 2000
     },
     "_rotationX": 0,
     "_rotationY": 0,

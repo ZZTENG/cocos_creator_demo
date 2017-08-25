@@ -159,7 +159,6 @@ cc.Class({
     onDisable: function () {
         EventManager.removeHandler(C2G_REQ_GET_FREE_THEME, this);
         EventManager.removeHandler(C2G_REQ_BUY_THEME,this);
-        EventManager.removeHandler('update_coin',this);
         if(KeyValueManager['anim_out_state']) {
             KeyValueManager['anim_out_state'].off('finished', this.onCloseLayer, this);
         }

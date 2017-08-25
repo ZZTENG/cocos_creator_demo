@@ -237,6 +237,8 @@ cc.Class({
                             KeyValueManager['reTheme'] = KeyValueManager['history'][0]['theme'];
                         }
                     }
+                    //首次进入游戏加载
+                    KeyValueManager['in_game'] = true;
                     KeyValueManager['isReplay'] = true;
                     Utils.enterGame();
                     cc.director.loadScene('loading');

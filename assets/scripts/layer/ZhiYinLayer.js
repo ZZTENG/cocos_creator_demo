@@ -30,21 +30,24 @@ cc.Class({
         Guide.initGuide();
     },
     onEnable: function () {
-        let clip = this.getComponent(cc.Animation);
-        if (clip && clip.defaultClip) {
-            clip.play();
-        }
+        // let clip = this.getComponent(cc.Animation);
+        // if (clip && clip.defaultClip) {
+        //     clip.play();
+        // }
     },
     onDisable: function () {
-        let clip = this.getComponent(cc.Animation);
-        if (clip && clip.currentClip) {
-            clip.stop();
-        }
+        // let clip = this.getComponent(cc.Animation);
+        // if (clip && clip.currentClip) {
+        //     clip.stop();
+        // }
     },
     onClick: function (event,data) {
         switch (data){
             case 'dianji': {
                 KeyValueManager['touch_event'] = event;
+                cc.log("1",event);
+                cc.log("2",event.touch);
+                cc.log("3",event.touch.getLocation());
                 EventManager.pushEvent({'msg_id': 'guide_dianji','touch_event': event});
             }
             break;

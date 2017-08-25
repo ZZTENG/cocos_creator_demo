@@ -162,9 +162,13 @@ cc.Class({
                 }
             }
         }
+
+        //update coin
+        EventManager.pushEvent({'msg_id': 'update_coin'});
     },
     onDisable: function () {
         EventManager.removeHandler(C2G_REQ_ADD_COIN,this);
+        EventManager.removeHandler('update_coin',this);
     },
     onClick: function (event,id) {
         if(id){
