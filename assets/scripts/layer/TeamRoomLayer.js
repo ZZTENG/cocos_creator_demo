@@ -98,15 +98,17 @@ cc.Class({
     },
      // use this for initialization
      onLoad: function () {
-         this.reuse();
+         // this.reuse();
      },
-     reuse:function () {
+     onEnable:function () {
          EventManager.registerHandler(C2G_REQ_EXIT_GAME_ROOM, this);
          EventManager.registerHandler(C2G_REQ_READY, this);
          EventManager.registerHandler(C2G_REQ_CANCEL_READY, this);
          EventManager.registerHandler(C2G_REQ_TEAM_ENTER_ROOM , this);
 
          KeyValueManager['memberData'] = {};
+         this.prepare.active = true;
+         this.cancelPrepare.active = false;
          for(let i = 0;i < this.crown.length;i += 1)
              this.crown[i].active = false;
          this._dataSource = this.getComponent('DataSource');
@@ -200,22 +202,24 @@ cc.Class({
              break;
              case C2G_REQ_EXIT_GAME_ROOM: {
                  let camps = event['camps'];
-                 for(let i = 0;i < camps.length;i += 1) {
-                     if (camps[i] == KeyValueManager['camp']) {
-                         EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy':true});
-                     }
-                     else{
-                         if(camps[i] >= 3){
-                             this.teamLogo[1].node.active = false;
-                             this.teamName[1].node.active = false;
+                 if(camps) {
+                     for (let i = 0; i < camps.length; i += 1) {
+                         if (camps[i] == KeyValueManager['camp']) {
+                             EventManager.pushEvent({'msg_id': 'CLOSE_LAYER', 'destroy': true});
                          }
                          else {
-                             this.teamLogo[0].node.active = false;
-                             this.teamName[0].node.active = false;
+                             if (camps[i] >= 3) {
+                                 this.teamLogo[1].node.active = false;
+                                 this.teamName[1].node.active = false;
+                             }
+                             else {
+                                 this.teamLogo[0].node.active = false;
+                                 this.teamName[0].node.active = false;
+                             }
+                             KeyValueManager['memberData'][camps[i]] = 0;
+                             let data = KeyValueManager['memberData'][camps[i]];
+                             this.teamMemberList[camps[i]].setData(data);
                          }
-                         KeyValueManager['memberData'][camps[i]] = 0;
-                         let data = KeyValueManager['memberData'][camps[i]];
-                         this.teamMemberList[camps[i]].setData(data);
                      }
                  }
              }

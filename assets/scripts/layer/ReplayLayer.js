@@ -32,7 +32,7 @@ cc.Class({
     reuse: function () {
         KeyValueManager['round_time'] = ROUND_TIME;
         this.initRoundTime = KeyValueManager['round_time'];
-        this.speedCount = 0;
+        this.speedCount = 1;
         this.roundLabel.string = KeyValueManager['roundCount'];
         let self = this;
         // this.node.on('touchmove',function (event) {

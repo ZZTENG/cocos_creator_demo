@@ -3971,7 +3971,7 @@
     },
     "component": "TeamLayer",
     "handler": "onClick",
-    "customEventData": "tichu1"
+    "customEventData": "tichu2"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5153,7 +5153,7 @@
     },
     "component": "TeamLayer",
     "handler": "onClick",
-    "customEventData": "tichu1"
+    "customEventData": "tichu3"
   },
   {
     "__type__": "cc.PrefabInfo",
